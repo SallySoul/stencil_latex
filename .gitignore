@@ -1,0 +1,18 @@
+# latexmk artifacts
+*.pdf
+*.dvi
+*.log
+*.fls
+*.nav
+*.out
+*.snm
+*.toc
+*.fdb_latexmk
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.xml
+
+# macOS artifacts
+*.DS_Store

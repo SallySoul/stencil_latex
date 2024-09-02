@@ -1,0 +1,61 @@
+% Setup for bibliography
+\usepackage[
+backend=biber,
+style=numeric-comp,
+]{biblatex}
+
+% Pretty self explanatory
+% We sue this in title bits
+\usepackage{datetime}
+
+% Standard math packages / setup
+\usepackage{amsmath} 
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb} 
+\usepackage{accents}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+% So we can import pngs
+\usepackage{graphicx} 
+
+% This gives us nice clickable links 
+% https://www.overleaf.com/learn/latex/Hyperlinks#Styles_and_colours
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Monte Carlo Methods (DRAFT)},
+    pdfpagemode=FullScreen,
+    }
+\urlstyle{same}
+
+% Allows us to define colors
+% We use this in the next block, listings
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% Allows us to include 
+\usepackage{listings}
+\lstset{frame=tb,
+  language={},
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
