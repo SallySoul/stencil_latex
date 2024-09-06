@@ -1,0 +1,41 @@
+\documentclass{beamer}
+\input{../../packages.tex}
+\input{../../slides_formatting.tex}
+
+%Information to be included in the title page:
+\title{Stencil Notes}
+\author{Russell Bentley}
+\institute{Stony Brook}
+\date{2024}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{LBM}
+\begin{frame}{Nicolas Maquignon}
+  \begin{outline}
+    \1 Found through guest article on 
+    \href{https://feaforall.com/implementation-lattice-boltzmann-method-lbm/}{FEA for all}
+
+    \1 Published several articles about LBM \cite{Maquignon2014}, \cite{Maquignon2022}
+
+    \2 \cite{Maquignon2014} extends model from another paper I can't find.
+      
+    \2 Condensation models seems like a good periodic problem.
+
+    \1 Was on this article, which seems to have a good overview of LBM and related articles. 
+    About splitting problem across GPUs.
+    Has references about data access patterns on GPU
+    \cite{Duchateau2015}
+  \end{outline}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}[allowframebreaks]{References}
+    \tiny
+    \printbibliography
+\end{frame}
+
+\end{document}
+

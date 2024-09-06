@@ -14,41 +14,187 @@
 
 \section{Introduction}
 
+\begin{frame}{Deliverables}
+\begin{outline}
+  \1 SALTAR
+    \2 DSL 
+    \2 Compiler
+    \2 Autotuner
+  \1 New approximation algorithms
+  \1 Benchmark Suite
+\end{outline}
+\end{frame}
+
 \begin{frame}{Prior Work}
-\begin{itemize}
-  \item Pachoir compiler \cite{Tang2011}
-  \item Fourst compiler \cite{Ahmad2022}
-\end{itemize}.
+\begin{outline}
+  \1 Pachoir compiler \cite{Tang2011}
+  \1 PLUTO \cite{Bondhugula2008}, \cite{Bondhugula2008Pract}
+  \1 Fourst compiler (FFT based) \cite{Ahmad2022}
+  \1 Halide (C++ DSL) \cite{Ragan2013}
+  \1 Devito (FD focus, useful resource) \cite{Luporini2020}
+\end{outline}.
+\end{frame}
+
+\section{DSL}
+
+\subsection{Stencil System}
+\begin{frame}{Stencil System}
+\begin{columns}
+\column{0.48\linewidth}
+\centering
+\begin{outline}
+  \1 1 or more stencil operation
+  \1 Each stencil is fully programmable
+    \2 Like a shader, SPMD
+    \2 Limited write access
+  \1 Can vary
+    \2 Spatially
+    \2 Temporally
+    \2 By domain composition
+\end{outline}
+\column{0.48\linewidth}
+\centering
+\includegraphics[width=4cm]{stencil_system_drawn.png}
+\end{columns}
+\end{frame}
+
+\subsection{Domain}
+\begin{frame}{Domain}
+\begin{columns}
+\column{0.48\linewidth}
+\centering
+\begin{outline}
+  \1 Node graph / connectivity
+  \1 May be geometry driven
+  \1 Should be programmable (?)
+    \2 Condensation problems 
+  \1 Lots of axis aligned boxes in practice
+  \1 Might include ``coloring'' to map different stencils
+  \1 Where do want to sample?
+  \1 Durating of runtime 
+    \2 How often do we sample?
+\end{outline}
+\column{0.48\linewidth}
+\centering
+\includegraphics[width=4cm]{domain_drawn.png}
+\end{columns}
+\end{frame}
+
+\subsection{Boundary Conditions}
+\begin{frame}{Boundary Conditions}
+\begin{columns}
+\column{0.48\linewidth}
+\centering
+\begin{outline}
+  \1 Fully programmable
+    \2 Highly dependent on domain and stencil system
+  \1 May require sampling
+    \2 Outflow boundary conditions
+    \2 Coupling to other simulations
+\end{outline}
+\column{0.48\linewidth}
+\centering
+\includegraphics[width=4cm]{bc_drawn.png}
+\end{columns}
 \end{frame}
 
 \section{Compilation Techniques}
 \subsection{FFT}
 \begin{frame}{FFT}
-\begin{itemize}
-  \item FFT algorithms \cite{Ahmad2021} \cite{Ahmad2023} \cite{Ahmad2023}
-\end{itemize}
+\begin{outline}
+  \1 FFT algorithms \cite{Ahmad2021} \cite{Ahmad2023} \cite{Ahmad2023}
+\end{outline}
 \end{frame}
 
 \subsection{Guassian Approximation}
 \begin{frame}{Guassian Approximation}
-\begin{itemize}
-  \item Guassian Approximation \cite{Ahmad2022Brief}
-\end{itemize}
+\begin{outline}
+  \1 Guassian Approximation \cite{Ahmad2022Brief}
+\end{outline}
 \end{frame}
 
 \subsection{Polyhedral Compiling}
 \begin{frame}{Polyhedral Compilers}
-\begin{itemize}
-  \item PLUTO \cite{Bondhugula2008}, \cite{Bondhugula2008Pract}
-  \item LLVM Polygeist \cite{Moses2021} 
-  \item LLVM Polly \cite{Grosser2012} 
-\end{itemize}
+\begin{columns}
+\column{0.48\linewidth}
+\centering
+\begin{outline}
+  \1 PLUTO \cite{Bondhugula2008}, \cite{Bondhugula2008Pract}
+    \2 C source to source compiler
+    \2 Access optimized with tiling
+  \1 LLVM Polygeist \cite{Moses2021} 
+    \2 C++ / C interface to MLIR \cite{Lattner2021}
+    \2 MLIR polyhedral optimization passes
+  \1 LLVM Polly \cite{Grosser2012} 
+    \2 Polyhedral optimization of LLVM IR
+\end{outline}
+\column{0.48\linewidth}
+\centering
+\includegraphics[width=4cm]{../../assets/polygeist_workflow.png}
+
+Polygeist workflow
+
+\end{columns}
 \end{frame}
 
-\section{Conclusion}
-\begin{frame}{Conclusion}
-
+\subsection{Misc Techniques}
+\begin{frame}{Misc Techniques}
+\begin{outline}
+  \1 Branch Removal
+    \2 If statements may have arithmetic based alternative
+  \1 Vectorizing
+  \1 Data layout / Access patterns (AoS <-> SoA)
+\end{outline}
 \end{frame}
+
+\section{Autotuner}
+\begin{frame}
+\begin{outline}
+  \1 Profiling?
+  \1 Plan Composition
+  \1 Algorithm Tradeoffs
+  \1 Other hyper parameters?
+\end{outline}
+\end{frame}
+
+\section{Related}
+
+\begin{frame}{Related Projects}
+\begin{outline}
+
+  \1 FFTW  \cite{Frigo2005}
+    \2 Fast fourier transform compiler
+    \2 A dependency(?) for SALTAR
+    \2 Similiar architectural concerns
+  \1 Taichi \cite{Hu2019}
+    \2 JIT compiler parallel numerical code
+    \2 Optimizes computation over sparse data
+    \2 DSL is based on python.
+  \1 Eigen \cite{eigenweb}
+    \2 Runtime vs compile time configuration
+  \1 FEnics \cite{Barrata2023} 
+    \2 Compiler framework for FEA
+\end{outline}
+\end{frame}
+
+\begin{frame}{Related Algorithms}
+\begin{columns}
+\column{0.58\linewidth}
+\centering
+\begin{outline}
+  \1 HashLife \cite{Gosper1984}
+    \2 Memoized Algorithm for cellular automata
+    \2 Sensitive to entropy
+  \1 Quicklife (Open Source with Golly)
+    \2 Tree based evaluation
+    \2 No hashing
+\end{outline}
+\column{0.38\linewidth}
+\centering
+\includegraphics[width=4cm]{../../assets/hashlife_figure.png}
+\end{columns}
+\end{frame}
+
 
 \begin{frame}[allowframebreaks]{References}
     \tiny
