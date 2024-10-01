@@ -2,11 +2,6 @@
 \input{../../packages.tex}
 \input{../../slides_formatting.tex}
 
-%gets rid of footer
-%will override 'frame number' instruction above
-%comment out to revert to previous/default definitions
-\setbeamertemplate{footline}{}
-
 %Information to be included in the title page:
 \title{Taichi: An Introduction}
 \subtitle{Languages Seminar}
@@ -24,18 +19,17 @@
 
 \input{slides/paper_background.tex}
 
+\input{slides/design_goals.tex}
+
 \input{slides/interactive_example.tex}
 
 \input{slides/life_of_kernel.tex}
 
 \input{slides/frontend.tex}
 
-% Add slide about, what kind of applications drove the development of this tool
-
 \input{slides/applications.tex}
 
-
-% TODO Sparse data structure, octree
+\input{slides/octree.tex}
 
 \input{slides/open_vdb.tex}
 
@@ -43,19 +37,21 @@
 
 \input{slides/taichi_data_structures.tex}
 
-% Slide about data structure optimizations
+\input{slides/conclusion.tex}
 
-% Some sort of conclusion
-
+\placelogofalse
 \begin{frame}[allowframebreaks]{References}
     \tiny
     \printbibliography
 \end{frame}
+\placelogotrue
 
 \begin{frame}{Source Files}
 \begin{center}
   The source files live on github:\\
-  \url{https://github.com/SallySoul/stencil_latex/tree/main/slides/taichi}
+  \url{https://github.com/SallySoul/stencil_latex/tree/main/slides/taichi}\\
+  $\approx 540$ lines of latex \\
+  $31$ images
 \end{center}
 \end{frame}
 
