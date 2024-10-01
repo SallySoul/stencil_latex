@@ -1,12 +1,18 @@
-\documentclass{beamer}
+\documentclass{beamer}[10pt]
 \input{../../packages.tex}
 \input{../../slides_formatting.tex}
 
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
 %Information to be included in the title page:
 \title{Taichi: An Introduction}
+\subtitle{Languages Seminar}
 \author{Russell Bentley}
 \institute{Stony Brook}
-\date{2024}
+\date{\today}
 
 \begin{document}
 
@@ -14,50 +20,93 @@
 
 \begin{frame}{Taichi?}
 \begin{columns}
-\column{0.48\linewidth}
+\column{0.58\linewidth}
 \centering
 \begin{outline}
-  \1 Parallelized Compute Kernel Compiler
-    \2 Focused on graphics use-cases 
-  \1 Based on Yuanming Hu's (?) Thesis
-    \2 Conference Paper for ACM  
+  \1 Language for compute kernels
+    \2 Graphics applications 
+  \1 Python based frontend
+  \1 Compiler Infrastructure
 \end{outline}
-\column{0.48\linewidth}
+\column{0.38\linewidth}
 \centering
-\shadowimage[width=2.5cm]{yuanming_hu.png} 
+\shadowimage[width=4.5cm]{taichi_lang_whats_possible.png} 
 
-\shadowimage[width=2.5cm]{taichi_paper.png} 
+\shadowimage[width=2.5cm]{taichi_paper.png}\\
+2019 \cite{Hu2019}
 
 \end{columns}
 \end{frame}
 
-\begin{frame}{Useful Links}
+\begin{frame}{Paper Background}
 \begin{columns}
-\column{0.48\linewidth}
+\column{0.58\linewidth}
 \centering
 \begin{outline}
-  \1 Taichi homepage: \url{https://www.taichi-lang.org}
-  \1 Official docs / guides: \url{https://docs.taichi-lang.org}
-  \1 API reference: \url{https://docs.taichi-lang.org/api/}
-  \1 Github: \url{https://github.com/taichi-dev/taichi}
+    \1 Based on Yuanming Hu's 2009 Thesis
+    \2 Conference paper for \\ SIGGRAPH ASIA 2019
 \end{outline}
-\column{0.48\linewidth}
+\column{0.38\linewidth}
 \centering
-\includegraphics[width=2.5cm]{taichi_lang_org.png} 
+\shadowimage[width=2.5cm]{yuanming_hu.png}
 
-\includegraphics[width=2.5cm]{taichi_lang_org_advantages.png} 
+\shadowimage[width=2.5cm]{thesis_paper.png} 
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Useful Links}
+\begin{columns}
+\column{0.58\linewidth}
+\centering
+\begin{outline}
+  \1 Taichi homepage: \\ \url{https://www.taichi-lang.org}
+  \1 Official docs / guides: \\ \url{https://docs.taichi-lang.org}
+  \1 API reference: \\ \url{https://docs.taichi-lang.org/api/}
+  \1 Github: \\ \url{https://github.com/taichi-dev/taichi}
+\end{outline}
+\column{0.38\linewidth}
+\centering
+
+\includegraphics[width=4.0cm]{taichi_lang_org.png} 
+
+\includegraphics[width=4.0cm]{taichi_lang_org_advantages.png} 
 
 \end{columns}
 \end{frame}
 
 \begin{frame}{Applications}
-  \begin{outline}
-    \1 Giga-voxel topology optimization on a single machine \cite{Liu2018}
+  \shadowimage[width=4.0cm]{giga_opt_paper.png}
+  \includegraphics[width=4.0cm]{giga_opt_diagram.png}
+  2017 \cite{Aage2017}
+\end{frame}
 
-    % Complexity of Sparse data structures
-    % Freedom to explore this space
-    % Add Figure 4 somewhere
-  \end{outline}
+\begin{frame}{Applications}
+  \shadowimage[width=4.0cm]{top_opt_paper.png}
+  \shadowimage[width=4.0cm]{top_opt_01.png}
+  \shadowimage[width=4.0cm]{top_opt_02.png}
+  2018 \cite{Liu2018}
+\end{frame}
+
+\begin{frame}{Applications}
+  \shadowimage[width=4.0cm]{chain_queen_paper.png}
+  \shadowimage[width=4.0cm]{chain_queen_experiment.png}
+  \shadowimage[width=4.0cm]{chain_queen_walking.png}
+  2019 \cite{Hu2019chainqueen}
+\end{frame}
+
+\begin{frame}{Applications}
+  \shadowimage[width=4.0cm]{litlo_paper.png}
+  \shadowimage[width=4.0cm]{litlo_diagram.png}
+  \shadowimage[width=4.0cm]{litlo_image.png}
+  2019 \cite{Spielberg2019}
+\end{frame}
+
+\begin{frame}{Applications}
+  \shadowimage[width=4.0cm]{quan_taichi_paper.png}
+  \shadowimage[width=4.0cm]{quan_taichi_diagram.png}
+  2021 \cite{Hu2021}
 \end{frame}
 
 \begin{frame}{Life of a Taichi Kernel}
@@ -66,59 +115,9 @@
   \end{centering}
 \end{frame}
 
-\begin{frame}{Why}
-  \begin{outline}
-    \1 Solution to a difficult area in programming 
-      \2 Recreate state-of-the-art solutions 
-    \1 Grown into a more general purpose tool
-      \2 A fantastic edition to the python ecosystem 
-      \2 Growing ecosystem (documentation, profiler, ect)
-    \1 Creative Coding
-      \2 Has some similarities to \href{https://processing.org}{Processing}
-  \end{outline}
-\end{frame}
-
-\begin{frame}{History}
-  \begin{outline}
-    \1 Published ACM Transactions on Graphics 2019 \cite{Hu2019}
-    \1 \href{https://yuanming.taichi.graphics/publication/2021-taichi-thesis/}{Thesis (MIT)} 
-    completed in 2021
-  \end{outline}
-\end{frame}
-
-\begin{frame}{Workflow}
-  \begin{outline}
-    \1 Write Kernels in python
-    \2 Compiler 
-  \end{outline}
-\end{frame}
-
-\begin{frame}{Octree}
-
-\end{frame}
-
-\begin{frame}{What is OpenVDB?}
-  \begin{outline}
-    \1 Published in ACM Trans. Graphics 2013 \cite{Museth2013}
-    \1 Work was completed at Dreamworks animation
-    \1 Widely used for special effects and animation
-      \2 Supported by industry standard software like Houdini and Blender
-  \end{outline}
-\end{frame}
-
-\begin{frame}{How does OpenVDB Work?}
-
-\end{frame}
-
-\begin{frame}{SPGrid}
-  \begin{outline}
-    \1 Published in ACM Trans. Graphics 2014 \cite{Setaluri2014}
-  \end{outline}
-\end{frame}
-
 \begin{frame}[allowframebreaks]{References}
-\tiny
-\printbibliography
+    \tiny
+    \printbibliography
 \end{frame}
 
 \end{document}

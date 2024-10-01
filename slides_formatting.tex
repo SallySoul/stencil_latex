@@ -48,11 +48,10 @@
 \pgfdeclarelayer{shadow} 
 \pgfsetlayers{shadow,main}
 
+
 \newcommand\shadowimage[2][]{%
 \begin{tikzpicture}
 \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[#1]{#2}};
 \drawshadow{image}
 \end{tikzpicture}}
-
-%%% END OF shadowimage
 
