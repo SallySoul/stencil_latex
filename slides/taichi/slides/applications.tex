@@ -1,15 +1,40 @@
-\begin{frame}{Applications}
-  \shadowimage[width=4.0cm]{giga_opt_paper.png}
-  \includegraphics[width=4.0cm]{giga_opt_diagram.png}
-  2017 \cite{Aage2017}
-\end{frame}
+\placelogofalse
+\begin{frame}{Applications: Topology Optimization}
+\begin{columns}
 
-\begin{frame}{Applications}
-  \shadowimage[width=4.0cm]{top_opt_paper.png}
-  \shadowimage[width=4.0cm]{top_opt_01.png}
-  \shadowimage[width=4.0cm]{top_opt_02.png}
+  \column{0.31\linewidth}
+  \shadowimage[width=3.0cm]{giga_opt_paper.png}
+  \vspace{0.5cm}
+  \includegraphics[width=3.0cm]{giga_opt_diagram.png}\\
+  2017 \cite{Aage2017}
+
+  \column{0.31\linewidth}
+  \centering
+  \textbf{Giga-voxel Problems}
+  \begin{outline}
+  \1 $~1$ Billion Active Voxels
+  \1 1-5 day runtime
+  \end{outline}
+  \vspace{0.5cm}
+  \textbf{$\leftarrow$ Prior SotA}
+  \begin{outline}
+  \1 8000 cores over many nodes
+  \end{outline}
+  \vspace{0.5cm}
+  \textbf{Taichi Based $\rightarrow$}
+  \begin{outline}
+  \1 Single 14 core workstation  
+  \end{outline}
+
+  \column{0.31\linewidth}
+  \shadowimage[width=3.0cm]{top_opt_paper.png}
+  \vspace{0.5cm}
+  \shadowimage[width=3.0cm]{top_opt_02.png}
   2018 \cite{Liu2018}
+
+\end{columns}
 \end{frame}
+\placelogotrue
 
 \begin{frame}{Applications}
   \shadowimage[width=4.0cm]{chain_queen_paper.png}
