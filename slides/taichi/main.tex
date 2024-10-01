@@ -18,96 +18,13 @@
 
 \frame{\titlepage}
 
-\begin{frame}{Taichi?}
-\begin{columns}
-\column{0.58\linewidth}
-\centering
-\begin{outline}
-  \1 Language for compute kernels
-    \2 Graphics applications 
-  \1 Python based frontend
-  \1 Compiler Infrastructure
-\end{outline}
-\column{0.38\linewidth}
-\centering
-\shadowimage[width=4.5cm]{taichi_lang_whats_possible.png} 
+\input{slides/intro_slide.tex}
 
-\shadowimage[width=2.5cm]{taichi_paper.png}\\
-2019 \cite{Hu2019}
+\input{slides/useful_links.tex}
 
-\end{columns}
-\end{frame}
+\input{slides/paper_background.tex}
 
-\begin{frame}{Paper Background}
-\begin{columns}
-\column{0.58\linewidth}
-\centering
-\begin{outline}
-    \1 Based on Yuanming Hu's 2009 Thesis
-    \2 Conference paper for \\ SIGGRAPH ASIA 2019
-\end{outline}
-\column{0.38\linewidth}
-\centering
-\shadowimage[width=2.5cm]{yuanming_hu.png}
-
-\shadowimage[width=2.5cm]{thesis_paper.png} 
-
-\end{columns}
-
-\end{frame}
-
-\begin{frame}{Useful Links}
-\begin{columns}
-\column{0.58\linewidth}
-\centering
-\begin{outline}
-  \1 Taichi homepage: \\ \url{https://www.taichi-lang.org}
-  \1 Official docs / guides: \\ \url{https://docs.taichi-lang.org}
-  \1 API reference: \\ \url{https://docs.taichi-lang.org/api/}
-  \1 Github: \\ \url{https://github.com/taichi-dev/taichi}
-\end{outline}
-\column{0.38\linewidth}
-\centering
-
-\includegraphics[width=4.0cm]{taichi_lang_org.png} 
-
-\includegraphics[width=4.0cm]{taichi_lang_org_advantages.png} 
-
-\end{columns}
-\end{frame}
-
-\begin{frame}{Applications}
-  \shadowimage[width=4.0cm]{giga_opt_paper.png}
-  \includegraphics[width=4.0cm]{giga_opt_diagram.png}
-  2017 \cite{Aage2017}
-\end{frame}
-
-\begin{frame}{Applications}
-  \shadowimage[width=4.0cm]{top_opt_paper.png}
-  \shadowimage[width=4.0cm]{top_opt_01.png}
-  \shadowimage[width=4.0cm]{top_opt_02.png}
-  2018 \cite{Liu2018}
-\end{frame}
-
-\begin{frame}{Applications}
-  \shadowimage[width=4.0cm]{chain_queen_paper.png}
-  \shadowimage[width=4.0cm]{chain_queen_experiment.png}
-  \shadowimage[width=4.0cm]{chain_queen_walking.png}
-  2019 \cite{Hu2019chainqueen}
-\end{frame}
-
-\begin{frame}{Applications}
-  \shadowimage[width=4.0cm]{litlo_paper.png}
-  \shadowimage[width=4.0cm]{litlo_diagram.png}
-  \shadowimage[width=4.0cm]{litlo_image.png}
-  2019 \cite{Spielberg2019}
-\end{frame}
-
-\begin{frame}{Applications}
-  \shadowimage[width=4.0cm]{quan_taichi_paper.png}
-  \shadowimage[width=4.0cm]{quan_taichi_diagram.png}
-  2021 \cite{Hu2021}
-\end{frame}
+\input{slides/applications.tex}
 
 \begin{frame}{Life of a Taichi Kernel}
   \begin{centering}
