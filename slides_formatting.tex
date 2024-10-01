@@ -1,6 +1,10 @@
 % By default beamer slides are 4:3 , 128mm by 96mm
+% Use to remove logo from some frames
+% https://tex.stackexchange.com/questions/53781/how-can-i-include-the-logo-in-some-slides-and-remove-in-others-using-beamer/
+\newif\ifplacelogo % create a new conditional
+\placelogotrue % set it to true
 
-\logo{\includegraphics[height=0.5cm]{../../assets/SBU_logos/horz_2clr_rgb_300ppi.png}}
+\logo{\ifplacelogo\includegraphics[height=0.5cm]{../../assets/SBU_logos/horz_2clr_rgb_300ppi.png}\fi}
 
 \usetheme{CambridgeUS}
 
