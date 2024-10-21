@@ -1,40 +1,60 @@
 \documentclass{article}
 \input{../../packages.tex}
 
+\usepackage[
+  letterpaper,
+  left=2cm,
+  right=2cm,
+  top=2cm,
+  bottom=2cm
+]{geometry}
+
+\setlength{\parindent}{20pt}
+
 \title{CSE 528 Final Project Proposal}
 \author{Russell Bentley}
 
 \begin{document}
 
-\maketitle
+\twocolumn
 
+\maketitle
 \section{Introduction}
 
-Fluid-solid coupling based on random surface sampling,
-capable of handling thin surfaces \cite{Lyu2021}.
+Kinetic methods for solving fluid flow,
+like the \textit{Lattice Boltzman method}(LBM) offer several advantages
+over traditional methods like finite volume or smooth particle hydrodynamics.
+In particular, they are highly parallelizable 
+and by construction solve for compressible fluids which negates the need 
+for a global pressure solve. 
+LBM works by modelling the probability distribution 
+of particles traveling between nodes on a fixed set of discretized velocities.
+LBM does a single time step with two operators.
+First a streaming operator moves the particle distributions along the lattice.
+Then a collision operator relaxes the velocities at a given node towards 
+an equilibrium state.
 
-A universal mapping of physical parameters to those used in LBM,
-non-orthogonal central-moment MRT model \cite{Li2020}.
+Some recent advances in LBM have focused on increasing accuracy, 
+an issue with traditional LBM implementations. 
+In particular, a lack of \textit{Galilean invariance} 
+was identified as a critical issue \cite{Geier2006}.
+That is, traditional collision operators
+like BGK will have different behavior depending on the bulk velocity across a given node.
+BGK in particular relaxes all the moments of velocity at a uniform rate.
+The central-moment method \cite{Geier2006, De2017, De2019, Li2020} seeks to fix this by
+both finding moments of velocity relative to the bulk velocity and relaxing 
+these moments at independent rates.
 
-Central-moment method described in \cite{De2019}.
+Two recent papers in particular have advanced the use of LBM for accurate 
+treatment of fluids in Computer Graphics \cite{Li2020, Lyu2021}.
+These two papers collectively describe how to find appropriate relaxation rates,
+handle conversion from real units to LBM units, and an accurate treatment of fluid-solid coupling.
 
-Shift lattice directions by local fluid velocity.
-
-
-
-My proposal is to implement a solver framework for modeling 
-solid-fluid coupling and apply this framework to simulating several
-real life phenomenon.
-Recent work like \cite{Lyu2021} (published in SIGGRAPH ASIA 2021)
-has greatly improved the robustness of solid-fluid coupling
-with kinetic methods like Lattice Boltzmann.
-My framework will look re-implement the methods described there.
-Using this framework, I can build different simulations
-and generate datasets that I can render separately.
-The final result should be generated images
-that capture complex interactions between fluids and solids.
-
-\section{Proposed Implementation}
+\section{Proposed Work}
+My proposal is to implement an LBM solver framework 
+based on the central-moment principle, as well as implement fluid-solid interation.
+I do not intend to handle full fluid-solid coupling as described in \cite{Lyu2021},
+but I would like to immerse fixed geometry into the fluid flow.
 
 This project is composed of two components, 
 the solver framework and the rendering pipeline.
@@ -42,10 +62,7 @@ My aim is to spend most of my time on the solver framework,
 and largely use off the shelf tools for 
 rendering.
 
-\subsection{Solver}
-
-
-This kinetic portion of the solver will largely run on the GPU.
+The solver will largely run on the GPU.
 While solvers of this nature are typically implemented in CUDA,
 my goal is to target \href{https://wgpu.rs}{wgpu} instead.
 Wgpu is a rust library that implements the \href{https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API}{WebGPU API}.
@@ -59,15 +76,6 @@ Here's an outline of why I want to do it this way:
   \1 This would be trying something new.
 \end{outline}
 
-The technique I want to implement use point samples from the solid's geometry.
-There solver framework will also need to handle geometry-preprocessing in order to generate these samples. 
-In particular, I will need to implement poisson sampling over triangular meshes.
-However, I may also investigate other geometric representations that could be supported.
-For example, \href{https://www.ntop.com}{nTop} can produce random surface samplings
-for implicit geometry.
-
-\subsection{Rendering}
-
 Generating high quality images is an important part of the project.
 My initial idea is to utilize \href{https://www.openvdb.org}{OpenVDB}
 as an intermediate form for the volumetric data the solver will generate.
@@ -80,25 +88,6 @@ My backup option for rendering is to use \href{https://vtk.org}{VTK} and my inte
 and to render with \href{https://www.paraview.org}{Paraview}.
 For contour and vector plots this may be my best option, so it will likely be supported
 regardless.
-
-\section{Proposed Simulations}
-
-I don't want to claim that I can achieve all of these, but I did want to brainstorm some possible ideas on how to demonstrate these techniques.
-\begin{outline}
-  \1 \textbf{Thin Plates} \\
-    This technique is supposed to better support very thin structures.
-    Demonstrating stable flow around thin plates without any pass-through artifacts would be great.
-  \1 \textbf{Wind Turbine} \\
-    In \cite{Lyu2021} they demonstrate their two-way coupling by using a constant flow to 
-    spin up a wind turbine with friction.
-  \1 \textbf{Wing Tip Vortices} \\
-    This phenomenon is well described in aerodynamics literature.
-    It would be interesting to demonstrate them in simulation, 
-    as well how the effectiveness of different designed at mitigating them.
-  \1 \textbf{Terminal Velocity} \\
-    The two-way coupling would allow to study the terminal velocity of different objects
-    and match experimental results.
-\end{outline}
 
 \section{Proposed Timeline}
 
@@ -116,24 +105,6 @@ I don't want to claim that I can achieve all of these, but I did want to brainst
   \1 Fluid-solid rendering
     \2 With final Deliverable
 \end{outline}
-
-\section{Future Work}
-
-Combining the coupling techniques from \cite{Lyu2021} could be combined with other kinetic techniques.
-In particular, I would be interested in exploring how these coupling techniques could handle thermal,
-and multi-fluid flows \cite{Li2024}.
-The goal would be to expand these techniques to useful design problems like heat exchangers.
-
-Another direction would be to explore alternative data structures for the discretization.
-As the relative volume fraction of the solid grows, a dense grid layout becomes less efficient.
-There are a variety of sparse data structures supported by the GPU that could be applicable to this problem.
-
-Power diagrams are another avenue to explore. 
-Kinetic solvers are typically implemented on regular discretizations,
-however a power diagram could offer a more flexible approach with a wider dynamic range.
-
-Lastly, building a renderer into the framework would be a great learning exercise, and would
-allow for some interesting use-cases like getting deployed via web browsers (see wgpu section.)
 
 \printbibliography
 

@@ -1,0 +1,87 @@
+\begin{frame}{About Me}
+\begin{center}
+\def\ABMEYearSpacing{0.6666666}
+\def\ABMEMargin{0.05}
+\begin{tikzpicture}
+%
+% Timeline
+%
+\draw[black,<->,thick,>=latex,line cap=rect]
+  (0,0) -- (12,0);
+\foreach \Xc in {0,...,14}
+{
+  \draw[black,thick] 
+    (\Xc * \ABMEYearSpacing + \ABMEYearSpacing, 0) -- ++(0,5pt);
+}
+
+\node[below,align=left,anchor=north,inner xsep=0pt,color=black] 
+  at (1 * \ABMEYearSpacing,0) 
+  {2011};  
+
+\node[below,align=left,anchor=north,inner xsep=0pt,color=black] 
+  at (6 * \ABMEYearSpacing,0) 
+  {2016};  
+
+\node[below,align=left,anchor=north,inner xsep=0pt,color=black] 
+  at (9 * \ABMEYearSpacing,0) 
+  {2019};  
+
+\node[below,align=left,anchor=north,inner xsep=0pt,color=black] 
+  at (14 * \ABMEYearSpacing,0) 
+  {2024};  
+
+%
+% Blocks / Logos
+%
+
+% UConn
+\draw[rounded corners, fill=uconnblue]
+  (1.5 * \ABMEYearSpacing, -1 * \ABMEYearSpacing ) 
+  rectangle 
+  (6.5 * \ABMEYearSpacing , -1.5 * \ABMEYearSpacing) {};
+
+\draw[rounded corners, fill=uconnblue] 
+  (12 * \ABMEYearSpacing, -1 * \ABMEYearSpacing ) 
+  rectangle 
+  (14.5 * \ABMEYearSpacing - \ABMEMargin, -1.5 * \ABMEYearSpacing) {};
+
+\node[below] at (9 * \ABMEYearSpacing, -1.0 * \ABMEYearSpacing) 
+  {\includegraphics[width=2cm]{../../assets/uconn_logo.png}};
+
+% Mastercam
+\draw[rounded corners, fill=mastercamred] 
+  (5.5 * \ABMEYearSpacing, 0.5 * \ABMEYearSpacing ) 
+  rectangle 
+  (6.5 * \ABMEYearSpacing - \ABMEMargin, 1.0 * \ABMEYearSpacing) {};
+
+\node[above] at (5.0 * \ABMEYearSpacing, 0.8 * \ABMEYearSpacing) 
+  {\includegraphics[width=2cm]{../../assets/mastercam_logo.png}};
+
+% Apple 
+\draw[rounded corners, fill=black] 
+  (6.5 * \ABMEYearSpacing + \ABMEMargin, 0.5 * \ABMEYearSpacing ) 
+  rectangle 
+  (9.5 * \ABMEYearSpacing - \ABMEMargin, 1.0 * \ABMEYearSpacing) {};
+
+\node[above] at (8.0 * \ABMEYearSpacing, 1.2 * \ABMEYearSpacing) 
+  {\includegraphics[width=0.5cm]{../../assets/apple_logo.png}};
+
+% Intact
+\draw[rounded corners, fill=intactblue] 
+  (13 * \ABMEYearSpacing, 0.5 * \ABMEYearSpacing ) 
+  rectangle 
+  (14.5 * \ABMEYearSpacing - \ABMEMargin, 0.75 * \ABMEYearSpacing) {};
+  
+\draw[rounded corners, fill=intactblue] 
+  (9.5 * \ABMEYearSpacing + \ABMEMargin, 0.5 * \ABMEYearSpacing ) 
+  rectangle 
+  (13.3 * \ABMEYearSpacing, 1.0 * \ABMEYearSpacing) {};
+
+\node[above] at (12.0 * \ABMEYearSpacing, 1.2 * \ABMEYearSpacing) 
+  {\includegraphics[width=1.5cm]{../../assets/intact_logo.png}};
+
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+
