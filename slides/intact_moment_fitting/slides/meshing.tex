@@ -1,0 +1,27 @@
+\placelogofalse
+\begin{frame}{Discretization / Meshing}
+\begin{columns}
+\column{0.58\linewidth}
+\centering
+\begin{outline}
+  \1 Discretize geometry into a mesh
+  \1 Track node connectivity
+  \1 Elements can interpolate nodal values 
+  \1 Nodes also track test functions, $\phi_i$
+  \1 Meshing is a bottleneck
+  \2 Expensive
+  \2 Affects solution quality
+\end{outline}
+
+\column{0.38\linewidth}
+\begin{center}
+\includegraphics[width=2.5cm]{mesh_example_01.png}\\
+
+\includegraphics[width=4.0cm]{mesh_example_02.png}\\
+\end{center}
+\end{columns}
+\blfootnote{Images from \cite{Hu2020}, \href{https://www.comsol.com/multiphysics/mesh-refinement}{Comsol}}
+\end{frame}
+\placelogotrue
+
+
