@@ -1,0 +1,39 @@
+\section{Continuous Fourier Transforms}
+Though we are interested in the discrete formulations of these transforms,
+the discrete and continuous formulations share 
+many properties and intuitions.
+This material is largely from \cite{Damelin2012}.
+
+\begin{definition}
+  The Fourier transform, denoted as $\mathcal{F})$,
+  takes a real valued function $f: \mathbb{R} \rightarrow \mathbb{R}$,
+  and returns a new real valued function.
+  $$
+  \mathcal{F}[f](\lambda) := \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} f(t) e^{-i \lambda t} \ dt
+  $$
+\end{definition}
+
+\begin{definition}
+  Let $f$ and $g$ be $\mathbb{R} \rightarrow \mathbb{R}$ functions. 
+  We say the convolution of $f$ and $g$, 
+  denoted as $f * g$, is defined to be
+  $$
+  (f * g)(t) = \int_{-\infty}^{\infty}f(t - x)g(x) \ dx
+  $$
+\end{definition}
+
+\begin{lemma}
+  $$
+  \int_{-\infty}^{\infty} |f * g(t)| \ dt = \int_{-\infty}^{\infty} |f(x)| \ dx \int_{-\infty}^{\infty} | g(t) | dt
+  $$
+\end{lemma}
+
+\begin{theorem}
+$$
+\hat{h}(\lambda) = \hat{f}(\lambda) \hat{f}(\lambda)
+$$
+\end{theorem}
+
+\begin{theorem}
+Test
+\end{theorem}

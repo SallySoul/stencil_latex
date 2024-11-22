@@ -1,0 +1,57 @@
+\section{Polynomial Operations}
+For now, this is based on \cite{Chowdhury2023Lecture4}.
+
+\begin{definition}
+  We will be discussing \textit{Polynomials} in coefficient form. 
+  Let $A(x)$ be a polynomial of degree bound $n$ (at most degree $n - 1$.)
+  In coefficient form, we have exactly one term per power of $x$.
+  \begin{align*}
+    A(x) &= \sum_{j_9}^n a_j x^j \\
+         &= a_0 + a_1x + a_2 x^2 + \cdots + a_{n - 1}x^{n - 1}
+  \end{align*}
+  We will remain purposely vague about the domain of these polynomials,
+  and much of this is generalizable to a vector spaces like $\mathbb{R}^n$.
+  When in doubt we can assume $A: \mathbb{R} \rightarrow \mathbb{R}$.
+\end{definition}
+
+\begin{definition}
+  \textit{Horner's Rule} is an algorithm for evaluating a polynomial $A$ at $x$.
+  The algorithm is to follow a specific arithmetic order
+  \begin{align*}
+    A(x) &= a + x (a_1 + x (a_2 + \cdots + x ( a_{n - 1} + x a_{n - 1})\cdots ))
+  \end{align*} 
+\end{definition}
+
+\begin{theorem}
+Horner's Rule correctly evaluates an $n$ degree polynomial $A$ at $x$ in $\Theta(n)$ time.
+\end{theorem}
+
+\begin{proof}
+TBD
+\end{proof}
+
+\begin{lemma}
+Adding two $n$ degree bound polynomials is computed as a weight-wise sum. 
+Let $A$, $B$ and $C$ be $n$ degree bound polynomials such that $\forall x$ we have $C(x) = A(x) + B(x)$.
+
+\begin{align*}
+  A(X) + B(X) &= \sum_{j=0}^n a_j x^j + \sum_{j=0}^n b_j x^j \\
+              &= \sum_{j=0}^n (a_j + b_j) x^j \\
+              &= \sum_{j=0}^n c_j x^j \text{, where } c_j = a_j + b_j \\
+              &= C(X)
+\end{align*}
+\end{lemma}
+
+\begin{definition}
+  We say a vector $c = (c_0, c_1, \cdots, c_{2n - 2})$ is the discrete convolution
+  of vectors $a = (a_0, \cdots, a_{n - 1})$ and $b = (b_0, \cdots, b_{n - 1})$ if 
+  $$
+  c_j = \sum_{k=1}^{j} a_j b_{j - k} \text{ for } 0 \leq j \leq 2n - 1
+  $$ 
+\end{definition}
+
+\begin{lemma}
+  Multiplying two $n$ degree polynomials 
+\end{lemma}
+
+
