@@ -115,7 +115,63 @@ I opted to take on additiona
 
 \subsection{CMT}
 
+This is adapted from equation 35 from the supplemental materials of \cite{Li2020}, and equation 9 from \cite{De2017} 
+\begin{align*}
+m_{0} &= \{  1 \},\\
+m_{1} &= \{  \bar{c}_{j,x} \},
+m_{2} = \{  \bar{c}_{j,y} \},
+m_{3} = \{  \bar{c}_{j,z} \},\\
+m_{4} &= \{  \bar{c}_{j,x} \bar{c}_{j,y} \},
+m_{5} = \{  \bar{c}_{j,x} \bar{c}_{j,z} \},
+m_{6} = \{  \bar{c}_{j,y} \bar{c}_{j,z} \},\\
+m_{7} &= \{  \bar{c}_{j,x}^2 - \bar{c}_{j,y}^2 \},
+m_{8} = \{  \bar{c}_{j,x}^2 - \bar{c}_{j,z}^2 \}, \\
+m_{9} &= \{  \bar{c}_{j,x}^2 + \bar{c}_{j,y}^2 + \bar{c}_{j,z}^2 \},\\
+m_{10} &= \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 + \bar{c}_{j,x} \bar{c}_{j,z}^2 \},
+m_{11} = \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} + \bar{c}_{j,y} \bar{c}_{j,z}^2 \},\\
+m_{12} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,z} + \bar{c}_{j,y}^2 \bar{c}_{j,z} \},
+m_{13} = \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 - \bar{c}_{j,x} \bar{c}_{j,z}^2 \},\\
+m_{14} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} - \bar{c}_{j,y} \bar{c}_{j,z}^2 \},
+m_{15} = \{ \bar{c}_{j,x}^2 \bar{c}_{j,z} - \bar{c}_{j,y}^2 \bar{c}_{j,z} \},\\
+m_{16} &= \{ \bar{c}_{j,x} \bar{c}_{j,y} \bar{c}_{j,z} \},\\
+m_{17} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 + \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 + \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},\\
+m_{18} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 + \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 - \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \}, \\
+m_{19} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 - \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 \},\\
+m_{20} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} \bar{c}_{j,z} \},
+m_{21} = \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 \bar{c}_{j,z} \},\\
+m_{22} &= \{ \bar{c}_{j,x} \bar{c}_{j,y} \bar{c}_{j,z}^2 \},\\
+m_{23} &= \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},
+m_{24} = \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} \bar{c}_{j,z}^2 \},\\
+m_{25} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 \bar{c}_{j,z} \},\\
+m_{26} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},\\
+\end{align*}
+
+The first $9$ moments have physical interpretations,
+and their relaxation rates follow \cite{Li2020, De2017}.
+\begin{align}
+  r_0 &= 0, \nonumber \\
+  r_i &= 2, \text{ for } i = 1,2,3 \nonumber \\
+  r_i &= (3v + 1 / 2)^{-1}, \text{ for } i = 4,\ldots, 9 \label{eqn:kv_rate}
+\end{align}
+Setting the relaxation rates for higher order moments 
+is an area of active research.
+In \cite{Li2020} an adaptive scheme for setting these rates
+per $x$ per timestep was described.
+I didn't attempt to implement that, instead I fixed them as contants
+
+was related to this 
+issue.
+In \cite{Li2018} the following viscosities were proposed for
+these higher order relaxation rates to use with equation \ref{eqn:kv_rate}
+\begin{align*}
+  v_i &= 0.005, \text{ for } i = 9,\ldots, 16 \\
+  v_i &= 0.007, \text{ for } i = 17, \ldots, 22 \\
+  v_i &= 0.009, \text{ for } i = 26 
+\end{align*}
+
 
 \cite{Suga2015} has $D3Q27$ MRT explicitly written out!
 
 \cite{Hennig2023} presents lbmpy for generating MRT collision operators.
+
+\cite{Li2018} shows how to do spatial adaptivity I think.
