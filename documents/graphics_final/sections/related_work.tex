@@ -1,4 +1,4 @@
-\section{Background}
+\section{Background}\label{sec:relatedwork}
 
 This syntax and explanation is a combination of ideas from from many sources \cite{Lyu2021,Li2020,Mei2006,Yu2005,Kruger2018}.
 
@@ -113,39 +113,84 @@ I opted to take on additiona
 
 \subsection{MRT}
 
-\subsection{CMT}
+The multiple relaxation time collision operator (MRT),
+works by first transforming transforming $f$ into moment space,
+using a moment space transform $M$.
+Moments show up in many contexts, but we can broadly think of them
+as integral properties of $f$ \cite{Taber2018}.
+MRT then can relax each moment at a separate rate, using a diagonal matrix $R$.
+Finally, MRT uses $M^{-1}$ to transform the relaxed moments
+back into lattice distributions. We define MRT below \cite{De2017}.
+$$
+\text{MRT}(f) = M^{-1} \cdot R \cdot M (f_{\text{eq}} - f)
+$$
+Notably, $M$ and $R$ are constant across space ($x$) and time ($t$).
+We will expand on these ideas in the next section.
 
-This is adapted from equation 35 from the supplemental materials of \cite{Li2020}, and equation 9 from \cite{De2017} 
+\subsection{CM-MRT}\label{sec:cm-mrt}
+The moment space transform $M$ used in the $MRT$ collision operator
+evaluates the basis polynomials at $c_{\alpha}j$
+which are centered around the origin.
+As a result, the collision's frame of reference $u$ affects the 
+moments of the collision.
+This is a violation of \textit{Galilean invariance}.
+If we instead evaluate the basis polynomials using 
+$\bar{c}_{\alpha,j} = c_{\alpha, j} - u_{\alpha}$,
+our moments will be normalized to the collisions reference frame $u$. 
+As a result, our moment transform will now depend on $u$. \cite{De2017, De2019}.
+
+
+We will refine this later, our initial definition of 
+the central moments multiple relaxation time collision operator (CM-MRT) 
+is
+$$\label{eqn:cm_mrt_def_init}
+\text{CM-MRT}_{u}(f) = M_u^{-1} R  M_u(f - feq)
+$$
+We will exactly define the components of this definition for our
+$D3Q27$ lattice, which in turn will allow us to simplify some things.
+
+$M_u$ is our centered moment space transform, 
+a rank $27$ square matrix.
+The elements of $M_u$ are defined below 
+(adapted from equation 35 from \cite{Li2020Supplement}, 
+and equation 9 from \cite{De2017}.)
 \begin{align*}
-m_{0} &= \{  1 \},\\
-m_{1} &= \{  \bar{c}_{j,x} \},
-m_{2} = \{  \bar{c}_{j,y} \},
-m_{3} = \{  \bar{c}_{j,z} \},\\
-m_{4} &= \{  \bar{c}_{j,x} \bar{c}_{j,y} \},
-m_{5} = \{  \bar{c}_{j,x} \bar{c}_{j,z} \},
-m_{6} = \{  \bar{c}_{j,y} \bar{c}_{j,z} \},\\
-m_{7} &= \{  \bar{c}_{j,x}^2 - \bar{c}_{j,y}^2 \},
-m_{8} = \{  \bar{c}_{j,x}^2 - \bar{c}_{j,z}^2 \}, \\
-m_{9} &= \{  \bar{c}_{j,x}^2 + \bar{c}_{j,y}^2 + \bar{c}_{j,z}^2 \},\\
-m_{10} &= \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 + \bar{c}_{j,x} \bar{c}_{j,z}^2 \},
-m_{11} = \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} + \bar{c}_{j,y} \bar{c}_{j,z}^2 \},\\
-m_{12} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,z} + \bar{c}_{j,y}^2 \bar{c}_{j,z} \},
-m_{13} = \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 - \bar{c}_{j,x} \bar{c}_{j,z}^2 \},\\
-m_{14} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} - \bar{c}_{j,y} \bar{c}_{j,z}^2 \},
-m_{15} = \{ \bar{c}_{j,x}^2 \bar{c}_{j,z} - \bar{c}_{j,y}^2 \bar{c}_{j,z} \},\\
-m_{16} &= \{ \bar{c}_{j,x} \bar{c}_{j,y} \bar{c}_{j,z} \},\\
-m_{17} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 + \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 + \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},\\
-m_{18} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 + \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 - \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \}, \\
-m_{19} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 - \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 \},\\
-m_{20} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} \bar{c}_{j,z} \},
-m_{21} = \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 \bar{c}_{j,z} \},\\
-m_{22} &= \{ \bar{c}_{j,x} \bar{c}_{j,y} \bar{c}_{j,z}^2 \},\\
-m_{23} &= \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},
-m_{24} = \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} \bar{c}_{j,z}^2 \},\\
-m_{25} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 \bar{c}_{j,z} \},\\
-m_{26} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},\\
+m_{0,j} &= \{  1 \},\\
+m_{1,j} &= \{  \bar{c}_{j,x} \},
+m_{2,j} = \{  \bar{c}_{j,y} \},
+m_{3,j} = \{  \bar{c}_{j,z} \},\\
+m_{4,j} &= \{  \bar{c}_{j,x} \bar{c}_{j,y} \},
+m_{5,j} = \{  \bar{c}_{j,x} \bar{c}_{j,z} \},
+m_{6,j} = \{  \bar{c}_{j,y} \bar{c}_{j,z} \},\\
+m_{7,j} &= \{  \bar{c}_{j,x}^2 - \bar{c}_{j,y}^2 \},
+m_{8,j} = \{  \bar{c}_{j,x}^2 - \bar{c}_{j,z}^2 \}, \\
+m_{9,j} &= \{  \bar{c}_{j,x}^2 + \bar{c}_{j,y}^2 + \bar{c}_{j,z}^2 \},\\
+m_{10,j} &= \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 + \bar{c}_{j,x} \bar{c}_{j,z}^2 \},
+m_{11,j} = \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} + \bar{c}_{j,y} \bar{c}_{j,z}^2 \},\\
+m_{12,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,z} + \bar{c}_{j,y}^2 \bar{c}_{j,z} \},
+m_{13,j} = \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 - \bar{c}_{j,x} \bar{c}_{j,z}^2 \},\\
+m_{14,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} - \bar{c}_{j,y} \bar{c}_{j,z}^2 \},
+m_{15,j} = \{ \bar{c}_{j,x}^2 \bar{c}_{j,z} - \bar{c}_{j,y}^2 \bar{c}_{j,z} \},\\
+m_{16,j} &= \{ \bar{c}_{j,x} \bar{c}_{j,y} \bar{c}_{j,z} \},\\
+m_{17,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 + \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 + \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},\\
+m_{18,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 + \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 - \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \}, \\
+m_{19,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 - \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 \},\\
+m_{20,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} \bar{c}_{j,z} \},
+m_{21,j} = \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 \bar{c}_{j,z} \},\\
+m_{22,j} &= \{ \bar{c}_{j,x} \bar{c}_{j,y} \bar{c}_{j,z}^2 \},\\
+m_{23,j} &= \{ \bar{c}_{j,x} \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},
+m_{24,j} = \{ \bar{c}_{j,x}^2 \bar{c}_{j,y} \bar{c}_{j,z}^2 \},\\
+m_{25,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 \bar{c}_{j,z} \},\\
+m_{26,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},\\
 \end{align*}
 
+To define our relaxation rates, $R$, we need to address
+the specific meaning of our moment space.
+We have $27$ moments, $m_j$.
+$m_0$ is mass density $\rho$, 
+$m_1, m_2, m_3$ represent the components of momentum.
+$m_4$ through $m_9$ are the second order moments related
+to momentum flux.
 The first $9$ moments have physical interpretations,
 and their relaxation rates follow \cite{Li2020, De2017}.
 \begin{align}
@@ -155,23 +200,50 @@ and their relaxation rates follow \cite{Li2020, De2017}.
 \end{align}
 Setting the relaxation rates for higher order moments 
 is an area of active research.
-In \cite{Li2020} an adaptive scheme for setting these rates
-per $x$ per timestep was described.
-I didn't attempt to implement that, instead I fixed them as contants
-
-was related to this 
-issue.
-In \cite{Li2018} the following viscosities were proposed for
-these higher order relaxation rates to use with equation \ref{eqn:kv_rate}
+In \cite{Li2020} an adaptive scheme for updating these rates
+over time was described.
+We didn't attempt to implement that, 
+and instead utilized the constant rates proposed in \cite{Li2018}.
+They suggest using following viscosities for
+to use with equation \ref{eqn:kv_rate}
+for the higher order relaxation rates. 
 \begin{align*}
   v_i &= 0.005, \text{ for } i = 9,\ldots, 16 \\
   v_i &= 0.007, \text{ for } i = 17, \ldots, 22 \\
   v_i &= 0.009, \text{ for } i = 26 
 \end{align*}
 
+Lastly, we need to revisit $f_{\text{eq}}$.
+We utilize a full sixth order Hermite expansion for 
+equilibrium function, as proposed in \cite{Shan2006}.
+This expansion is quite complex, but it has an elegant
+representation in centralized moment space.
+Most entries in $M_u f_{\text{eq}} = \bar{m}$ are zero, 
+except for
+$$
+\bar{m}_0 = \bar{m}_9 = \rho, \bar{m}_{17} = c_s^2 \rho, \bar{m}_{18} = c_s^4\rho \bar{m}_{26} = c_s^6 \rho
+$$
+Notably, our equilibrium moments in this space only depend on $\rho$,
+and not $u$, which demonstrates Galilean invariance.
 
-\cite{Suga2015} has $D3Q27$ MRT explicitly written out!
+We can not present the final definition of CM-MRT that we implemented.
+\begin{align}
+  \text{CM-MRT}(f) = M_u^{-1} R (M_u f - \bar{m}) \label{eqn:cm-mrt}
+\end{align}
 
-\cite{Hennig2023} presents lbmpy for generating MRT collision operators.
+CM-MRT is a challenge to implement by hand, 
+as $M_u, M_u^{-1}, \bar{m}$ must be derived at every evaluation.
+Additionally, many GPU frameworks
+don't have a sufficiently advanced linear algebra package available
+to directly express equation \ref{eqn:cm-mrt}.
+Code generation using a computer algebra system is a technique used 
+in \textit{lbmpy} \cite{Hennig2023}, 
+and \textit{A Literate Lattice Boltzmann Code} \cite{web:literate_lbm} 
+to generate shader code that
+evaluates collision operators.
 
-\cite{Li2018} shows how to do spatial adaptivity I think.
+\subsection{Zero-centered Storage}
+LBM is very sensitive to floating point error.
+An important technique for mitigating these errors is 
+\textit{zero-centered storage} \cite{Lehmann2022, Hennig2023}.
+

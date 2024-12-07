@@ -1,11 +1,35 @@
 \section{Intoduction}
 
-\begin{outline}
-\1 Introduce project, 3D fluid simulation using the MRT.
-\1 Goals for this project were two fold.
-\2 learn about implementing and using LBM
-\2 Gain proficiency with GPU programming and compute shaders specifically.
-\1 All figures are either cited, or have an appendix entry about their creation.
-\1 Paraview
-\end{outline}
+The lattice Boltzmann method (LBM) 
+is a method for numerically modelling fluid dynamics
+that benefits from mapping naturally onto GPGPU architectures.
+However LBM based models have traditionally struggled to 
+properly resolve turbulent flows.
+Given that the visual interest of fluid dynamics is often 
+derived from turbulence, this has limited the use of LBM 
+for graphics applications.
 
+Active research has rapidly evolved LBM based models,
+and new collision operators like CM-MRT (see section \ref{sec:cm-mrt})
+greatly improved accuracy when modelling turbulent flows.
+CM-MRT has seen adoption by graphics 
+researchers \cite{Li2020, Li2024, Lyu2021} due
+to its ability to better resolve visually interesting
+fluid dynamics.
+
+The proposal for my final project was to
+implement a GPU based LBM simulation utilizing the CM-MRT collision 
+operator in order to gain experience with both GPU programming and 
+LBM models.
+In the end I was unable to fully complete this goal, 
+but I do not see it as a failure.
+As evidenced by this paper and my project I was able to implement 
+a simulation using LBM to generate pictures and came close, I believe,
+to a working CM-MRT operator.
+My goals of gaining experience with the material have been 
+achieved.
+
+An overview of my implementation and its 
+components is presented in section \ref{sec:implementation}.
+The theory and related work is explored in \ref{sec:relatedwork}.
+Future work is discussed in \ref{sec:futurework}.

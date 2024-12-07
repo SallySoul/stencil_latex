@@ -1,7 +1,16 @@
-\section{Future Work}
+\section{Future Work}\label{sec:futurework}
+
+\subsection{Zero-centered Storage}
+Zero-centered storage extends the Galilean invariance of CM-MRT 
+into the storage of our $f$ distributions.
+It has been shown that $f_i$ don't deviate far from the reference
+frame equilibrium.
+By instead storing and operating on $\delta f = f - f_u$ 
+we can greatly increase the numerical accuracy by better
+utilizing the available bits of our floating point representation.
+Zero-centered storage is thoroughly explained in \cite{Hennig2023}.
 
 \subsection{Domain Decomposition}
-
 Right now our solver only works on a single continuous allocation
 for the entire domain.
 Allowing the domain to be split over many blocks would have several 
