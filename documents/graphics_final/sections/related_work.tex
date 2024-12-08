@@ -83,34 +83,6 @@ of the microscropic velocity distribution.
 \end{align}
 \end{outline}
 
- 
-
-
-\subsection{LBM Implementations}
-
-There were several lattice boltzman implementations that were helpful to me.
-\begin{outline}
-  \1 A literate implementation of LBM using SymPy and CUDA \cite{web:literate_lbm}
-  \1 An interactive 2D implementation written in Rust and WGPU \cite{web:lbm-web}.
-  \2 While this was an important resource in that it demonstrated 
-  the feasibility of what I wanted to do, 
-  my implementation shares no code or even structural similarities 
-  with this implementation.
-  \1 A CPU only LBM implementation written in Rust \cite{web:lbm-rs}.
-  \2 The interface and workflow of this tool was exactly what I wanted, but it didn't use the GPU at all.
-  \1 An implementation of MRT LBM from \cite{Yang2022} is available on \href{https://github.com/yjhp1016/taichi_LBM3D/}{github}.
-\end{outline}
-
-WGPU on my M1 Max GPU has a max storage buffer size of $4.29$ gb.
-That is sufficient to hold a billion floating point numbers.
-Normally, the distributions are stored in one large contiguous allocation 
-as a $D+Q$ dimensional array.
-In such setup, this would limit us around $350^3$ lattice points.
-
-By storing each direction in a separate buffer, we incur some additional expense but raise our maximum problem size to $115.83$ gb.
-
-I opted to take on additiona
-
 \subsection{MRT}
 
 The multiple relaxation time collision operator (MRT),
@@ -122,7 +94,7 @@ MRT then can relax each moment at a separate rate, using a diagonal matrix $R$.
 Finally, MRT uses $M^{-1}$ to transform the relaxed moments
 back into lattice distributions. We define MRT below \cite{De2017}.
 $$
-\text{MRT}(f) = M^{-1} \cdot R \cdot M (f_{\text{eq}} - f)
+\text{MRT}(f) = M^{-1} \cdot R \cdot M (f - f_{\text{eq}})
 $$
 Notably, $M$ and $R$ are constant across space ($x$) and time ($t$).
 We will expand on these ideas in the next section.
@@ -144,7 +116,7 @@ We will refine this later, our initial definition of
 the central moments multiple relaxation time collision operator (CM-MRT) 
 is
 $$\label{eqn:cm_mrt_def_init}
-\text{CM-MRT}_{u}(f) = M_u^{-1} R  M_u(f - feq)
+\text{CM-MRT}_{u}(f) = M_u^{-1} R  M_u(f_{\text{eq}} - f)
 $$
 We will exactly define the components of this definition for our
 $D3Q27$ lattice, which in turn will allow us to simplify some things.
@@ -226,9 +198,9 @@ $$
 Notably, our equilibrium moments in this space only depend on $\rho$,
 and not $u$, which demonstrates Galilean invariance.
 
-We can not present the final definition of CM-MRT that we implemented.
+We now present the final definition of CM-MRT that we implemented.
 \begin{align}
-  \text{CM-MRT}(f) = M_u^{-1} R (M_u f - \bar{m}) \label{eqn:cm-mrt}
+  \text{CM-MRT}(f) = M_u^{-1} R (\bar{m} - M_u f) \label{eqn:cm-mrt}
 \end{align}
 
 CM-MRT is a challenge to implement by hand, 
@@ -238,12 +210,21 @@ don't have a sufficiently advanced linear algebra package available
 to directly express equation \ref{eqn:cm-mrt}.
 Code generation using a computer algebra system is a technique used 
 in \textit{lbmpy} \cite{Hennig2023}, 
-and \textit{A Literate Lattice Boltzmann Code} \cite{web:literate_lbm} 
+and \textit{A Literate Lattice Boltzmann Code}\footnote{\url{http://literatelb.org}}
 to generate shader code that
 evaluates collision operators.
 
-\subsection{Zero-centered Storage}
-LBM is very sensitive to floating point error.
-An important technique for mitigating these errors is 
-\textit{zero-centered storage} \cite{Lehmann2022, Hennig2023}.
+\subsection{LBM Implementations}
 
+There were several lattice boltzman implementations that were helpful to me.
+\begin{outline}
+  \1 A literate implementation of LBM using SymPy and CUDA \cite{web:literate_lbm}
+  \1 An interactive 2D implementation written in Rust and WGPU \cite{web:lbm-web}.
+  \2 While this was an important resource in that it demonstrated 
+  the feasibility of what I wanted to do, 
+  my implementation shares no code or even structural similarities 
+  with this implementation.
+  \1 A CPU only LBM implementation written in Rust \cite{web:lbm-rs}.
+  \2 The interface and workflow of this tool was exactly what I wanted, but it didn't use the GPU at all.
+  \1 An implementation of MRT LBM from \cite{Yang2022} is available on \href{https://github.com/yjhp1016/taichi_LBM3D/}{github}.
+\end{outline}

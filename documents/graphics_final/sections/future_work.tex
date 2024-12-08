@@ -1,4 +1,8 @@
 \section{Future Work}\label{sec:futurework}
+\subsection{Tracer Particles}
+Mentioned in my original proposal, tracer particles
+represent a powerful tool for creating visual effects.
+
 
 \subsection{Zero-centered Storage}
 Zero-centered storage extends the Galilean invariance of CM-MRT 
@@ -9,6 +13,12 @@ By instead storing and operating on $\delta f = f - f_u$
 we can greatly increase the numerical accuracy by better
 utilizing the available bits of our floating point representation.
 Zero-centered storage is thoroughly explained in \cite{Hennig2023}.
+Zero-centered storage would also open the door for using a half-float 
+based storage, which would be a significant improvement if viable.
+
+\subsection{Error Aware Compiling}
+TODO, 
+
 
 \subsection{Domain Decomposition}
 Right now our solver only works on a single continuous allocation

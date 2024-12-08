@@ -1,3 +1,7 @@
+\begin{figure*}
+
+\end{figure*}
+
 \section{Intoduction}
 
 The lattice Boltzmann method (LBM) 
@@ -11,7 +15,7 @@ for graphics applications.
 
 Active research has rapidly evolved LBM based models,
 and new collision operators like CM-MRT (see section \ref{sec:cm-mrt})
-greatly improved accuracy when modelling turbulent flows.
+have greatly improve accuracy when modelling turbulent flows.
 CM-MRT has seen adoption by graphics 
 researchers \cite{Li2020, Li2024, Lyu2021} due
 to its ability to better resolve visually interesting
@@ -19,17 +23,22 @@ fluid dynamics.
 
 The proposal for my final project was to
 implement a GPU based LBM simulation utilizing the CM-MRT collision 
-operator in order to gain experience with both GPU programming and 
-LBM models.
-In the end I was unable to fully complete this goal, 
-but I do not see it as a failure.
-As evidenced by this paper and my project I was able to implement 
-a simulation using LBM to generate pictures and came close, I believe,
-to a working CM-MRT operator.
-My goals of gaining experience with the material have been 
-achieved.
+operator.
+I was able to implement most of the ideas from
+my proposal.
+My implementation is described in section 
+\ref{sec:implementation}.
+Two key ideas from the proposal that I was unable to tackle
+were tracer particle based volumetric rendering
+and more advanced fluid solid coupling, see section \ref{sec:futurework}.
 
-An overview of my implementation and its 
-components is presented in section \ref{sec:implementation}.
-The theory and related work is explored in \ref{sec:relatedwork}.
-Future work is discussed in \ref{sec:futurework}.
+My goals were to to gain experience with both GPU programming and 
+LBM based modelling.
+I succeeded on both of these counts.
+I feel far more confident in my ability to utilize compute shaders,
+with the added bonus of learning about computer algebra based
+code generation.
+My greatest success though is on the theory side.
+I have gained a foothold into
+the state of the art for LBM based methods and
+the research being conducted in this area.
