@@ -48,7 +48,7 @@ The computational kernels used by the solver are
 compute shaders targeting WGPU\footnote{\url{https://wgpu.rs}},
 see figure \ref{fig:compute_kernels} for an overview.
 Several of these kernels are complex enough
-to require a computer algebra system to assemble.
+to require a computer algebra system to generate.
 To this end, a python script \lstinline{codegen.py}
 is used to manipulate the equations from section \ref{sec:cm-mrt}
 symbolically and generate
@@ -70,6 +70,7 @@ into WGSL.
 I found it necessary to generate rust versions of these
 operators as well for testing and debugging, as 
 CPU based debugging is far simpler than doing so on the GPU.
+SymPy expressions were the answer here as other projects have shown
 
 Over the course of development, the trend was to move
 more development into the higher level representation.
@@ -88,12 +89,21 @@ While utilizing double-precision numbers wasn't an option for me,
 some possible avenues forward are described 
 in section \ref{sec:futurework}
 
-\subsubsection{Tool Choice Reflection}
+It goes without saying, 
+but the timeline I proposed 
+in no way correlates to the actual order of events.
+
+\subsection{Tool Choice Reflection}
+ wanted to use this project to access the suitability of Rust $+$ WGPU 
+as a cross-platform compute target, 
+while still taking advantage of platform specific features 
+for this project.
+
+
+
+
 I wanted to use this project to access the suitability of Rust $+$ WGPU 
 as a cross-platform compute target.
-In particular, I wanted a target to that could utilize 
-the GPUs in Apple's M line of processors
-These processors have unified memory, which means
 M-GPUs can access far more RAM than is typically available to GPUs.
 Given the memory intensive nature of LBM, this seemed advantageous.
 
