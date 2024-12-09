@@ -1,0 +1,80 @@
+\begin{frame}{Collision (BGK)}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+\1 Collision is local
+\1 Relax distributions towards equilibrium
+\1 BGK is standard collision operator
+\2 Relaxes all distributions at constant rate
+\1 First order approximation
+\end{outline}
+\column{0.48\linewidth}
+\begin{center}
+\begin{align*}
+    \text{BGK}(f) &= \frac{1}{\tau} (f_{\text{eq}} - f)
+\end{align*}
+\end{center}
+\end{columns}
+\vspace{1cm}
+\begin{align*}
+   f_{\text{eq}} &= w_i \rho \left(
+1 + 3 c_i \cdot u  + \frac{9 (c_i \cdot u)^2}{2}
+- \frac{3 (u \cdot u)^2}{2}\right) \\
+\end{align*}
+\end{frame}
+
+\begin{frame}{Multiple Relaxation Time (MRT)}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+\1 Moments as integral properties
+\1 $M$ transforms $f$ into moments 
+\1 Relax moments separately
+\1 $M^{-1}$ transforms result back to distributions
+\end{outline}
+\column{0.48\linewidth}
+\begin{center}
+\begin{align*}
+m_{0,j} &= \{  1 \},\\
+m_{1,j} &= \{  c_{j,x} \}, \\
+m_{18,j} &= \{ c_{j,x}^2 c_{j,y}^2 + c_{j,x}^2 c_{j,z}^2 - c_{j,y}^2 c_{j,z}^2 \}, \\
+m_{19,j} &= \{ c_{j,x}^2 c_{j,y}^2 - c_{j,x}^2 c_{j,z}^2 \},\\
+m_{26,j} &= \{ c_{j,x}^2 c_{j,y}^2 c_{j,z}^2 \},\\
+\end{align*}
+\end{center}
+\end{columns}
+\begin{center}
+  \begin{align*}
+\text{MRT}(f) &= M^{-1} \cdot R \cdot M(f_{\text{eq}} - f)
+  \end{align*}
+\end{center}
+\end{frame}
+
+\placelogofalse
+\begin{frame}{Central Moment MRT (CM-MRT)}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+\1 MRT violates Galilean invariance 
+\1 Center Moments on $u$ \cite{De2017}
+\1 $f_{\text{eq}}$ only depends on $\rho$ in CM space
+\end{outline}
+\column{0.48\linewidth}
+\begin{center}
+\begin{align*}
+\bar{c}_j &= c_j - u \\
+m_{0,j} &= \{  1 \},\\
+m_{1,j} &= \{  \bar{c}_{j,x} \}, \\
+m_{18,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 + \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 - \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \}, \\
+m_{19,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 - \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 \},\\
+m_{26,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},\\
+\end{align*}
+\end{center}
+\end{columns}
+\begin{center}
+  \begin{align*}
+\text{CM-MRT}_{u,\rho}(f) &= M_u^{-1} \cdot R \cdot (\bar{m}_{\rho} - M_u f)
+\end{align*}
+\end{center}
+\end{frame}
+\placelogotrue
