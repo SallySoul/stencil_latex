@@ -1,12 +1,19 @@
 \begin{figure*}
 \begin{center}
+  \includegraphics[width=\linewidth]{purple_render_01.png}
 \end{center}
-\caption{This is a frame from one of our demo movies.
-  The simulation domain was a $80 \times 80 \times 185$ 
+\caption{This is a frame from one of our demo movies,
+  where we model fluid flowing around a sphere.
+  This is a volumetric render of velocity magnitude. 
+  We see turbulence emerge, as this setup has a high Reynold
+  s number..
+  The simulation domain was a $79 \times 79 \times 190$ 
   $D3Q27$ lattice. 
-  This film ran the simulation for $\approx 20,000$ iterations,
-  creating a frame every $15$ iterations.
-It took $\approx 43$ minutes to run, and another $\approx 20$ minutes to render.}
+  This film ran the simulation for $20,000$ iterations,
+  creating a frame every $10$ iterations.
+It took $\approx 49$ minutes to run, 
+and generated $\approx 300$Gb of data.
+Paraview took almost $12$ hours to render the film.}
 \label{fig:movie-frame}
 \end{figure*}
 

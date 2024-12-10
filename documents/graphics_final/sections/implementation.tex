@@ -24,7 +24,7 @@ several mp4 videos, and a snapshot of the implementation source code.
 of the source directory,
 though we will cover it at a high level in section \ref{sec:architecture}. 
 The source code for the implementation can also be found on 
-github\footnote{\url{https://github.com/SallySoul/lbm3}}
+github\footnote{\url{https://github.com/SallySoul/cm_lbm}}
 as well as the source code for two earlier 
 prototypes\footnote{\url{https://github.com/SallySoul/wgpu_lbm_prototype}}\footnote{\url{https://github.com/SallySoul/lbm_clean}}.
 The source for this paper and the slides can be found as 
@@ -60,10 +60,14 @@ that hard code different simulations.
 \subsection{Challenges}
 The defining challenge while working on \lstinline{cm_lbm} was finding
 the line between systems programming and high level abstractions.
-On the systems side there were several notable issues.
+An application like this will always 
+need a runtime implemented in a system language.
+Building the runtime for \lstinline{cm_lbm} had a couple notable 
+problem areas.
 Managing GPU resources requires a great deal of boiler plate.
 Additionally, managing the various index spaces and translation
 between them was an error prone part of development.
+
 On the other hand, manipulating the LBM operators
 demanded a high level representation that could be lowered
 into WGSL.
@@ -127,21 +131,3 @@ While M1 GPUs don't support double precision,
 they are also a promising target for scientific computing \cite{Kenyon2022}.
 I got favorable runtime results when compared to CPU based implementations,
 and feel encouraged to continue exploring this avenue.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=0.4\linewidth]{stream_0.png}
-    \includegraphics[width=0.4\linewidth]{stream_1.png}
-
-    \includegraphics[width=0.6\linewidth]{stream_2.png}
-  \end{center}
-  \caption{Stream example}
-\end{figure}
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=\linewidth]{specular.png}
-  \end{center}
-  \caption{Specular Slip Boundaries.
-For now we can add spheres, here we see those cells colored by the z component of the normal.}
-\end{figure}
