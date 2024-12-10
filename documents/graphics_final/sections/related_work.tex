@@ -1,4 +1,4 @@
-\section{Background}\label{sec:relatedwork}
+\section{Theory and Related Work}\label{sec:relatedwork}
 
 This syntax and explanation is a combination of ideas from from many sources \cite{Lyu2021,Li2020,Mei2006,Yu2005,Kruger2018}.
 
@@ -66,25 +66,48 @@ Common lattices include $D2Q9$ (a) or $D3Q27$ (b), see below (figure from \cite{
 \includegraphics[width=0.6\linewidth]{lattice_figure.png}
 \end{center}
 
-There are several subtleties with this discretized velocity space, 
-$\mathbb{V} \equiv \mathbb{R}^Q$. 
-\begin{outline}
-\1 We refer to the each microscopic velocity component with 
+1 We refer to the each microscopic velocity component with 
 $f_i(x, t)$ for $i \in 0..Q - 1$.
-\1 Each of these $f_i(x, t)$ values is a probability that there is a particle traveling with at a fixed velocity, $c_s$, in the direction $c_i$.
-\1 Integrals over microscopic velocities can recover macroscopic properties.
-In this context we refer to these integral properties as moments, 
+Each of these $f_i(x, t)$ values is a sort of relative 
+probability that there is a particle traveling with at a 
+fixed speed in the direction $c_i$.
+This speed is very important, but it's a detail 
+I will gloss over in this report.
+
+Integrals over microscopic velocities can 
+recover macroscopic properties.
+In this context I refer to these integral properties as moments, 
 and they are calculated as sums. 
-For example, pressure and momentum (?) are the zeroth and first moment 
-of the microscropic velocity distribution.
+For example, pressure and momentum are the zeroth and first moment 
+of the microscopic velocity distribution.
 \begin{align}
   \rho(x, t) &= \sum_{i = 0}^{Q - 1} f_i(x, t) \\
   \rho(x,t)u(x,t) &= \sum_{i = 0}^{Q - 1}c_i f_i(x, t)
 \end{align}
-\end{outline}
 
-\subsection{Stream}
-Streaming is a non-local operation, see figure \ref{fig:stream_example}.
+The discritization of equation \ref{eqn:cont_lbm} over time
+requires two operations, streaming and collision.
+These two iterations are repeatedly applied in alternating
+order to step through time.
+
+\subsection{Streaming}
+Streaming is a non-local operation, see figure \ref{fig:stream_example}. 
+Essentially, each point $x$ sends $f_i$ 
+to its $c_i$ neighbor in the lattice.
+\begin{align*}
+  f_i^{*}(x) &= f_i(x - c_i)
+\end{align*}
+
+Though conceptually simple, implementing the streaming
+operator presents a challenge in that 
+each $f_i$ needs to be saved somewhere so that 
+it can be replaced with a new value.
+The simpler option here is to double-buffer the $f$ distribution
+values, but this doubles the memory requirement.
+A more advanced approach can scan through the grid in each 
+$c_i$ direction and store only one extra $f_i$ at a time.
+Since I had memory to spare,
+I opted to use double-buffering for it simplicity.
 
 \begin{figure}
   \begin{center}
@@ -214,6 +237,9 @@ and their relaxation rates follow \cite{Li2020, De2017}.
   r_i &= 2, \text{ for } i = 1,2,3 \nonumber \\
   r_i &= (3v + 1 / 2)^{-1}, \text{ for } i = 4,\ldots, 9 \label{eqn:kv_rate}
 \end{align}
+We found that kinematic viscosities between 
+$0.001$ and $0.0043$ were the most interesting while still being 
+stable.
 Setting the relaxation rates for higher order moments 
 is an area of active research.
 In \cite{Li2020} an adaptive scheme for updating these rates
@@ -242,7 +268,7 @@ $$
 Notably, our equilibrium moments in this space only depend on $\rho$,
 and not $u$, which demonstrates Galilean invariance.
 
-We now present the final definition of CM-MRT that we implemented.
+I now present the final definition of CM-MRT that was implemented.
 \begin{align}
   \text{CM-MRT}_{u,\rho}(f) = M_u^{-1} R (\bar{m}_{\rho} - M_u f) \label{eqn:cm-mrt}
 \end{align}
@@ -258,17 +284,54 @@ and \textit{A Literate Lattice Boltzmann Code}\footnote{\url{http://literatelb.o
 to generate shader code that
 evaluates collision operators.
 
-\subsection{LBM Implementations}
+\subsection{Initial and Boundary Conditions}\label{sec:ic-and-bc}
+
+Initial conditions and boundary conditions for LBM
+are an area of active research.
+I opted to focus my attention on the collision operator,
+and so I implemented the simplest options I could find 
+for setting initial conditions and enforcing boundary conditions.
+
+My final renders were attempting to model a sort of wind tunnel,
+with fluid flowing in from one $xy$ face, along the z-axis, 
+and out the opposing $xy$ face.
+To achieve this, every simulations specifies a tunnel velocity 
+$u$ and density $\rho$.
+For our final render (fig \ref{fig:movie-frame})
+we had $\rho = 1.0$ and $c = 0.12$.
+Then our initial conditions are simply 
+the equilibrium values for those macroscopic quantities,
+$f_{\text{eq}}(u, \rho)$.
+Similarly, every time step we set the
+$xy$ faces to the equilibrium values to enforce Dirichlet conditions.
+The remaining faces used periodic boundary conditions, which
+are trivial to implement with the streaming operator.
+For the immersed solid we used a simple bounce-back 
+operation \cite{Kruger2018} on the flagged points
+instead of a typical collision operator.
+Let $f_{\bar{i}}$ be the component of $f$ opposite $f_i$.
+Then a bounce back is $f_i = f_{\bar{i}}$.
+
+This implementation is sufficient for making nice pictures, 
+but has significant drawbacks.
+For example, a shock wave can be seen in our renders
+as bounce-back operation propagates through the fluid.
+More generally, there is a very limited vocabulary for building
+models and any serious tool would require a number of
+other boundary conditions to be available.
+
+\subsection{Existing LBM Implementations}
 
 There are many open source LBM implementations available.
 There were a few that were helpful references for me.
 \begin{outline}
-  \1 A literate implementation of LBM using SymPy and CUDA \cite{web:literate_lbm}
+  \1 A literate implementation of LBM using SymPy and CUDA \cite{web:literate_lbm}.
   \1 An interactive 2D implementation written in Rust and WGPU \cite{web:lbm-web}.
   \2 While this was an important resource in that it demonstrated 
   the feasibility of what I wanted to do, 
   my implementation shares no code or even structural similarities 
   with this implementation.
   \1 A CPU only LBM implementation written in Rust \cite{web:lbm-rs}.
-  \1 An implementation of MRT LBM from \cite{Yang2022} is available on \href{https://github.com/yjhp1016/taichi_LBM3D/}{github}.
+  \1 Source is available for \cite{Hennig2023}, though this implementation was too complex to be of use as a reference. 
+  It did influence me to work with SymPy.
 \end{outline}

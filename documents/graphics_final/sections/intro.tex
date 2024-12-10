@@ -40,14 +40,29 @@ The proposal for my final project was to
 implement a GPU based LBM simulation utilizing the CM-MRT collision 
 operator.
 I was able to implement most of the ideas from
-my proposal.
-My implementation is described in section 
+my proposal, using CM-MRT operator in particular.
+My implementation is described and discussed in section 
 \ref{sec:implementation}.
-Two key ideas from the proposal that I was unable to tackle
-were tracer particle based volumetric rendering
-and more advanced fluid solid coupling, see section \ref{sec:futurework}.
+In section \ref{sec:related_work} I explore the theory
+of what I implemented as well as related work.
+Future work is discussed in section \ref{sec:futurework}.
 
-My goals for the project were to to gain experience with both GPU programming and 
+
+My project fell short of my proposal in a few places.
+I had planned on implementing a more advanced fluid-solid
+interaction, as described in \cite{Lyu2021}.
+In the end I only supported a simple bounce-back operator 
+(see section \ref{sec:ic-and-bc}) and only implemented a mechanism
+for adding spheres rather than arbitrary shapes.
+There was also an adaptive relaxation rate scheme from \cite{Li2020}
+that would be have been much closer to the state-of-the-art for 
+collision operators.
+Lastly, I didn't implement the tracer particle based rendering
+I had originally proposed and relied entirely on Paraview 
+for all my post-processing.
+
+My goals for the project were to to gain experience 
+with both GPU programming and 
 LBM based modelling.
 I succeeded on both of these counts.
 I feel far more confident in my ability to utilize compute shaders,
