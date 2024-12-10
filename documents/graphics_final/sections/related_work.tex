@@ -94,9 +94,9 @@ Streaming is a non-local operation, see figure \ref{fig:stream_example}.
     \includegraphics[width=0.6\linewidth]{stream_2.png}
   \end{center}
   \caption{In the above images we see a $5^3$ grid with zero
-  velocity in all cells but the center.
-Running the stream operator twice results in the non zero velocities
-traveling to the outside of the grid.}
+  velocity in all points but the center.
+Running the stream operator twice results in the 
+non-zero distributions traveling to the outside of the grid.}
 \label{fig:stream_example}
 \end{figure}
 
@@ -260,7 +260,8 @@ evaluates collision operators.
 
 \subsection{LBM Implementations}
 
-There were several lattice boltzman implementations that were helpful to me.
+There are many open source LBM implementations available.
+There were a few that were helpful references for me.
 \begin{outline}
   \1 A literate implementation of LBM using SymPy and CUDA \cite{web:literate_lbm}
   \1 An interactive 2D implementation written in Rust and WGPU \cite{web:lbm-web}.
@@ -269,6 +270,5 @@ There were several lattice boltzman implementations that were helpful to me.
   my implementation shares no code or even structural similarities 
   with this implementation.
   \1 A CPU only LBM implementation written in Rust \cite{web:lbm-rs}.
-  \2 The interface and workflow of this tool was exactly what I wanted, but it didn't use the GPU at all.
   \1 An implementation of MRT LBM from \cite{Yang2022} is available on \href{https://github.com/yjhp1016/taichi_LBM3D/}{github}.
 \end{outline}
