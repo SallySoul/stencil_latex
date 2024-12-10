@@ -1,4 +1,16 @@
 \section{Future Work}\label{sec:futurework}
+\subsection{Lattice Units and Adaptive Time Stepping}
+Simulations configuration should be in terms of macroscopic
+quantities of time, space, and kinematic viscosity.
+Properly converting between macroscopic units and lattice units
+is important for properly calculating values like time step size,
+which is critical ensuring numerical stability with any 
+of the collision operators.
+More over, properly implementing unit conversion 
+is the next step towards adaptive time stepping,
+which is probably the largest immediate improvement I could achieve
+in numerical stability for highly turbulent flows.
+
 \subsection{Tracer Particles}
 Mentioned in my original proposal, tracer particles
 represent a powerful tool for creating visual effects.

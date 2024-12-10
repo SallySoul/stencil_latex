@@ -18,63 +18,78 @@ Another common equation to account for is the Navier-Stokes momentum equation
 \begin{align}
 \frac{\partial}{\partial t} (\rho \bm{u}) 
 + \nabla \cdot (\rho \bm{u} \times \bm{u}) &= 
-- \nabla \bm{p} + \nabla \cdot \sigma + F
+- \nabla \bm{p} + \nabla \cdot \sigma
 \end{align}
-where $\bm{p}$ is pressure, $\sigma$ is shear stress tensor, and $F$
-represents any external forces like gravity. 
+where $\bm{p}$ is pressure, and $\sigma$ is shear stress tensor. 
 This is another conservation law that relates several \textit{macroscopic}
 quantities of fluid.
 Fluids dynamics are the emergent behavior of the \textit{microscopic} 
-behavior of molecules.
+behavior of many particles.
 Macroscopic quantities, like pressure, are an observed average of 
 microscopic quantities.
 Even fluid velocity, in the sense we're interested in, 
 is a macroscopic quantity.
 
 Many other approaches to modelling fluid dynamics,
-like finite volume, finite element, and even 
-smoothed particle hydrodynamics(?)
+like finite volume, and finite element
 seek to solve for macroscopic 
-fields like $\bm{u}$ and $\bm{p}$.
+fields like $\bm{u}$, $\bm{p}$, and $\rho$.
 
 \subsection{LBM}
 The lattice Boltzmann method (LBM) is a collection of techniques for
 numerically modelling fluid dynamics that solves for microscopic quantities.
-In particular, LBM solves the numerically solves 
+In particular, LBM numerically solves 
 the lattice Boltzmann equation
 \begin{align}\label{eqn:cont_lbm}
   \frac{\partial f}{\partial t} + \bm{v} \cdot \nabla f = \Omega(f) + F\nabla_{\bm{v}} f
 \end{align}
-LBM solves this equation for a probability distribution $f(x, \bm{v}, t)$ which
-describes the probability of a particle to be at point $x$, traveling with macroscopic velocity $\bm{v}$ at time $t$.
+LBM solves this equation for a discritized velocity distribution $f$ at each point.
+Under our assumptions, these microscopic particles all travel at the same speed, so $f$ is really a direction distribution.
 
-The discretization used in LBM to numerically solve \ref{eqn:cont_lbm} 
-has two components.
+The discretization used in LBM to numerically 
+solve \ref{eqn:cont_lbm} has two components.
 First the fluid domain, space, is 
-discretized onto a
+discritized onto a
 grid of points $x \in \delta_x \mathbb{Z}^D$
 where $\delta_x$ is the spacing between points in world coordinates
 and $D$ is the spatial dimension ($3$ for most of our examples.)
 
-The second part is discretizing the possible velocities a particle 
-could be traveling in. 
-Each point has a finite number, $Q$, of directions it can travel in, $c_i$.
+The second part is discritizing the possible velocity directions 
+a particle could be traveling in. 
+At each point, a particle can travel in $Q$ possible directions.
+These directions are typically denotes with vectors $c_i$.
+
 These directions relate points in the grid and form the titular lattice.
 These lattices are typically denoted by $D\#Q\#$.
 Common lattices include $D2Q9$ (a) or $D3Q27$ (b), see below (figure from \cite{Li2020}.)
 \begin{center}
 \includegraphics[width=0.6\linewidth]{lattice_figure.png}
 \end{center}
+We used a $D3Q27$ lattice in our simulations, which has the following
+directions vectors.
+\begin{align*}
+  c_i &= \left\{
+  \begin{array}{l l}
+  (0, 0, 0) & i = 0\\
+  (\pm 1, 0, 0), (0, \pm 1, 0), (0, 0, \pm) & i = 1,\ldots, 6\\
+  (\pm 1, \pm 1, 0), (\pm 1, 0, \pm 1), (0, \pm 1, \pm 1)
+                                            & i = 7, \ldots, 18 \\
+  (\pm 1, \pm 1, \pm 1) & i = 19, \ldots, 26
+  \end{array}
+  \right.
+\end{align*}
 
-1 We refer to the each microscopic velocity component with 
-$f_i(x, t)$ for $i \in 0..Q - 1$.
-Each of these $f_i(x, t)$ values is a sort of relative 
-probability that there is a particle traveling with at a 
+
+1 We refer to the components of 
+the microscopic velocity distribution at a given $x$ by
+$f_i$ for $i \in 0..Q - 1$.
+Each of these $f_i$ components is a sort of relative 
+portion of particles traveling with at a 
 fixed speed in the direction $c_i$.
 This speed is very important, but it's a detail 
 I will gloss over in this report.
 
-Integrals over microscopic velocities can 
+Integrals over microscopic velocity distributions can 
 recover macroscopic properties.
 In this context I refer to these integral properties as moments, 
 and they are calculated as sums. 
@@ -87,7 +102,7 @@ of the microscopic velocity distribution.
 
 The discritization of equation \ref{eqn:cont_lbm} over time
 requires two operations, streaming and collision.
-These two iterations are repeatedly applied in alternating
+These two operations are repeatedly applied in alternating
 order to step through time.
 
 \subsection{Streaming}
@@ -125,8 +140,8 @@ non-zero distributions traveling to the outside of the grid.}
 
 \subsection{BGK}
 The collision operator locally relaxes $f$ towards
-an equilibrium state $f_{\text{eq}}$.
-Deriving the equilibrium state is non-trivial,
+an equilibrium distribution $f_{\text{eq}}$.
+Deriving the equilibrium distribution is non-trivial,
 but for non-compressible iso-thermal fluid flows
 where the speed of sound $c_s = 1 / \sqrt{3}$ we 
 have the following expression \cite{Kruger2018}.
@@ -149,6 +164,7 @@ BGK relaxes all $f_i$ towards equilibrium at a uniform rate.
 However, BGK is derived from a first order approximation
 of the continuous collision operator.
 It becomes numerically unstable for turbulent flows.
+BGK is an available operator in \lstinline{cm_lbm}.
 
 \subsection{MRT}
 
@@ -163,7 +179,8 @@ back into lattice distributions. We define MRT below \cite{De2017}.
 $$
 \text{MRT}(f) = M^{-1} \cdot R \cdot M (f - f_{\text{eq}})
 $$
-Notably, $M$ and $R$ are constant across space ($x$) and time ($t$).
+Notably, $M$ is constant across space ($x$) and time ($t$).
+MRT is an available operator in \lstinline{cm_lbm}.
 We will expand on these ideas in the next section.
 
 \subsection{CM-MRT}\label{sec:cm-mrt}
@@ -180,7 +197,7 @@ As a result, our moment transform will now depend on $u$. \cite{De2017, De2019}.
 
 
 We will refine this later, our initial definition of 
-the central moments multiple relaxation time collision operator (CM-MRT) 
+the centered moments multiple relaxation time collision operator (CM-MRT) 
 is
 $$\label{eqn:cm_mrt_def_init}
 \text{CM-MRT}_{u}(f) = M_u^{-1} R  M_u(f_{\text{eq}} - f)
@@ -246,8 +263,8 @@ In \cite{Li2020} an adaptive scheme for updating these rates
 over time was described.
 We didn't attempt to implement that, 
 and instead utilized the constant rates proposed in \cite{Li2018}.
-They suggest using following viscosities for
-to use with equation \ref{eqn:kv_rate}
+They suggest using following viscosities
+with equation \ref{eqn:kv_rate}
 for the higher order relaxation rates. 
 \begin{align*}
   v_i &= 0.005, \text{ for } i = 9,\ldots, 16 \\
@@ -257,13 +274,16 @@ for the higher order relaxation rates.
 
 Lastly, we need to revisit $f_{\text{eq}}$.
 We utilize a full sixth order Hermite expansion for 
-equilibrium function, as proposed in \cite{Shan2006}.
+the equilibrium distribution, as proposed in \cite{Shan2006}.
 This expansion is quite complex, but it has an elegant
 representation in centralized moment space.
 Most entries in $M_u f_{\text{eq}} = \bar{m}$ are zero, 
 except for
 $$
-\bar{m}_0 = \bar{m}_9 = \rho, \bar{m}_{17} = c_s^2 \rho, \bar{m}_{18} = c_s^4\rho \bar{m}_{26} = c_s^6 \rho
+\bar{m}_0 = \bar{m}_9 = \rho, \ 
+\bar{m}_{17} = c_s^2 \rho, \ 
+\bar{m}_{18} = c_s^4\rho, \ 
+\bar{m}_{26} = c_s^6 \rho
 $$
 Notably, our equilibrium moments in this space only depend on $\rho$,
 and not $u$, which demonstrates Galilean invariance.
@@ -280,7 +300,7 @@ don't have a sufficiently advanced linear algebra package available
 to directly express equation \ref{eqn:cm-mrt}.
 Code generation using a computer algebra system is a technique used 
 in \textit{lbmpy} \cite{Hennig2023}, 
-and \textit{A Literate Lattice Boltzmann Code}\footnote{\url{http://literatelb.org}}
+and \textit{A Literate Lattice Boltzmann Code}\cite{wev:literate_lbm}
 to generate shader code that
 evaluates collision operators.
 
@@ -296,27 +316,29 @@ My final renders were attempting to model a sort of wind tunnel,
 with fluid flowing in from one $xy$ face, along the z-axis, 
 and out the opposing $xy$ face.
 To achieve this, every simulations specifies a tunnel velocity 
-$u$ and density $\rho$.
+$u_0 = (0, 0, c)$ and density $\rho_o$.
 For our final render (fig \ref{fig:movie-frame})
-we had $\rho = 1.0$ and $c = 0.12$.
-Then our initial conditions are simply 
-the equilibrium values for those macroscopic quantities,
-$f_{\text{eq}}(u, \rho)$.
-Similarly, every time step we set the
-$xy$ faces to the equilibrium values to enforce Dirichlet conditions.
+we had $\rho_0 = 1.0$ and $c = 0.12$.
+Then our initial distributions at each point are simply 
+the equilibrium distribution for those macroscopic quantities,
+$f_{\text{eq}}(u_0, \rho_0)$.
+Similarly, every time step we set distributions for points on the
+$xy$ faces to the equilibrium distribution 
+to enforce Dirichlet conditions.
 The remaining faces used periodic boundary conditions, which
 are trivial to implement with the streaming operator.
+
 For the immersed solid we used a simple bounce-back 
 operation \cite{Kruger2018} on the flagged points
 instead of a typical collision operator.
 Let $f_{\bar{i}}$ be the component of $f$ opposite $f_i$.
-Then a bounce back is $f_i = f_{\bar{i}}$.
+Then a bounce back is $f_i = f_{\bar{i}} \ \forall i$.
 
 This implementation is sufficient for making nice pictures, 
 but has significant drawbacks.
 For example, a shock wave can be seen in our renders
-as bounce-back operation propagates through the fluid.
-More generally, there is a very limited vocabulary for building
+as the initial bounce-back operation propagates through the fluid.
+More generally, this is a very limited vocabulary for building
 models and any serious tool would require a number of
 other boundary conditions to be available.
 

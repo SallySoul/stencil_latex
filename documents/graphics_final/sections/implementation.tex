@@ -2,27 +2,31 @@
 \begin{center}
 \includegraphics[width=\linewidth]{workflow.png}
 \end{center}
-  \caption{Generating a fluid dynamics image or movie
-    has three phases. At compile time we use a
-    python script uses SymPy to generate
-  rust source files for the core LBM operators.
-  At runtime, \lstinline{cm_lbm} generates WGSL shaders
-  and uses them for compute pipelines.
-  During the solve, VTK unstructured grid files are
-  generated. 
-  We post process those files into images using Paraview.
+  \caption{Generating a fluid dynamics image 
+with \lstinline{cm_lbm}
+has three phases. 
+At compile time we use a
+python script uses SymPy to generate
+rust source files for the core LBM operators.
+At runtime, \lstinline{cm_lbm} generates WGSL shaders
+and uses them for compute pipelines.
+During the solve, VTK unstructured grid files are
+generated. 
+We post process those files into images using Paraview.
 }
   \label{fig:architecture}
 \end{figure}
 
 \section{Implementation}\label{sec:implementation}
 \subsection{Submission}
-My submission zip contains pdf copies of this paper, my slides, and the original proposal. 
+My submission zip contains pdf copies of 
+this paper, my slides, and the original proposal. 
 Also contained are
 several mp4 videos, and a snapshot of the implementation source code.
-\lstinline{README.md} in the source directory describes the contents
-of the source directory,
-though we will cover it at a high level in section \ref{sec:architecture}. 
+I will cover the implementation at a high level in section 
+\ref{sec:architecture},
+though \lstinline{README.md} in the source directory describes
+the directory's contents in more detail.
 The source code for the implementation can also be found on 
 github\footnote{\url{https://github.com/SallySoul/cm_lbm}}
 as well as the source code for two earlier 
@@ -45,8 +49,7 @@ Paraview\footnote{\url{https://www.paraview.org}}.
 VTK\footnote{\url{https://vtk.org}} files at set intervals as it 
 steps through time during a solve.
 The computational kernels used by the solver are 
-compute shaders targeting WGPU\footnote{\url{https://wgpu.rs}},
-see figure \ref{fig:compute_kernels} for an overview.
+compute shaders targeting WGPU\footnote{\url{https://wgpu.rs}}.
 Several of these kernels are complex enough
 to require a computer algebra system to generate.
 To this end, a python script \lstinline{codegen.py}
@@ -74,10 +77,11 @@ into WGSL.
 I found it necessary to generate rust versions of these
 operators as well for testing and debugging, as 
 CPU based debugging is far simpler than doing so on the GPU.
-SymPy expressions were the answer here as other projects have shown
+SymPy expressions were the answer here as other projects have shown \cite{Hennig2023, web:literate_lbm}.
 
 Over the course of development, the trend was to move
 more development into the higher level representation.
+First templates and then SymPy.
 It is my belief that an ideal version of this implementation would
 look more like a compiler than the current iteration.
 I am certain that implementing any of the ideas from 
@@ -85,16 +89,15 @@ section \ref{sec:futurework}
 would require more infrastructure be moved into the 
 code generation phase.
 
-Numerical Stability issues became an issue which
-is evident in several of our renders.
+Numerical Stability was also an issue.
 Even now it is quite easy to feed in the wrong parameters
 and quickly pollute the simulation with NaNs.
 While utilizing double-precision numbers wasn't an option for me,
 some possible avenues forward are described 
-in section \ref{sec:futurework}
+in section \ref{sec:futurework}.
 
 It goes without saying, 
-but the timeline I proposed 
+but the timeline in my proposal
 in no way correlates to the actual order of events.
 
 \subsection{Tool Choice Reflection}

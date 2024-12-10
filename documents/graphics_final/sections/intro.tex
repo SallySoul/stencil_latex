@@ -2,18 +2,20 @@
 \begin{center}
   \includegraphics[width=\linewidth]{purple_render_01.png}
 \end{center}
-\caption{This is a frame from one of our demo movies,
-  where we model fluid flowing around a sphere.
-  This is a volumetric render of velocity magnitude. 
-  We see turbulence emerge, as this setup has a high Reynold
-  s number..
-  The simulation domain was a $79 \times 79 \times 190$ 
-  $D3Q27$ lattice. 
-  This film ran the simulation for $20,000$ iterations,
+\caption{
+This is a render of VTK file from one of our simulations.
+This simulation modeled model a fluid flowing around a sphere.
+This is a volumetric render of velocity magnitude, with
+lower velocities have a darker color.
+We see turbulence emerge, as this simulation had a high Reynold's 
+number.
+The simulation domain was a $79 \times 79 \times 190$ 
+$D3Q27$ lattice. 
+This simulation ran for $20,000$ iterations,
   creating a frame every $10$ iterations.
 It took $\approx 49$ minutes to run, 
-and generated $\approx 300$Gb of data.
-Paraview took almost $9$ hours to render the film.}
+and generated $> 300$Gb of data.
+Paraview took almost $9$ hours to render the full movie.}
 \label{fig:movie-frame}
 \end{figure*}
 
@@ -40,10 +42,10 @@ The proposal for my final project was to
 implement a GPU based LBM simulation utilizing the CM-MRT collision 
 operator.
 I was able to implement most of the ideas from
-my proposal, using CM-MRT operator in particular.
+my proposal, CM-MRT in particular.
 My implementation is described and discussed in section 
 \ref{sec:implementation}.
-In section \ref{sec:related_work} I explore the theory
+In section \ref{sec:relatedwork} I explore the theory
 of what I implemented as well as related work.
 Future work is discussed in section \ref{sec:futurework}.
 
@@ -53,7 +55,7 @@ I had planned on implementing a more advanced fluid-solid
 interaction, as described in \cite{Lyu2021}.
 In the end I only supported a simple bounce-back operator 
 (see section \ref{sec:ic-and-bc}) and only implemented a mechanism
-for adding spheres rather than arbitrary shapes.
+for adding spheres rather than arbitrary geometry.
 There was also an adaptive relaxation rate scheme from \cite{Li2020}
 that would be have been much closer to the state-of-the-art for 
 collision operators.
