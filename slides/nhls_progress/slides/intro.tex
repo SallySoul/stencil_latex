@@ -1,0 +1,22 @@
+\begin{frame}{nhls Introduction}
+  \begin{columns}
+  \column{0.58\linewidth}
+  \begin{outline}
+    \1 Rust Library, implements \cite{Ahmad2023}
+    \1 Started in September 2024
+    \1 Aperiodic (AP) solver merged recently
+    \1 Uses Rayon for fork-join parallelism
+    \2 FFTW3 calls use rayon as well via \lstinline{fftw_threads_set_callback}
+  \end{outline}
+
+  \column{0.38\linewidth}
+  \begin{center}
+  \centering
+  \shadowimage[width=2.5cm]{ahmad2023_image.png}
+  \end{center}
+  \end{columns}
+
+  \begin{center}
+  \includegraphics[width=0.8\textwidth]{heat_1d_ap.png}
+  \end{center}
+\end{frame}
