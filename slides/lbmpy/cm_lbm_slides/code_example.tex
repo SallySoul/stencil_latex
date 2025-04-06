@@ -1,0 +1,38 @@
+\begin{frame}{Code Example: SymPy}
+  \begin{center}
+  \begin{align*}
+  f^{*}_i = f_i + \Omega_i(f, \rho, u).
+  \end{align*}
+  \shadowimage[width=0.46\linewidth]{bgk_python_code.png}
+  \shadowimage[width=0.46\linewidth]{python_code.png}
+  \begin{outline}
+    \1 Using SymPy was inspired by \cite{Hennig2023}
+    \1 Looks like a compiler
+  \end{outline}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Code Example: Shader}
+  \begin{center}
+  \shadowimage[width=0.6\linewidth]{shader_code.png}
+  \end{center}
+  \begin{outline}
+    \1 $\approx 5$kb for moments shader
+    \1 $1.1$mb for CM-MRT shader
+    \1 Cheap to compute
+    \1 Challenging to debug
+  \end{outline}
+\end{frame}
+
+\begin{frame}{Code Example: Rust}
+  \begin{center}
+  \shadowimage[width=0.6\linewidth]{rust_code.png}
+  \end{center}
+  \begin{outline} 
+    \1 With formatting, $\approx 45$k lines
+    \1 Easier to test and debug
+    \1 Tricky parts match shader exactly
+\end{outline}
+\end{frame}
+
+

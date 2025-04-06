@@ -1,0 +1,166 @@
+\begin{frame}{Collision (BGK)}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+\1 Collision is local
+\1 Relax distributions towards equilibrium
+\1 BGK is standard collision operator
+\2 Relaxes all distributions at constant rate
+\1 First order approximation
+\end{outline}
+\column{0.48\linewidth}
+\begin{center}
+\begin{align*}
+    \text{BGK}(f) &= \frac{1}{\tau} (f_{\text{eq}} - f)
+\end{align*}
+\end{center}
+\end{columns}
+\vspace{1cm}
+\begin{align*}
+   f_{\text{eq}} &= w_i \rho \left(
+1 + 3 c_i \cdot u  + \frac{9 (c_i \cdot u)^2}{2}
+- \frac{3 (u \cdot u)^2}{2}\right) \\
+\end{align*}
+\end{frame}
+
+\begin{frame}{Multiple Relaxation Time (MRT)}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+\1 $M$ transforms $f$ into moment space
+\1 $26$ of them!
+\1 Relax moments separately
+\1 $M^{-1}$ transforms result back to distribution
+\end{outline}
+\column{0.48\linewidth}
+\begin{center}
+\begin{align*}
+m_{0,j} &= \{  1 \},\\
+m_{1,j} &= \{  c_{j,x} \}, \\
+m_{18,j} &= \{ c_{j,x}^2 c_{j,y}^2 + c_{j,x}^2 c_{j,z}^2 - c_{j,y}^2 c_{j,z}^2 \}, \\
+m_{19,j} &= \{ c_{j,x}^2 c_{j,y}^2 - c_{j,x}^2 c_{j,z}^2 \},\\
+m_{26,j} &= \{ c_{j,x}^2 c_{j,y}^2 c_{j,z}^2 \},\\
+\end{align*}
+\end{center}
+\end{columns}
+\begin{center}
+  \begin{align*}
+\text{MRT}(f) &= M^{-1} \cdot R \cdot M(f_{\text{eq}} - f)
+  \end{align*}
+\end{center}
+\end{frame}
+
+\begin{frame}{Relaxation Rates, pt 1}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+\1 Independent relaxation rates for each moment
+\1 Zeroth moment, density, should be conserved.
+\1 Next three are momentum, $r_i = 2$ is common
+\1 Next six moments are related to momentum flux
+\2 Relaxation rate is related to viscosity, $v$ 
+\end{outline}
+\column{0.48\linewidth}
+\begin{center}
+\begin{align*}
+  R &= \left[\begin{array}{c c c c}
+  r_0 & 0 & \cdots & 0 \\
+  0 & r_1 & \cdots & 0 \\
+  \vdots & & & \vdots \\
+  0 & & \cdots & r_{26} \\
+  \end{array}\right] \\
+  r_0 &= 0, \\
+  r_i &= 2, \text{ for } i = 1, 2, 3 \\
+  r_i &= (3v + 1/2)^{-1}, \text{ for } i = 4,\cdots,9
+\end{align*}
+\end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Relaxation Rates, pt 2}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+\1 Higher-order relaxation rates are an area of active research
+\1 \cite{Li2020} Describes an adaptive approach
+\1 I implemented fixed rates as described in \cite{Li2018}.
+\end{outline}
+\column{0.48\linewidth}
+\begin{center}
+\begin{align*}
+  R &= \left[\begin{array}{c c c c}
+  r_0 & 0 & \cdots & 0 \\
+  0 & r_1 & \cdots & 0 \\
+  \vdots & & & \vdots \\
+  0 & & \cdots & r_{26} \\
+  \end{array}\right] \\
+  r_i &= (3v_i + 1 / 2)^{-1}\\
+  v_i &= 0.005, \text{ for } i = 9,\ldots, 16 \\
+  v_i &= 0.007, \text{ for } i = 17, \ldots, 22 \\
+  v_i &= 0.009, \text{ for } i = 26 
+\end{align*}
+\end{center}
+\end{columns}
+\end{frame}
+
+
+\placelogofalse
+\begin{frame}{Central Moment MRT (CM-MRT)}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+\1 MRT violates Galilean invariance 
+\2 $u$ changes collision outcome
+\1 Center Moments on $u$ \cite{De2017}
+\1 $\bar{m}_{\rho} = M_u f_{eq}(u, \rho)$
+\2 Equilibrium in CM space
+\2 Only depends on $\rho$!
+\end{outline}
+\column{0.48\linewidth}
+\begin{center}
+\begin{align*}
+\bar{c}_j &= c_j - u \\
+m_{0,j} &= \{  1 \},\\
+m_{1,j} &= \{  \bar{c}_{j,x} \}, \\
+m_{18,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 + \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 - \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \}, \\
+m_{19,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 - \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 \},\\
+m_{26,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},\\
+\end{align*}
+\end{center}
+\end{columns}
+\begin{center}
+  \begin{align*}
+\text{CM-MRT}_{u,\rho}(f) &= M_u^{-1} \cdot R \cdot (\bar{m}_{\rho} - M_u f)
+\end{align*}
+\end{center}
+\end{frame}
+\placelogotrue
+
+\placelogofalse
+\begin{frame}{Central Moment MRT (CM-MRT)}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+\1 MRT violates Galilean invariance 
+\1 Center Moments on $u$ \cite{De2017}
+\1 $f_{\text{eq}}$ only depends on $\rho$ in CM space
+\end{outline}
+\column{0.48\linewidth}
+\begin{center}
+\begin{align*}
+\bar{c}_j &= c_j - u \\
+m_{0,j} &= \{  1 \},\\
+m_{1,j} &= \{  \bar{c}_{j,x} \}, \\
+m_{18,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 + \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 - \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \}, \\
+m_{19,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 - \bar{c}_{j,x}^2 \bar{c}_{j,z}^2 \},\\
+m_{26,j} &= \{ \bar{c}_{j,x}^2 \bar{c}_{j,y}^2 \bar{c}_{j,z}^2 \},\\
+\end{align*}
+\end{center}
+\end{columns}
+\begin{center}
+  \begin{align*}
+\text{CM-MRT}_{u,\rho}(f) &= M_u^{-1} \cdot R \cdot (\bar{m}_{\rho} - M_u f)
+\end{align*}
+\end{center}
+\end{frame}
+\placelogotrue
