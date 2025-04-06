@@ -1,0 +1,13 @@
+% "Operation Count"
+% rg '\+|\*|\-' cm_lbm_generated/src/shader_ops/cm_mrt.rs -o  | wc -l
+\begin{frame}{Symbolic Simplification Results}
+  \centering
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{arith_table.png}
+  \end{center}
+  For reference, my had \textsc{CM} implementation (slight over estimate) $220,702$ arithmetic operations.
+  \blfootnote{From \cite{Hennig2023}}
+\end{frame}
+
+
+
