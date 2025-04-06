@@ -1,0 +1,60 @@
+\documentclass{beamer}
+\input{../../packages.tex}
+\input{../../slides_formatting.tex}
+
+%Information to be included in the title page:
+\title{Advanced Automatic Code Generation For Multiple Relaxation-Time Lattice Boltzmann Methods}
+\author{Frederick Hennig, Markus Holzer, and Ulrich R{\"u}de \\ \vspace{0.5cm} Presented by Russell Bentley}
+\institute{Stony Brook}
+\date{2024}
+
+\begin{document}
+
+\frame{\titlepage}
+
+ %% Whate are we talking about
+\input{slides/intro.tex}
+
+%%%
+%%% cm_lbm slides
+%%%
+
+%% TODO: import cm_lbm slides
+
+ % Graphicsfinal conclusion
+\input{slides/russell_project_conclusion.tex}
+
+%%
+%% Paper Slides
+%%
+
+
+% Background Projects
+\input{slides/paper_context.tex}
+\input{slides/walberla.tex}
+\input{slides/pystencils.tex}
+\input{slides/lbmpy.tex}
+
+% Paper intro
+\input{slides/paper.tex}
+
+% Zero-centered
+\input{slides/zero_centered.tex}
+
+% TODO Simplication Passes 
+\input{slides/paper_passes.tex}
+\input{slides/moments.tex}
+\input{slides/symbolic_results.tex}
+
+
+% Eh
+% \input{slides/filter.tex}
+
+\begin{frame}[allowframebreaks]{References}
+    \tiny
+    \printbibliography
+\end{frame}
+
+\end{document}
+
+
