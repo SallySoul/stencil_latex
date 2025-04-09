@@ -1,15 +1,58 @@
-\begin{frame}{Raw Moment Transform}
+\begin{frame}{Moment Transform, pt. 1}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+  \1 Transform populations to Raw Moments ($Mf$)
+  \1 Use Chimera transform to compute moments    
+  \2 Introduced in \cite{Geier2015}
+  \1 More efficient than Matrix transform
+  \1 Inverse uses trick to split populations \\
+  $f^{*}_i = f^{+}_i + f^{-}_i, \ f^{*}_{\bar{i}} = f_i^{+} - f^{-}_i$
+\end{outline}
+
+\column{0.48\linewidth}
+
 \centering
 \begin{center}
 \begin{align*}
-  f_{xyz} &:= \left\{ 
-  \begin{array}{l l}
-  f_i & \text{it } \text{ is contained in the stencil} \\
-  0 & \text{otherwise}
-  \end{array}
-  \right. 
+  m_{xy|\gamma} &:= \sum_{z \in \{-1, 0, 1\}} f_{xyz} \cdot z^{\gamma} \\ 
+  m_{x|\beta\gamma} &:= \sum_{y \in \{-1, 0, 1\}} m_{xy|\gamma} \cdot y^{\beta} \\ 
+  m_{\alpha\beta\gamma} &:= \sum_{x \in \{-1, 0, 1\}} m_{x|\beta\gamma} \cdot x^{\alpha} \\ 
 \end{align*}
-%Where $\Epsilon_i \in (-1, 0, 1)^d$ is the velocity?
 \end{center}
+\end{columns}
 \end{frame}
+
+\begin{frame}{Moment Transform, pt. 2}
+\begin{columns}
+\column{0.48\linewidth}
+\begin{outline}
+  \1 To compute central moments
+  \1 First compute raw moments $m_{\alpha\beta\gamma}$
+  \1 Then transform them to central moments $\kappa_{\alpha\beta\gamma}$
+\end{outline}
+
+\column{0.48\linewidth}
+
+\centering
+\begin{center}
+\begin{align*}
+  \kappa_{ab|\gamma} &:= 
+  \sum_{c = 0}^{\gamma} \binom{\gamma}{c} (-u_z)^{\gamma - c} m_{a b c} \\
+  \kappa_{a|\beta\gamma} &:= 
+  \sum_{c = 0}^{\gamma} \binom{\gamma}{c} (-u_z)^{\gamma - c} m_{a b c} \\
+\end{align*}
+\end{center}
+\end{columns}
+
+  \begin{align*}
+    \kappa_{\alpha\beta\gamma} = 
+    \sum_{a, b, c = 0}^{\alpha\beta\gamma} 
+    \binom{\alpha}{a} \binom{\beta}{b} \binom{\gamma}{c} 
+    (-u_x)^{\alpha - a}(-u_y)^{\beta - b} (-u_z)^{\gamma - c} m_{a b c}
+  \end{align*}
+
+
+\end{frame}
+
 
