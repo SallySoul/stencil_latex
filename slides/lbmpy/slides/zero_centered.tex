@@ -1,3 +1,21 @@
 \begin{frame}{Zero-centered Storage}
-TODO
+\begin{columns}
+\column{0.58\linewidth}
+\begin{outline}
+  \1 For incompressible hydrodynamics: 
+  \1 $f$ is generally close to $f^0$.
+  \1 So lets only store $\partial f = f - f^0$
+  \1 Improve numerical accuracy
+  \1 Can also use smaller float format!
+  \1 Adds code-gen complexity
+\end{outline}
+
+\column{0.38\linewidth}
+
+\centering
+\begin{center}
+  \includegraphics[width=5cm]{fig_2.1.png}
+\end{center}
+\end{columns}
+\blfootnote{From \cite{Hennig2023}}
 \end{frame}

@@ -1,26 +1,32 @@
-\begin{frame}{Collision (BGK)}
+\begin{frame}{Collision - Single Relaxation Time (SRT)}
 \begin{columns}
-\column{0.48\linewidth}
+\column{0.58\linewidth}
 \begin{outline}
 \1 Collision is local
 \1 Relax distributions towards equilibrium
-\1 BGK is standard collision operator
+\1 SRT is standard collision operator
 \2 Relaxes all distributions at constant rate
+\2 Also known as Bhatnagar-Gross-Krook (BGK)
 \1 First order approximation
+\1 Equilibrium from continuous Maxwell-Boltzmann distribution
 \end{outline}
-\column{0.48\linewidth}
+\column{0.38\linewidth}
 \begin{center}
 \begin{align*}
-    \text{BGK}(f) &= \frac{1}{\tau} (f_{\text{eq}} - f)
+    \text{SRT}(f) &= \frac{1}{\tau} (f_{\text{eq}} - f)
 \end{align*}
+
 \end{center}
 \end{columns}
-\vspace{1cm}
+\vspace{0.5cm}
+
 \begin{align*}
    f_{\text{eq}} &= w_i \rho \left(
 1 + 3 c_i \cdot u  + \frac{9 (c_i \cdot u)^2}{2}
 - \frac{3 (u \cdot u)^2}{2}\right) \\
 \end{align*}
+
+
 \end{frame}
 
 \begin{frame}{Multiple Relaxation Time (MRT)}

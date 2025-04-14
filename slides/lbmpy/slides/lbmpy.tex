@@ -1,15 +1,25 @@
 \begin{frame}{\lstinline{lbmpy}}
   \begin{columns}
-  \column{0.48\linewidth}
+  \column{0.58\linewidth}
   \begin{outline}
-  \1 Python package for LBM
-  \2 Introduced in \cite{Bauer2021} (2020)
+  \1 Compiler for LBM Kernels
+  \2 Introduced in \cite{Bauer2021lbmpy} (2021)
+  \2 Built on \lstinline{pystencils}
+  \1 Supports
+  \2 Many grid configurations ($D3Q27$)
+  \2 Arbitrary governing equations ($f_{eq}$)
+  \1 Originally only supported SRT, MRT
+  \1 Deployable to exa-scale machines with waLBerla
   \end{outline}
 
-  \column{0.48\linewidth}
+  \column{0.38\linewidth}
   \centering
   \begin{center}
-    \includegraphics[width=0.2\linewidth]{lbmpy_logo.png}
+    \includegraphics[width=2cm]{lbmpy_logo.png}
+
+    \vspace{1cm}
+
+    \includegraphics[width=3cm]{thermal_flow.png}
   \end{center}
 \end{columns}
 \end{frame}

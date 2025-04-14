@@ -20,18 +20,24 @@
   \shadowimage[width=2cm]{totp_hardware.jpeg}
   \shadowimage[width=2cm]{hsm_ras.jpg}
 
-  \includegraphics[width=3cm]{wire_diagram.png}
   \end{center}
 \end{columns}
 \blfootnote{From \cite{Athalye2022Verifying}}
 \end{frame}
 
-\begin{frame}{Formal Verification}
+\begin{frame}{Thread Model}
 \begin{columns}
   \column{0.48\linewidth}
   \centering
   \begin{outline}
-  \1 Timing Attacks $\rightarrow$ 
+  \1 Remote compromise of host 
+  \1 Any \textit{digital} use of wire interface
+  \1 Ensure no extra information leaks
+  \2 Bug in implementation
+  \2 Timing Attacks $\rightarrow$ 
+  \1 Does not consider physical access
+  \2 Overvoltage, tampering
+  \2 Secure as the specification
   \end{outline}
 
   \column{0.48\linewidth}
@@ -43,12 +49,3 @@
 \end{columns}
 \blfootnote{From \cite{Athalye2022Verifying}}
 \end{frame}
-
-\begin{frame}{Information Preserving Refinement (IPR)}
-  \centering
-  \begin{center}
-    \includegraphics[width=11cm]{ipr.png}
-  \end{center}
-\end{frame}
-
-

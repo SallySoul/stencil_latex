@@ -1,3 +1,33 @@
 \begin{frame}{Simplification Passes}
-TODO
+  \begin{columns}
+  \column{0.58\linewidth}
+  \begin{outline}
+    \1 Conserved Quantity Rewriting
+    \2 Use moments instead of $\rho, \bm{u}$
+    \1 Propagation of Logarithms
+    \2 Relevant for Cumulants
+    \1 Common Subexpression Elimination (CSE)
+    \2 Make new assignments for them
+    \1 Expression Propagation
+    \2 For assignments with constant RHS
+    \2 Copy into use-sites
+    \1 Unused Subexpression Elimination
+    \2 Remove unused assignments
+  \end{outline}
+  \column{0.38\linewidth}
+  \centering
+  \begin{center}
+  \begin{align*}
+    \kappa_{000} &= \rho \\
+    \kappa_{100} &= -F_x / 2 \\
+    \kappa_{000}^{*} &= \kappa_{000} \\
+    \kappa_{100}^{*} &= \kappa_{100} + F_x \\
+    m^{*}_{10|0} &= \kappa^{*}_{000} \bm{u}_x + \kappa_{100}^{*}
+  \end{align*}
+  To
+  \begin{align*}
+  m^{*}_{10|0} &= \rho \bm{u}_x + F_x / 2 
+  \end{align*}
+\end{center}
+\end{columns}
 \end{frame}
