@@ -1,0 +1,98 @@
+\documentclass{article}
+\input{../../packages.tex}
+\usetikzlibrary{trees,decorations.pathreplacing}
+\usetikzlibrary{calc}
+
+
+\usepackage[
+  letterpaper,
+  left=2cm,
+  right=2cm,
+  top=2cm,
+  bottom=2cm
+]{geometry}
+
+\setlength{\parindent}{20pt}
+
+% Define configurable parameters
+\newcommand{\mylinecolor}{black} % change the color here
+\newcommand{\mylinethickness}{1pt} % change the thickness here
+
+\tikzset{
+  node style/.style={
+    circle, draw=\mylinecolor, line width=\mylinethickness, inner sep=2pt, minimum size=8mm
+  },
+  edge style/.style={
+    draw=\mylinecolor, line width=\mylinethickness
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[
+  level distance=1.5cm,
+  sibling distance=3cm,
+  level 1/.style={sibling distance=6cm, level distance=1.5cm}, % increased sibling distance at level 1
+  level 2/.style={sibling distance=3cm, level distance=1.5cm}  % adjust sibling distance at level 2
+]
+% Root node
+\node[node style] (root) {$t_{1, 4}$} 
+   child {node[node style] (t12) {$t_{1,2}$} 
+    child {node[node style] (t1) {$t_1$}}
+    child {node[node style] (t2) {$t_2$}}
+  }
+  child {node[node style] (t34) {$t_{3,4}$}
+    child {node[node style] (t3) {$t_3$}}
+    child {node[node style] (t4) {$t_4$}}
+  };
+
+% Customize the edges: if needed, you can also add options to the child commands
+\foreach \from/\to in {root/t12, root/t34, t12/t1, t12/t2, t34/t3, t34/t4} {
+  \draw[edge style] (\from) -- (\to);
+}
+
+% Draw a brace under the leaves, spanning from the left-most leaf (t1) to the right-most leaf (t4)
+\draw[decorate, decoration={brace, mirror, amplitude=5pt}, draw=\mylinecolor, line width=\mylinethickness] 
+  ($(t1.south west)+(0,-0.3cm)$) -- ($(t4.south east)+(0,-0.3cm)$) node [midway, yshift=-0.5cm] {$\sigma * T < N$};
+
+\begin{tikzpicture}[scale=1.2]
+
+% Root triangle
+\coordinate (A) at (0,0);
+\coordinate (B) at (6,0);
+\coordinate (C) at (3,3);
+\draw[thick] (A) -- (B) -- (C) -- cycle;
+\node at (3,3.3) {Root};
+
+% Slope calculation
+% Want the leaves to have the same side slope as the root: (3,3) to (0,0) is slope 1
+
+% Leaves: base y = -2
+\def\leafheight{1.5}
+\def\leafwidth{1.5}
+
+% Leaf 1 (aligned with root's left slope)
+\coordinate (L1A) at (0.5,-2);
+\coordinate (L1B) at (2,-2);
+\coordinate (L1C) at (1.25,-0.5);
+\draw[thick] (L1A) -- (L1B) -- (L1C) -- cycle;
+
+% Leaf 2
+\coordinate (L2A) at (2.2,-2);
+\coordinate (L2B) at (3.7,-2);
+\coordinate (L2C) at (2.95,-0.5);
+\draw[thick] (L2A) -- (L2B) -- (L2C) -- cycle;
+
+% Ellipsis
+\node at (4.5,-1.25) {\Large $\cdots$};
+
+% Leaf 4 (aligned with root's right slope)
+\coordinate (L4A) at (5.2,-2);
+\coordinate (L4B) at (6.7,-2);
+\coordinate (L4C) at (5.95,-0.5);
+\draw[thick] (L4A) -- (L4B) -- (L4C) -- cycle;
+
+\end{tikzpicture}
+  
+\end{tikzpicture}
+\end{document}
+

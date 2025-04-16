@@ -1,0 +1,57 @@
+\documentclass{article}
+\input{../../packages.tex}
+\usetikzlibrary{trees,decorations.pathreplacing}
+\usetikzlibrary{calc}
+
+
+\usepackage[
+  letterpaper,
+  left=2cm,
+  right=2cm,
+  top=2cm,
+  bottom=2cm
+]{geometry}
+
+\setlength{\parindent}{20pt}
+
+% Define configurable parameters
+\newcommand{\mylinecolor}{black} % change the color here
+\newcommand{\mylinethickness}{1pt} % change the thickness here
+
+\tikzset{
+  node style/.style={
+    circle, draw=\mylinecolor, line width=\mylinethickness, inner sep=2pt, minimum size=8mm
+  },
+  edge style/.style={
+    draw=\mylinecolor, line width=\mylinethickness
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.2]
+
+\coordinate (root) at (3, 3);
+\coordinate (sub_root_1) at (0, 0);
+\coordinate (sub_root_2) at (2, 0);
+\coordinate (sub_root_3) at (4, 0);
+\coordinate (sub_root_4) at (6, 0);
+\coordinate (leaf_base_1) at (-1, -2);
+\coordinate (leaf_base_2) at (1, -2);
+\coordinate (leaf_base_3) at (3, -2);
+\coordinate (leaf_base_4) at (5, -2);
+\coordinate (leaf_base_5) at (7, -2);
+
+% Root triangle
+\draw[thick] (root) -- (sub_root_1) -- (sub_root_4) -- cycle;
+
+% Sub triangles
+\draw[thick] (leaf_base_1) -- (leaf_base_2) -- (sub_root_1) -- cycle;
+\draw[thick] (leaf_base_3) -- (leaf_base_2) -- (sub_root_2) -- cycle;
+\draw[thick] (leaf_base_4) -- (leaf_base_5) -- (sub_root_4) -- cycle;
+
+% Ellipsis
+\node at ($(sub_root_3) + (0, -1cm)$) {\Large $\cdots$};
+
+\end{tikzpicture}
+\end{document}
+
