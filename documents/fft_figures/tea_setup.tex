@@ -1,0 +1,383 @@
+\usepackage{amsmath,amssymb,amsthm, bm}
+\usepackage{graphicx,xcolor}
+\usepackage[mathscr]{euscript}
+\usepackage{tikz}
+\usetikzlibrary{trees,arrows,automata}
+\usetikzlibrary{shapes.geometric} % for oval nodes
+\usetikzlibrary{shadows,fadings}
+\usepackage{wrapfig}   % for wrapfig function
+\usepackage{stmaryrd} % for llceil function
+\usepackage{url}
+\usepackage{pifont}
+\usepackage{lipsum}
+\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
+\usepackage{multirow}
+\usepackage{mathtools}
+%---- TCOLORBOX -----
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+%----- TABLE COLOR -----
+\usepackage{environ}
+\usepackage{colortbl}
+\usepackage{hhline}
+\usepackage{rotating}
+\usepackage{array}
+\usepackage{libertine}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{fontawesome}
+\usepackage{physics}
+\usepackage{xspace}
+\usepackage{hhline}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{makecell}
+\usepackage{arydshln}
+\setlength{\dashlinedash}{2pt}  % Dot size (default is 4pt)
+\setlength{\dashlinegap}{0.5pt}     % Gap between dots (default is 2pt)
+\setlength{\arrayrulewidth}{0.5pt} % Thickness of the line
+
+
+\usepackage{etoolbox}
+
+\newbool{draft_formatting}
+\setbool{draft_formatting}{false} % use to change formatting to the draft version
+
+\newbool{arxiv_version}
+\setbool{arxiv_version}{false} % use to change formatting to the Arxiv version
+
+%\usepackage[dvipsnames,table]{xcolor}
+%\usepackage{mdframed}
+%\usepackage{amsfonts}
+%\usepackage[mathscr]{euscript}
+%\usepackage{tikz}
+%\usetikzlibrary{trees,arrows,automata}
+%\usetikzlibrary{shapes.geometric} % for oval nodes
+%\usetikzlibrary{shadows,fadings}
+%\usepackage{wrapfig}   % for wrapfig function
+%\usepackage{stmaryrd} % for llceil function
+%\usepackage{url}
+%\usepackage{pifont}
+%\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
+%---- TCOLORBOX -----
+%\usepackage{tcolorbox}
+%\tcbuselibrary{skins}
+%----- TABLE COLOR -----
+%\usepackage{environ}
+%\usepackage{colortbl}
+
+%\usepackage{draftwatermark}
+%\SetWatermarkLightness{ 0.9 }
+%\SetWatermarkText{DRAFT\\COPY}
+%\SetWatermarkScale{ 0.3 }
+
+\ifbool{draft_formatting}{
+    \usepackage{xwatermark}
+    \newwatermark[%
+      allpages,% show on all pages
+      angle=55,% rotate by 55 degrees
+      scale=2.2,% scale by 2.75
+      textcolor=gray!15
+    ]{WORK IN PROGRESS\\PLEASE DO NOT SHARE}
+}{}
+
+\graphicspath{{SPAA-2021-Camera-Ready/images/}}
+
+\newcommand{\Periodic}{\textsc{StencilFFT-P}}
+\newcommand{\Aperiodic}{\textsc{StencilFFT-A}}
+\newcommand{\Boundary}{\textsc{RecursiveBoundary}}
+
+\newcommand{\StencilViaFFTPeriodic}{\textsc{PStencil-1D-FFT}\xspace}
+\newcommand{\StencilViaFFTPeriodicdD}{\textsc{PStencil-$d$D-FFT}}
+\newcommand{\EpsilonSliceStencilViaFFT}{\textsc{$\epsilon$-Slice-Stencil-FFT}}
+\newcommand{\TwoWayStencilViaFFT}{\textsc{AStencil-1D-FFT}\xspace}
+\newcommand{\TwoWayBoundaryViaFFT}{\textsc{ABoundary-1D-FFT}\xspace}
+\newcommand{\TwoWayStencilViaFFTdD}{\textsc{AStencil-$d$D-FFT}\xspace}
+\newcommand{\TwoWayBoundaryViaFFTdD}{\textsc{ABoundary-$d$D-FFT}\xspace}
+\newcommand{\StencilviaNestedLoopPeriodic}{\textsc{PStencil-Loop}}
+\newcommand{\StencilviaNestedLoopAperiodic}{\textsc{AStencil-Loop}}
+\newcommand{\MFFT}{\textsc{Multi-FFT}}
+\newcommand{\IMFFT}{\textsc{Inverse-Multi-FFT}}
+
+\newcommand{\fft}{\mathcal{F}}
+\newcommand{\ifft}{\mathcal{F}^{-1}}
+\newcommand{\pluto}{PLuTo}
+\newcommand{\plutostandard}{\texttt{standard}}
+\newcommand{\plutodiamond}{\texttt{diamond}}
+
+\newcommand{\hide}[1]{}
+\newcommand{\Arxiv}[1]{
+    \ifbool{arxiv_version}{#1}{}
+}
+%\newtheorem{property}{Property}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{rules}{Rule}
+\newcommand{\floor}[1]      {\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]       {\left\lceil #1 \right\rceil}
+\newcommand{\highlight}[1]{\textit{\textbf{#1}}}
+\newcommand{\highlighttitle}[1]{\textbf{#1}}
+\newcommand\pa[1]{\ensuremath{\left(#1\right)}}
+
+\newcommand{\cnote}[2]{%
+  \ifnotes
+    {\marginpar{\color{#1}\scriptsize \sf \raggedright{#2}}}%
+%    {\marginpar{\color{#1}\small\raggedright\parbox[t]{\columnwidth}{#2}}}
+  \fi}
+
+\newcommand{\citereferences}{
+    \ifbool{draft_formatting}{}{\textsc{\textcolor{red}{CITE}}}
+}
+\newcommand{\autogen}{\ifbool{draft_formatting}{}{\textsc{Autogen}}}
+\newcommand{\okay}{
+    \ifbool{draft_formatting}{}{\pramod{Okay till here}}
+}
+\newcommand{\addcitations}{
+    \ifbool{draft_formatting}{}{\textcolor{red}{[CITE]}}
+}
+\newcommand{\pramod}[1]{
+    \ifbool{draft_formatting}{}{
+        \vspace{0.3cm}
+        \hrule{} \textcolor{red}{[\textsc{#1}]} \hrule{} \vspace{0.3cm}
+    }
+}
+
+\newcommand{\rezaul}[1]{
+    \ifbool{draft_formatting}{}{\textcolor{orange}{[\textsc{#1}]}}
+}
+
+\newcommand{\aaron}[1]{
+    \ifbool{draft_formatting}{}{\textcolor{blue}{[\textsc{#1}]}}
+}
+
+\newcommand{\michael}[1]{
+    \ifbool{draft_formatting}{}{\textcolor{blue}{[\textsc{#1}]}}
+}
+
+\definecolor{orange}{rgb}{1,0.3,0}
+\newcommand{\rezaulnote}[1]{
+    \ifbool{draft_formatting}{}{\cnote{red}{Rezaul: #1}}
+}
+
+\def\comment#1{\hfill{\color{gray}{$\left\{\textrm{{\em{#1}}}\right\}$}}}
+\def\lcomment#1{\hfill{\color{gray}{$\left\{\textrm{{\em{#1}}}\right.$}}}
+\def\rcomment#1{\hfill{\color{gray}{$\left.\textrm{{\em{#1}}}\right\}$}}}
+\def\fcomment#1{\hfill{\color{gray}{$\textrm{{\em{#1}}}$}}}
+\def\func#1{\textrm{\bf{\sc{#1}}}}
+\def\funcbf#1{\textrm{\textbf{\textsc{#1}}}}
+\def\F#1#2{\func{${#1}_{#2}$}}
+\def\L#1#2{\func{${#1}_{loop\text{-}#2}$}}
+\newcommand{\tim}[1]{\textbf{TIME: \{} #1 \textbf{\}}}
+\newcommand{\oq}{\mbox{``}}
+\newcommand{\cq}{\mbox{''}}
+\newcommand{\bi}[1]{\textit{\textbf{#1}}}
+%\newcommand{\vtxt}[2]{ \rotatebox{90}{ \begin{tabular}{p{#1}} \centering{#2} \end{tabular} } }
+\newcommand{\vtxt}[2]{ \rotatebox{90}{ \centering{#2} } }
+
+\newcommand{\vgap}{\vspace{-0.2cm}}
+\newcommand{\m}[1]{\mathscr{#1}}
+\newcommand{\M}{\textsf{M}}
+\newcommand{\dbsp}{\textsf{D-BSP}}
+\newcommand{\bfm}[1]{\mbox{\boldmath $#1$}}
+\def\phead#1{~\\\noindent{\bf{#1.}}}
+\newcommand{\embox}{\mbox{\hspace*{1em}}}
+\newcommand{\para}[1]{\vspace{0.1cm}\noindent{\bf{#1.}}}
+\newcommand{\vitem}{\vspace{-0.3cm}\item}
+\newcommand{\codesize}{\small}
+\newcommand{\codewidth}{0.98\textwidth}
+
+\newcommand{\fnc}[1]{\textrm{\bf{\sc{#1}}}}
+\newcommand{\TBL}[2]{\begin{tabular}{@{} #1 @{}} #2 \end{tabular}}
+\newcommand{\ft}[1]{\footnotesize #1}
+\newcommand{\T}{\hspace{1em}}
+
+% math notations
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\Z}{\ensuremath{\mathbb Z}}
+\newcommand{\N}{\ensuremath{\mathbb N}}
+%\newcommand{\F}{\ensuremath{\mathcal F}}
+\newcommand{\SymGrp}{\ensuremath{\mathfrak S}}
+
+\definecolor{gray}{rgb}{0.3,0.3,0.3}
+
+\def\comment#1{\hfill{\color{gray}{$\left\{\textrm{{\em{#1}}}\right\}$}}}
+\def\lcomment#1{\hfill{\color{gray}{$\left\{\textrm{{\em{#1}}}\right.$}}}
+\def\rcomment#1{\hfill{\color{gray}{$\left.\textrm{{\em{#1}}}\right\}$}}}
+\def\fcomment#1{\hfill{\color{gray}{$\textrm{{\em{#1}}}$}}}
+\def\func#1{\textrm{\bf{\sc{#1}}}}
+\def\funcbf#1{\textrm{\textbf{\textsc{#1}}}}
+
+
+% asymptotic notations
+\newcommand{\Oh}[1]{{\mathcal O}\left({#1}\right)}
+\newcommand{\LOh}[1]{{\mathcal O}\left({#1}\right.}
+\newcommand{\ROh}[1]{\left.{#1}\right)}
+\newcommand{\oh}[1]{{o}\left({#1}\right)}
+\newcommand{\Om}[1]{{\Omega}\left({#1}\right)}
+\newcommand{\om}[1]{{\omega}\left({#1}\right)}
+\newcommand{\Th}[1]{{\Theta}\left({#1}\right)}
+\newcommand{\LTh}[1]{{\Theta}\left({#1}\right.}
+\newcommand{\RTh}[1]{\left.{#1}\right)}
+
+\newcommand{\xif}{{\bf{{if~}}}}
+\newcommand{\xthen}{{\bf{{then~}}}}
+\newcommand{\xelse}{{\bf{{else~}}}}
+\newcommand{\xelseif}{{\bf{{elseif~}}}}
+\newcommand{\xfi}{{\bf{{fi~}}}}
+\newcommand{\xfor}{{\bf{{for~}}}}
+\newcommand{\xeach}{{\bf{{each~}}}}
+\newcommand{\xto}{{\bf{{to~}}}}
+\newcommand{\xdownto}{{\bf{{downto~}}}}
+\newcommand{\xby}{{\bf{{by~}}}}
+\newcommand{\xdo}{{\bf{{do~}}}}
+\newcommand{\xrof}{{\bf{{rof~}}}}
+\newcommand{\xwhile}{{\bf{{while~}}}}
+\newcommand{\xendwhile}{{\bf{{endwhile~}}}}
+\newcommand{\xrepeat}{{\bf{{repeat~}}}}
+\newcommand{\xuntil}{{\bf{{until~}}}}
+\newcommand{\xand}{{\bf{{and~}}}}
+\newcommand{\xor}{{\bf{{or~}}}}
+\newcommand{\xerror}{{\bf{{error~}}}}
+\newcommand{\xprint}{{\bf{{print~}}}}
+\newcommand{\xreturn}{{\bf{{return~}}}}
+\newcommand{\xreducer}{{\bf{{reducer~}}}}
+\newcommand{\xpfor}{{\bf{{par for~}}}}
+\newcommand{\xrfor}{{\bf{{reduce for~}}}}
+\newcommand{\xnil}{\textrm{\sc{nil}}}
+\newcommand{\xparallel}{{\bf{{parallel:~}}}}
+\newcommand{\xparallelfor}{{\bf{{parallel for~}}}}
+\newcommand{\xpar}{{\bf{{par:~}}}}
+\newcommand{\xblank}{{$\phantom{mmmmm}$}}
+\newcommand{\xblankpar}{{$\phantom{www:}$}}
+\newcommand{\xblankparallel}{{$\phantom{mmmmm n}$}}
+\newcommand{\xspawn}{{\bf{\em{spawn~}}}}
+\newcommand{\xsync}{{\bf{\em{sync~}}}}
+\newcommand{\xcomment}{\hfill $\rhd$ }
+%\newcommand{\T}{\hspace{0.3cm}}
+
+\newcommand{\mfunc}[1]{\mathcal{#1}}
+\newcommand{\MM}[1]{\mfunc{MM}#1}
+\newcommand{\idp}{$\mathcal{I}$-$\m{DP}$}
+\newcommand{\lalgo}{$\mathcal{I}$}
+\newcommand{\rdp}{$\mathcal{R}$-$\m{DP}$}
+\newcommand{\calgo}{$\mathcal{R}$}
+\newcommand{\fracdp}{$\m{FRACTAL}$-$\m{DP}$}
+
+\newcommand{\nvs}{\vspace{-0.15cm}}
+\newcommand{\vsitem}{\vspace{0cm}\item}
+
+% to add new commands to algorithmic environment
+\makeatletter
+\newcommand{\ALOOP}[1]{\ALC@it\algorithmicloop\ #1%
+  \begin{ALC@loop}}
+\newcommand{\ENDALOOP}{\end{ALC@loop}\ALC@it\algorithmicendloop}
+\newcommand{\algorithmicinput}{\textbf{Input:}}
+\newcommand{\INPUT}{\item[\algorithmicinput]}
+\newcommand{\algorithmicoutput}{\textbf{Output:}}
+\newcommand{\OUTPUT}{\item[\algorithmicoutput]}
+\newcommand{\algorithmicinvoke}{\textbf{Invoke:}}
+\newcommand{\INVOKE}{\item[\algorithmicinvoke]}
+\makeatother
+
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\definecolor{desiredblue}{rgb}{0.803,0.940,0.995}
+\definecolor{gray}{rgb}{0.3,0.3,0.3}
+\colorlet{lightblue}{desiredblue}
+\colorlet{lightred}{red!15}
+\colorlet{lightgreen}{green!15}
+\colorlet{mediumblue}{blue!25}
+\colorlet{mediumred}{red!25}
+\colorlet{mediumgreen}{green!25}
+\colorlet{lightyellow}{yellow!15}
+\colorlet{framecolor}{yellow!20}
+\colorlet{frameloopcolor}{yellow!20}
+
+\surroundwithmdframed[
+  backgroundcolor   = algocolor,
+  hidealllines      = true,
+  innerleftmargin   = 0.5em,
+  innerrightmargin  = 0.5em,
+  innertopmargin    = -1.1em,
+  innerbottommargin = 0em,
+  leftline=true,
+  rightline=true,
+  bottomline=true,
+  topline=true,
+  skipabove         = .5\baselineskip,
+  skipbelow         = .5\baselineskip
+]{algorithm}
+
+\newcommand{\parll}{\textbf{par:} }
+\newcommand{\phantomparll}{\phantom{\textbf{par: } }}
+
+\makeatletter
+   \newcommand\figcaption{\def\@captype{figure}\caption}
+   \newcommand\tabcaption{\def\@captype{table}\caption}
+\makeatother
+
+%--------------- TCOLORBOX -------------------
+
+\colorlet{algotitlebarcolor}{green!20}
+\colorlet{algotitlebarcolortop}{lightblue}
+\colorlet{algotitlebarcolorbottom}{lightblue}
+\colorlet{framecolor}{yellow}
+\colorlet{framecolortop}{white}
+\colorlet{framecolorbottom}{white}
+\colorlet{bluetop}{cyan!40}
+\colorlet{bluebottom}{cyan!20}
+%\colorlet{redtop}{RubineRed!40}
+%\colorlet{redbottom}{RubineRed!20}
+\colorlet{greentop}{white!40}
+\colorlet{greenbottom}{white!20}
+\colorlet{shadowcolor}{gray}
+\colorlet{algotitlecolor}{black}
+\colorlet{algoframecolor}{gray}
+\colorlet{tabletitlecolor}{desiredblue}
+%\colorlet{tablefillcolor}{Goldenrod!40}
+%\colorlet{tablefillcolor2}{Goldenrod!20}
+\colorlet{algocolor}{black}
+
+\newtcolorbox{mycolorbox}[1]
+{skin=enhanced,colbacktitle=algotitlebarcolor,coltitle=algotitlecolor,colback=algocolor,colframe=algoframecolor,boxrule=1pt,left=5mm,right=1mm,title style={top color=algotitlebarcolortop, bottom color=algotitlebarcolorbottom},interior style={top color=framecolortop, bottom color=framecolorbottom},title={\codesize #1}}
+
+\newcommand{\algotopspace}{\vspace{-0.25cm}}
+\newcommand{\algomiddlespace}{\vspace{0.1cm}}
+\newcommand{\algobottomspace}{\vspace{-0.15cm}}
+\newcommand{\algodiffspace}{\vspace{-0.15cm}}
+\newcommand{\algoinput}{{\bf{{Input:~}}}}
+\newcommand{\algooutput}{{\\\bf{{Output:~}}}}
+\newcommand{\algorequire}{{\bf{{Require:~}}}}
+
+%--------------- TABLE COLOR ---------------
+\arrayrulecolor{gray}
+\setlength{\arrayrulewidth}{0.4mm}
+\renewcommand{\arraystretch}{0.8}
+\newsavebox{\tablebox}
+\NewEnviron{colortabular}[1]{%
+  \addtolength{\extrarowheight}{1ex}%
+  %\rowcolors{2}{tablefillcolor}{tablefillcolor2}
+  \savebox{\tablebox}{%
+  %\scalebox{0.85}{
+    \begin{tabular}{#1}%
+	  \rowcolor{tabletitlecolor}
+      \BODY%
+    \end{tabular}}
+	%}
+  \begin{tikzpicture}
+    \begin{scope}
+      \clip[rounded corners=1ex] (0,-\dp\tablebox) -- (\wd\tablebox,-\dp\tablebox) -- (\wd\tablebox,\ht\tablebox) -- (0,\ht\tablebox) -- cycle;
+      \node at (0,-\dp\tablebox) [anchor=south west,inner sep=0pt]{\usebox{\tablebox}};
+    \end{scope}
+    \draw[rounded corners=1ex] (0,-\dp\tablebox) -- (\wd\tablebox,-\dp\tablebox) -- (\wd\tablebox,\ht\tablebox) -- (0,\ht\tablebox) -- cycle;
+  \end{tikzpicture}
+}
+
+\setlist[enumerate,1]{leftmargin=\dimexpr 26pt-0.3cm}
+

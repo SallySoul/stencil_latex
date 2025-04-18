@@ -30,7 +30,8 @@
 \begin{document}
 \begin{tikzpicture}[scale=1.2]
 
-\coordinate (root) at (3, 3);
+% Coords for triangles
+\coordinate (root) at (3, 1.5);
 \coordinate (sub_root_1) at (0, 0);
 \coordinate (sub_root_2) at (2, 0);
 \coordinate (sub_root_3) at (4, 0);
@@ -41,17 +42,26 @@
 \coordinate (leaf_base_4) at (5, -2);
 \coordinate (leaf_base_5) at (7, -2);
 
+\definecolor{tea_red}{RGB}{248,	192, 188}
+\definecolor{tea_green}{RGB}{218, 255, 212}
+
 % Root triangle
-\draw[thick] (root) -- (sub_root_1) -- (sub_root_4) -- cycle;
+\draw[fill=tea_green, thick] (root) -- (sub_root_1) -- (sub_root_4) -- cycle;
 
 % Sub triangles
-\draw[thick] (leaf_base_1) -- (leaf_base_2) -- (sub_root_1) -- cycle;
-\draw[thick] (leaf_base_3) -- (leaf_base_2) -- (sub_root_2) -- cycle;
-\draw[thick] (leaf_base_4) -- (leaf_base_5) -- (sub_root_4) -- cycle;
+\draw[fill=tea_red, thick] (leaf_base_1) -- (leaf_base_2) -- (sub_root_1) -- cycle;
+\draw[fill=tea_red, thick] (leaf_base_3) -- (leaf_base_2) -- (sub_root_2) -- cycle;
+\draw[fill=tea_red, thick] (leaf_base_4) -- (leaf_base_5) -- (sub_root_4) -- cycle;
 
 % Ellipsis
 \node at ($(sub_root_3) + (0, -1cm)$) {\Large $\cdots$};
 
-\end{tikzpicture}
+% Draw a brace under the leaves, spanning from the left-most leaf (t1) to the right-most leaf (t4)
+\draw[decorate, decoration={brace, mirror, amplitude=5pt}, draw=\mylinecolor, line width=\mylinethickness] 
+  ($(leaf_base_1)+(0,-0.3cm)$) -- ($(leaf_base_5)+(0,-0.3cm)$) node [midway, yshift=-0.5cm] {$\sigma * T \geq N$};
+
+
+
+ \end{tikzpicture}
 \end{document}
 

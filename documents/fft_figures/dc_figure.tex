@@ -1,0 +1,56 @@
+\documentclass{article}
+\input{../../packages.tex}
+\usetikzlibrary{trees,decorations.pathreplacing}
+\usetikzlibrary{calc}
+
+
+\usepackage[
+  letterpaper,
+  left=2cm,
+  right=2cm,
+  top=2cm,
+  bottom=2cm
+]{geometry}
+
+\setlength{\parindent}{20pt}
+\definecolor{tea_red}{RGB}{248,	192, 188}
+\definecolor{tea_green}{RGB}{218, 255, 212}
+
+% Define configurable parameters
+\newcommand{\mylinecolor}{black} % change the color here
+\newcommand{\mylinethickness}{1pt} % change the thickness here
+
+\tikzset{
+  node style/.style={
+    circle, draw=\mylinecolor, line width=\mylinethickness, inner sep=2pt, minimum size=8mm
+  },
+  edge style/.style={
+    draw=\mylinecolor, line width=\mylinethickness
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[scale=1]
+% Central Solve 
+\draw[fill=tea_green, draw=black] 
+(0, 0) -- (10, 0) -- (6, 4) -- (4, 4) -- cycle;
+
+% Lower periodic solve
+\draw[fill=tea_green, fill opacity=0.5, draw=black] 
+(0, 0) -- (8, 0) -- (6, 2) -- (2, 2) -- cycle;
+
+% Upper periodic solve
+\draw[fill=tea_green, fill opacity=0.5, draw=black] 
+(0, 2) -- (8, 2) -- (6, 4) -- (2, 4) -- cycle;
+
+% Lower direct solve
+\draw[fill=tea_red, fill opacity=0.5, draw=black] 
+(0, 0) -- (0, 2) -- (2, 2) -- (4, 0) -- cycle;
+
+% Upper Direct solve
+\draw[fill=tea_red, fill opacity=0.5, draw=black] 
+(0, 2) -- (0, 4) -- (2, 4) -- (4, 2) -- cycle;
+
+\end{tikzpicture}
+\end{document}
+

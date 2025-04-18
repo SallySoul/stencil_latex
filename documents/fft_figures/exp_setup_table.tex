@@ -1,0 +1,30 @@
+\documentclass{article}
+\input{tea_setup.tex}
+
+
+\begin{document}
+\begin{minipage}{0.48\textwidth}
+        \centering
+        \scalebox{0.55}{
+        \begin{colortabular}{ |l | l | l|}
+        \hline                       
+         \rowcolor{white}\cellcolor{tabletitlecolor} & \cellcolor{tabletitlecolor}Cores & 40 cores per socket, 2 sockets (total: 80 cores) \\
+        \cellcolor{tabletitlecolor} & \cellcolor{tabletitlecolor}Cache sizes & L1 48 KB per core, L2 1.25 MB per core, L3 60 MB per socket\\
+        \cellcolor{tabletitlecolor}\multirow{-3}{*}{\rotatebox{90}{ICX}} & \cellcolor{tabletitlecolor}Memory & 256 GB (3.2 GHz) DDR4 RAM\\ \hline
+        \rowcolor{white}\cellcolor{tabletitlecolor}&\cellcolor{tabletitlecolor}Cores & 24 cores per socket, 2 sockets (total: 48 cores) \\
+        \cellcolor{tabletitlecolor}&\cellcolor{tabletitlecolor}Cache sizes & L1 32 KB per core, L2 1 MB per core, L3 33 MB per socket\\
+        \cellcolor{tabletitlecolor}\multirow{-3}{*}{\rotatebox{90}{SKX}}&\cellcolor{tabletitlecolor}Memory & 192 GB (2.67 GHz) DDR4 RAM\\ \hline
+
+        \multicolumn{2}{|l|}{\cellcolor{tabletitlecolor}PLuTo} & \\ \hdashline
+        \multicolumn{2}{|l|}{\cellcolor{tabletitlecolor}Compiler} & Intel(R) oneAPI DPC++/C++ Compiler 2024.0.0 (ICX)\\
+        \multicolumn{2}{|l|}{\cellcolor{tabletitlecolor}Compiler flags} & \texttt{-O3 -xhost -ansi-alias -ipo -qopenmp -mkl}\\
+        \multicolumn{2}{|l|}{\cellcolor{tabletitlecolor}Parallelization} & OpenMP 4.5\\\hline
+
+        \multicolumn{2}{|l|}{\cellcolor{tabletitlecolor}Ours} & \\ \hdashline
+        \multicolumn{2}{|l|}{\cellcolor{tabletitlecolor}Compiler} & rustc 1.85.0-nightly (4ba4ac612 2024-12-18)\\
+        \multicolumn{2}{|l|}{\cellcolor{tabletitlecolor}Compiler flags} & \texttt{target-feature=+avx2 -C codegen-units=1}\\
+        \multicolumn{2}{|l|}{\cellcolor{tabletitlecolor}Parallelization} & Rayon 1.10.0 \\\hline
+        \end{colortabular}
+        }
+            \end{minipage}
+\end{document}
