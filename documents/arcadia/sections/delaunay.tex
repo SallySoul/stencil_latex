@@ -1,0 +1,60 @@
+\section{Delaunay Triangulations}
+
+\subsection{\textsc{InCircle} and \textsc{InSphere}}
+
+\begin{align*}
+  \text{\textsc{InSphere}}(a, b, c, d, p) &=
+  \left|
+  \begin{array}{ccccc}
+    a_x & a_y & a_z & a_x^2 + a_y^2 + a_z^2 & 1 \\
+    b_x & b_y & b_z & b_x^2 + b_y^2 + b_z^2 & 1 \\
+    c_x & c_y & c_z & c_x^2 + c_y^2 + c_z^2 & 1 \\
+    d_x & d_y & d_z & d_x^2 + d_y^2 + d_z^2 & 1 \\
+    p_x & p_y & p_z & p_x^2 + p_y^2 + p_z^2 & 1 \\
+  \end{array}
+  \right|
+\end{align*}
+
+
+
+\subsection{Notes}
+\begin{outline}
+\1 ``Two Algorithms for Constructing a
+Delaunay Triangulation'' \cite{lee1980two}
+\2 Planar only, lots of good properties of the triangulation
+\2 $O(N \log N)$ divide and conquer
+\2 $O(N^2)$, iterative good average case, but mostly what I would expect, insert into enclosing triangle, update to preserve property
+\2 Uses bins intead of space-filling curve
+
+\1 ``Voronoi diagrams and Delaunay triangulations'' \cite{fortune2017voronoi}
+\2 Mathy, works in $\mathbb{R^D}$
+\2 Focus on relation convex hull.
+
+\1 ``A Comparison of Five Implementations of 3D Delaunay Tessellation'' \cite{liu2005comparison}
+\2 Practical comparison of incremental insertion Implementations
+\2 Notes that at worst the number of tetrahedra is quadratic in the number of points, but in practice the number of tetrahedra is linear in the number of points
+\2 Interesting discussion of the InSphere test
+
+\1 ``Robust Adaptive Floating-Point Geometric Predicates'' \cite{shewchuk1996robust}
+\2 I remeber this from Arepo paper \cite{Springel2010Pur}, presents techniques for creating exact and extended precision floating-point geometric predicates, and then demonstrates them on InSphere and Orient3D. 
+\2 Does have a nice explanation for the LN compiler partially presented in the next paper that exact expression evaluation of integer predicates with known bit length 
+
+\1 ``Efficient exact arithmetic for computational geometry'' \cite{fortune1993efficient}
+\2 Presents floating point filter idea
+\2 Sorta short, not sure I get it, but going off prev paper is better
+
+\1 ``Adaptive Precision Floating-Point Arithmetic and Fast Robust Geometric Predicates'' \cite{richard1997adaptive}
+\2 Longer version of \cite{shewchuk1996robust}
+
+\1 ``Eﬀicient Exact Geometric Predicates for Delaunay Triangulations'' \cite{devillers2003efficient}
+\2 Loosing steam on this, but newer implementation, more filter layers, benchmarks favorably when compared to the famous predicates from \cite{shewchuk1996robust}.
+
+\1 \textsc{AREPO} review \cite{Springel2010Pur}
+\2 Use floating point predicates, track error
+\2 evaluate with multiple precision integers from \textsc{GMP} if needed.
+
+\1 Software side
+\2 Rust \href{https://github.com/tczajka/bigint-benchmark-rs}{big int benchmarks}
+\2 rug, wraps GMP, is best by far,
+
+\end{outline}

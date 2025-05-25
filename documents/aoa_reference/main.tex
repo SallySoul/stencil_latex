@@ -75,6 +75,16 @@ Useful things:
   \log_a x &= \log_b x / \log_b a \\
 \end{align*}
 
+Harmonic number equivalence.
+$$
+\sum_{i = 1}^n \frac{1}{i} = H_n \approx \ln n
+$$
+
+Derivative \& Integrals
+$$
+\frac{\partial}{\partial n} \ln n = \frac{1}{n}
+$$
+
 \section{Master Theorem}
 Given a recurrence 
 $$T(n) = \left\{
@@ -109,10 +119,98 @@ $$c_{ij} = \sum_{k = 1}^n a_{ik} b_{kj}$$
 Naive is $O(n^3)$ \\
 Strassen's Algorithm is $O\left(n^{\log_2 7}\right) = O\left( n^{2.81}\right)$
 
-\section{Data Structures}
+\section{Akra-Bazzi}
 
-$O(1)$ to lookup in a map or set \\
-$O(n)$ to scan a list or array of size $n$\\
+$$
+T(x) = \left\{ \begin{array}{ll}
+      \Theta(1), & \text{if } 1 \leq x \leq x_0 \\
+      \sum_{i = 1}^k a_i T(b_i x) + g(x) & \text{if } x > x_0\\
+\end{array}\right.
+$$
+where
+\begin{itemize}
+  \item $k \geq 1$, integer constant
+  \item $a_i > 0$ are constants
+  \item $0 < b_i < 1$ are constants
+  \item $x \geq 1$ is a real number
+  \item $x_0 \geq \text{max}\left\{\frac{1}{b_i}, \frac{1}{1 - b_i} \right\}$ over all $i$
+  \item $g(x)$ is non-negative, satisfies polynomial growth condition
+\end{itemize}
+Let $p$ be the unique real number such that $\sum_{i = 1}^k a_i b_i^p = 1$
+then
+$$
+T(x) = \Theta\left(
+x^p \left(
+  1 + \int_{1}^x \frac{g(u)}{u^{p + 1}} \ du
+\right)
+\right)
+$$
+
+\section{Generating Functions}
+Encode a sequence (cost for different values of $n$, for example) as coefficients in a power series.
+$$
+s_0, s_1, s_2, \cdots \rightarrow S(z) = s_0 + s_1 z + s_2 z^2 + \cdots + s_i z^i + \cdots
+$$
+
+In the Fibonacci example we have $F(Z)$, where each $f_i$ coefficient is the $i^{th}$ Fibonacci number.
+Abbreviating some steps:
+\begin{align*}
+  F(z) &= zF(z) + z^2 F(z) + z \\
+  &= \frac{z}{1 - z - z^2} \\
+  &= \frac{z}{(1 - \phi z) (1 + \hat{\phi} z)} \\
+  &= \frac{1}{\sqrt{5}}\left( \frac{1}{1 - \phi z} - \frac{1}{1 - \hat{\phi}z}\right) \\
+  &= \frac{1}{\sqrt{5}} \sum_{n} (\phi^n - \hat{\phi}^n)z^n \\
+\end{align*}
+Which gives us a closed form for each $f_i$.
+
+\section{Amortized Analysis}
+
+Analyse the cost of operations within the context of a sequence of operations.
+I.e. if operation $B$ costs $\Theta(n)$, but only after $n$ $A$ operations that take $\Theta(1)$ time,
+usually means that we can view $B$ as having $\Theta(1)$ amortized cost.
+
+\subsection{Accounting Method}
+
+Create and ``account'' for each of some entity in the data structure, and ensure the amount in those accounts is an invariant.
+$$
+\bigwedge\limits_{V_j \in D} \text{credit}(V_j) = c
+$$
+For some constant $c$, often $1$.
+
+Then the amortized cost of some operation is
+$$
+\hat{c}_i = c_i + \delta_i
+$$
+Cost of change in credits to maintain invariant
+
+\subsection{Potential Method}
+
+Represent total ``credits'' in data structure at time $i$ with potential function $\Phi(D_i)$.
+Ensure:
+\begin{itemize}
+  \item $\Phi(D_0) = 0$
+  \item $\Phi(D_i) \geq 0 \ \forall i$
+\end{itemize}
+
+Then the amortized cost of an operation
+$$
+\hat{c}_i = c_i + \Phi(D_{i}) - \Phi(D_{i - 1})
+$$
+Where $c_i$ is the actual cost, plus the potential change.
+
+\section{High Probability Bounds}
+
+Chernoff Bounds should be in the back of the exam if needed. \\
+
+A high probability bound goes to zero in $n$ or some other variable.
+But usually $n$ is the goal, $\frac{1}{n^p}$ for $p > 1$.
+
+In the case of proving high probability $\Theta$, we have to show that
+$$
+1 - \left(Pr[X \leq (1 - \delta) \mu] + Pr[X \geq (1 + \delta)\mu]\right)
+$$
+goes to $0$ in $n$
+
 
 \end{document}
 

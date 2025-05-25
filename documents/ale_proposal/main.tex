@@ -1,0 +1,97 @@
+\documentclass{article}
+\input{../../packages.tex}
+
+\usepackage[
+  letterpaper,
+  left=2cm,
+  right=2cm,
+  top=2cm,
+  bottom=2cm
+]{geometry}
+
+\setlength{\parindent}{20pt}
+
+\title{Code Generation for CFD on Moving Voronoi Meshes}
+\author{Russell Bentley}
+
+\begin{document}
+
+\twocolumn
+
+\maketitle
+
+\section{Introduction}
+
+Computational Fluid Dynamics (CFD) is a computational black hole
+that has lead to a proliferation of techniques that maximize the 
+efficieny of available resources by tailoring the simulation to the ``regime.''
+Simulation for science and engineering is 
+increasingly looking to handle complex multi-scale and multi-regime 
+fluid dynamics problems that may interact with other dyanamics while 
+simultaneously providing numerical accuracy gaurentees.
+Astrophysics in particular demands a large number of different ``physics'' 
+interacting with fluid dynamics and large and dynamic scale, 
+while needing a higher degree of Galilean Invariance.
+
+Arbitrary-Lagrangain-Eulierian (ALE) methods 
+is a broad range of techniques for solving conservation laws
+(hyperbolic equations)
+
+
+
+seek to combine
+the 
+Here our mesh can move in arbitrary ways, often informed by both fluid velocity and
+mesh quality considerations.
+Moving Voronoi meshes re-mesh from a set of generating points at each time step,
+which both
+side steps the issue of tangled elements after topology changes,
+and allows for easy spatial refinement.
+
+AREPO solves magneto-hydrodynamics, and is the main implementation for this work.
+The code base follows in the lineage of \textsc{Gadget-2} and \textsc{Gadget} which 
+were both smoothed particle hydro-dynamics (SPH) based codes.
+AREPO's architecture has simultaneously limited the application of ALE + Moving Voronoi Mesh
+to other domains like Aerospace, and has hindered the addition of new features for astrophysiscists 
+to expand its modelling capabilities.
+
+
+Research from other numerical techniques shows us that modern architectures can simultaneously
+improve performance of a numerical scheme and expand the ability extend and explore.
+Projects like FeNIcs for FEA and lbmpy + waLBerla show us that suitable high-level language and a code generation 
+framework can bring many benefits.
+Separate the ``business logic'' from optimizations.
+pyStencil is a core project of interest and could likely be used directly or in part when 
+building our framework.
+
+\section{Outcomes}
+\begin{outline}
+  \1 Moving Voronoi Mesh Runtime \2 Handle Domain Partitioning
+  \2 Checkpointing
+  \2 Meshing and tree construction
+  \2 2D / 3D
+  \2 Extend to space-time elements in the future
+  \1 Code Generation Framework
+  \2 High Level description of 
+  \3 Governing equations (hyperbolic conservations laws + source terms)
+  \3 Conserved Quantities
+  \2 Generation of core CFD solvers
+  \1 Example Applications
+  \2 Hypersonics 
+  \3 Compressible fluid + Boundary Conditions
+  \3 Shockwaves!
+  \2 CMZ Study
+  \3 MHD
+  \3 Self Gravity
+  \3 Analytical Gravity Term
+  \3 Star Particles / Agents
+  \3 Chemistry Network
+  \2 FZ-CO4 (or w/e)
+  \3 Very advanced Conservation system, solve for gravity locally!
+\end{outline}
+
+\printbibliography
+
+\end{document}
+
+

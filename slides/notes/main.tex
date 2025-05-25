@@ -58,6 +58,42 @@
   \end{outline}
 \end{frame}
 
+\begin{frame}{Voronoi Mesh Stuff}
+  \begin{outline}
+    \1 \cite{Gaburro2021High} Young researchers paper on Higher order ale schemes and space-time slivers, considers how the mesh changes over time, very cool. Seems real paper is:
+
+    \1 \cite{Gaburro2020High} Has springel on it! This one has all the math in it. Not in 3D yet though, 2D only. Plan to integrate with AREPO soon.
+
+    \2 Point to \cite{Re2017Interpolation} for next steps on 3D
+
+    \2 They are excited to try and model the hyperbolic formulation of continuum mechanics in \cite{Dumbser2016High}, and older paper on hyperbolic conservation laws \cite{Dumbser2011Universal}. And another hyperbolic model on viscous newtonian flows \cite{Peshkov2016Hyperbolic}.
+
+    \2 \cite{Guermond2018Second} something about domain presercation in hyperbolic systems?
+
+  \1 \cite{Gaburro2021Well} Gaburro presents a hyperbolic formulation and solver for general relativirty field equations, pretty cool
+
+  \1 \cite{Dumbser2018Conformal} introduces FO-CCZ4 formulation of the einstein equations and presents an implementation. Hyperbolic!
+
+    
+  \end{outline}
+\end{frame}
+
+\begin{frame}{Vor Mesh More}
+\begin{outline}
+  \1 Great reference on ENO / WENO schemes \cite{zhang2016eno}
+  \1 Original Arepo paper \cite{Springel2010Pur}
+  \1 That didn't include MHD, that was added in \cite{pakmor2011mhd}
+  \1 Dumbser 2008 paper with their ADER scheme \cite{dumbser2008unified} on unstructured meshes
+  \1 Higher order finite volume framework in fortran \cite{antoniadis2022ucns3d}
+  \1 \textsc{Gadget-4} paper \cite{springel2021simulating}, focus on scalability and mixed parallelism models. OOh and integer coords, eh mixed parallelism wasn't what I was expecting, openmp not a good fit, yadda yadda. BUT use of RMA and such IS interesting.
+\end{outline}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+    \tiny
+    \printbibliography
+\end{frame}
+
 
 \end{document}
 

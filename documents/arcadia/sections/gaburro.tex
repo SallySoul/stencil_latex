@@ -1,0 +1,61 @@
+\section{Gaburro High Order Methods}
+
+\subsection{Introduction}
+
+The work of Elana Gaburro is a direction of interest, namely high order ADER-DG methods.
+She has a useful \href{https://www.elenagaburro.it/}{personal site}.
+
+\subsection{Notes}
+
+Mostly reading \cite{Gaburro2020High} at the moment.
+
+CFL stability condition
+\begin{align}
+  \Delta t &< \text{CFL}\left(
+    \frac{|P_i^n|}{(2N + 1) | \lambda_{\text{max},i}| \sum_{\nabla P_{i_j}^n} |\ell_{i_j}|}
+  \right), \quad \forall P^{n}_i \in \Omega^n
+\end{align}
+
+Modal space-time basis of the polynomails of degree $M$ in $d + 1$ dimensions (space and time).
+\begin{align}
+  \theta_{\ell}(x, y, t)|_{C^n_i} &= 
+  \frac{(x - x^n_{b_i})^{p_{\ell}}}{p_{\ell}!h_i^{p_{\ell}}}
+\end{align}
+
+\subsection{Recent Papers}
+
+\begin{outline}
+  \1 (2024) ``Very high order treatment of embedded curved boundaries in compressible flows: ADER discontinuous Galerkin with a space-time Reconstruction for Off-site data'' \cite{ciallella2024very}
+  \2 High order immersed boundary conditions
+  \2 Discusses recent reconstruction for off-site data (ROD), recent technique for finite Volumes
+  \2 I think, they extend this to ADER-DG stuff?
+
+  \1 (2024) ``A well-balanced discontinuous Galerkin method for the first--order Z4 formulation of the Einstein--Euler system'' \cite{dumbser2024well}
+  \2 Novel first order reformation of Einstein equations (Z4), show that its hyperbolic
+  \2 Employ Higher order Discntinuous Galerkin (DG) numerical scheme with adaptive mesh refinement (AMR), local time steping, and a posteriori sub cell finite volume limiter
+  \2 Well balanced preserve a priori known equilibriums over long time periods
+
+  \1 (2023) ``High order entropy preserving ADER-DG schemes'' \cite{gaburro2023high}
+  \2 Good resrouce on ADER-DG schemes as expected
+  \2 Adds an additiona constrain on entropy, cites an older paper \cite{harten1982symmetric} 
+
+  \1 (2022) ``Continuous finite element subgrid basis functions for discontinuous Galerkin schemes on unstructured polygonal Voronoi meshes'' \cite{boscheri2022continuous}
+  \2 Something about using sub-triangles of voronoi element to create finite element basis,
+  \2 Does their usual space-time ADER thing, but no topology changes
+
+  \1 (2022) ``A well-balanced discontinuous Galerkin method for the first--order Z4 formulation of the Einstein--Euler system'' \cite{Gaburro2021High}
+  \2 \cite{Gaburro2020High} as a book chapter?
+
+
+\end{outline}
+
+\subsection{Related Papers}
+
+\begin{outline}
+  \1 (1983) ``On the symmetric form of systems of conservation laws with entropy'' \cite{harten1983symmetric}
+  \2 Math paper, didn't read deeply
+  \2 Hyperbolic systems, shows how to derive an entropy function for some of them? Something about symmetry? Uses matrix represenations
+  \2 Doesn't seem to provide much context for what they mean by entropy
+\end{outline}
+
+
