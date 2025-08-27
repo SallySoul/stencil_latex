@@ -1,15 +1,17 @@
-\documentclass[10pt]{article}
-\input{../../packages.tex}
+\documentclass[twocolumn]{aastex631}
+\usepackage{xspace}
+\usepackage[hyphens]{url}
+\usepackage{comment}
+\pdfoutput=1 %for arXiv submission
+\usepackage[figure,figure*]{hypcap}
+\usepackage{footnote}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{siunitx}
 
-\usepackage[
-  letterpaper,
-  left=2cm,
-  right=2cm,
-  top=2cm,
-  bottom=2cm
-]{geometry}
-
-\setlength{\parindent}{20pt}
+\usepackage{epsfig}
+\usepackage{natbib}
 
 \title{Arcadia}
 \author{Russell Bentley}
@@ -22,6 +24,8 @@
 
 \twocolumn
 \input{sections/code_gen.tex}
+
+\input{sections/arepo.tex}
 
 \input{sections/gaburro.tex}
 
