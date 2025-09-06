@@ -1,0 +1,25 @@
+\subsection{Cost-Driven Maintenance}
+
+%\placelogofalse
+\begin{frame}{Const-Driven Maintenance}
+Use a cost-model for query latency to determine which partitions to split / merge.
+\begin{columns}
+\column{0.48\linewidth}
+\begin{align*}
+  C &= \sum_{i}C_i \ \text{Total cost (latency)}\\
+  C_i &= O_c + A_i \lambda(s_i) \ \text{Per-partition cost}\\
+\end{align*}
+\column{0.48\linewidth}
+\begin{align*}
+  A_i & \ \text{Access frequency of partition }i \\
+  s_i & \ \text{Since of partition }i \\
+  \lambda(s_i) & \ \text{Latency to scan partition } i \\
+O_c & \ \text{Latency to scan centroid}
+\end{align*}
+\end{columns}
+Estimate the change in cost of a split / merge, take action if expected to reduce cost
+$$
+\delta C_i = c_i + \delta_{\text{split}_i} \ \ \text{If} \ \delta C_i < \tau \ \text{then split partition } i
+$$
+\end{frame}
+%\placelogotrue

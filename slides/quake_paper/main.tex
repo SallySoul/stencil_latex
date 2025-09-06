@@ -1,0 +1,74 @@
+\documentclass{beamer}
+\input{../../packages.tex}
+\input{../../slides_formatting.tex}
+
+% Remove drop shadow by title
+% https://tex.stackexchange.com/questions/3139/beamer-how-to-remove-shadow-under-the-title-on-a-given-frame
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+
+\setbeamerfont*{frametitle}{family=\rmfamily, parent=structure}
+
+%Information to be included in the title page:
+\title{Quake: Adaptive Indexing for Vector Search}
+\author{
+  Jason Mohoney \inst{1} 
+  \and Devesh Sarda \inst{1}
+  \and Mengze Tang \inst{1}
+  \and Shihabur Rahman Chowdhury \inst{2}
+  \and Anil Pacaci \inst{2}
+  \and Ihab F. Ilyas \inst{3} 
+  \and Theodoros Rekatsinas \inst{2}
+  \and Shivaram Venkatarama \inst{1}
+}
+\institute[shortinst]{
+  \inst{1} University of Wisconsin–Madison 
+  \and \inst{2} Apple
+  \and \inst{3} University of Waterloo 
+}
+
+\date{OSDI 2025}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\frame{\titlepage \blfootnote{Presented by Russell Bentley}}
+
+\input{slides/vec_search_algo.tex}
+
+\input{slides/vec_search_apps.tex}
+
+\input{slides/vec_search_dynamic.tex}
+
+\input{slides/vec_search_graph.tex}
+
+\input{slides/vec_search_partition.tex}
+
+\input{slides/vec_search_challenge.tex}
+
+\input{slides/quake_intro.tex}
+
+\input{slides/cost_maint.tex}
+
+\input{slides/numa.tex}
+
+\input{slides/results.tex}
+
+\input{slides/conclusion.tex}
+
+%\begin{frame}[allowframebreaks]{References}
+%    \tiny
+%    \printbibliography
+%\end{frame}
+
+\end{document}
+
+

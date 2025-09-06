@@ -1,0 +1,108 @@
+\documentclass{article}
+\input{../../packages.tex}
+
+\usepackage[
+  letterpaper,
+  left=2cm,
+  right=2cm,
+  top=2cm,
+  bottom=2cm
+]{geometry}
+
+\setlength{\parindent}{20pt}
+
+\title{CSE 642: Scribe Notes \\ September 5, 2025}
+\author{Russell Bentley}
+
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Quick discussion of problems to discuss. 
+\begin{itemize}
+\item We could resume conversation on polygon crosssections.
+\item Rezaul has some problems that are ready to discuss.
+\item Joe had a problem or two that are ready, including ``Connections.''
+\end{itemize}
+
+\section{Lucas's Polygon Problem}
+
+\subsection{Review the Problem Statement}
+
+Given a set $S$ of $n$ points on the plane, and a set $L$ of $m$ lines in the plane, all in general positions.
+Each line has a n integer label that is non-negative and even.
+Question one: Does there exist a simple polygon $P$ whose vertices are $S$ and that cross each line the number of times given by its label.
+Question two: What is the complexity of deciding this and constructing the polygon if it exists.
+
+(See poly_example.png)
+
+\subsection{Review of previous discussion}
+
+Some discussion from last time:
+* Are we allowed to introduce new points?
+* It seems that if we can find a solution with some of the points then there will be a solution that uses all the points (Zoran), but perhaps not.
+* 
+
+\subsection{New Discussion}
+
+Lucas found a new paper that discusses this problem ``\href{https://www.sciencedirect.com/science/article/abs/pii/0020019089900124}{Reconstructing graphs from cut-set sizes}.''
+
+For this work:
+Unknown graph straight line graph with $n$ vertices, points in general position.
+In this setting we can ask cut queries, specified by a line $L$ in the plane and returns how many edges are crossed.
+The Goal is to obtain a strategy to discover $G$ completely using as few cuts as possible.
+
+In the paper, $\Oh(n^2)$ queries are sufficient and sometimes necessary in general.
+Just query every 
+Our case, we know that $G$ is a cycle.
+
+(Grab fig fro paper that shows necessary probes)
+We can simulate an edge query with four cut queries.
+So (n choose 2) * 4 queries.
+
+Question: how tight is the constant in this complexity bound?
+
+Our problem, the points $S$, the lines $L$, and the answers to the crossing number queries are given. 
+We are to decide if there exists a cycle graph $G$ on $S$ with no crossing edges.
+
+Another question: Are positive answers unique?
+Lets come up with a small counter example.
+Well trivially, if no lines are given, or all lines are zero and all points $S$ lie in a common face, 
+with the points not in convex position, then there are multiple polygons satisfying the constraints.
+
+Another way to connect these two problems is to decide of the oracle is lying or not. 
+That is, a motivation for Lucas's problem is the catch a lying oracle.
+
+So does knowing something about the topology of what we're looking for (simple polygon, embedded tree, ect) help at all?
+This was an open question from the paper.
+We should look up scribe notes from when this was discussed in the seminar last time (Early October 2021?)
+
+Rezaul: Given 2 polygons $P$, $Q$ can they be translated / rotated so that they have $k$ crossings?
+For pure translation, standard 2D CG methods apply (good HW).
+With rotations (possibly scaling, etc) more general methods apply.
+
+Related graph drawing problem: Given $2$ fixed graphs $G_1$ and $G_2$, translate / rotate / scale (with limitations) one with respect to the other
+in order to minimize (or max?) the number of crossings. 
+
+We're talking around many interesting variants, but haven't discussed the original problem!
+
+Steiner points / version?
+
+Return to problem:
+a) If we are allowed any number of Steiner points, wherever we want them, the problem is easy.
+(Last time we asked if $S$ are empty, but even if $S$ is non-empty it is easy).
+
+Claim 2:
+If there is a not a red cell that is intersected by all blue lines, then it is hopeless, no polygon exists (no matter the set $S$).
+
+
+\end{document}
+
+
+
+
+
+
+

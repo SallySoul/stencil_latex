@@ -1,0 +1,31 @@
+\placelogofalse
+\begin{frame}{Vector Search: Partioned Index}
+\begin{columns}
+\column{0.48\linewidth}
+\centering
+\begin{outline}
+  \1 Partition into clusters
+  \2 $k$-means or other method
+  \1 Scan relevant clusters
+  \2 Requires tuning (nprobe)
+  \1 Easy to update
+  \1 SOTA has latency issues
+  \1 Imbalanced partitions
+\end{outline}
+
+\column{0.48\linewidth}
+\begin{center}
+\centering
+% [trim={left bottom right top},clip]
+\includegraphics[width=4.0cm, page=2, trim={0 7.5cm 21cm 0cm},clip]{assets/vec_db_figs.pdf}
+
+\vspace{0.3cm}
+
+\includegraphics[width=4.5cm]{assets/partition_fig.png}
+
+{\tiny From \href{https://pages.cs.wisc.edu/~shivaram/cs744-sp25-slides/cs744-analyticdb-v.pdf}{Shivaram's CS744 Slides}}
+
+\end{center}
+\end{columns}
+\end{frame}
+\placelogotrue
