@@ -1,5 +1,4 @@
 # latexmk artifacts
-*.pdf
 *.dvi
 *.log
 *.fls
@@ -13,6 +12,7 @@
 *.bcf
 *.blg
 *.xml
+main.pdf
 
 # macOS artifacts
 *.DS_Store
