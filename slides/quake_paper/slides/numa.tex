@@ -1,4 +1,26 @@
-\subsection{Parallelism}
+%\placelogofalse
+\begin{frame}{Query Batching}
+\begin{columns}
+\column{0.48\linewidth}
+\centering
+\begin{outline}
+  \1 Queries are usually singletons
+  \2 Reflected in main benchmarks
+  \2 Scan once per query
+  \1 If queries can be batched
+  \2 Scan once per batch
+  \2 6.7x speedup at 10k
+\end{outline}
+
+\column{0.48\linewidth}
+\begin{center}
+\centering
+\includegraphics[width=5.5cm]{assets/fig_5.png}
+
+\end{center}
+\end{columns}
+\end{frame}
+%\placelogotrue
 
 \placelogofalse
 \begin{frame}{Non-uniform Memory Access (NUMA)}
@@ -11,20 +33,22 @@
   \1 Experimental Results:
   \2 Exhibits linear scalability
   \2 Maximizes memory bandwidth utilization
-  \2 4x speedup over non-NUMA aware
 \end{outline}
 
 \column{0.48\linewidth}
 \begin{center}
 \centering
-\includegraphics[width=4.0cm]{assets/NUMA.png}
-
-{\tiny From \href{https://docs.lxp.lu/system/images/NUMA.png}{MeluXina}}
-
-\vspace{0.5cm}
-
 \includegraphics[width=5.5cm]{assets/numa_fig.png}
 \end{center}
 \end{columns}
+
+\vspace{0.2cm}
+
+\begin{center}
+\includegraphics[width=11.5cm]{assets/numa_part.png}
+
+{\tiny From \href{https://marius-project.org/quake/_images/graphviz-c798fc8f2f95b1a7acbd1f13005fd3b8897cb7c7.png}{Quake Documentation}}
+\end{center}
+
 \end{frame}
 \placelogotrue

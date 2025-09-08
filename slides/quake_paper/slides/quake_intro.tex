@@ -1,24 +1,33 @@
-\section{Quake}
-
-%\placelogofalse
+\placelogofalse
 \begin{frame}{Quake Introduction}
 ``In this work, we study the problem of minimizing query latency to meet a fixed recall target for dynamic vector search.''
-\begin{columns}
-\column{0.58\linewidth}
-\centering
+
+\vspace{0.2cm}
+
 \begin{outline}
-  \1 Adaptive Hierarchical partioning
+  \1 Incremental Partition maintenance with cost model
   \1 Adaptive Partition Scanning
-  \1 NUMA aware parallelism
+  \1 Batching / NUMA aware scheduling 
 \end{outline}
 
-\column{0.38\linewidth}
+\vspace{0.2cm}
+
 \begin{center}
 \centering
-%\shadowimage[width=2.5cm]{example_1.png}
-
+\includegraphics[width=9cm]{assets/quake_arch_2.png}
 \end{center}
-\end{columns}
-\includegraphics[width=2.5cm]{assets/quake_arch.png}
+
+\blfootnote{Source at \href{https://github.com/marius-team/quake}{github.com/marius-team/quake}}
+\end{frame}
+\placelogotrue
+
+%\placelogofalse
+\begin{frame}{Quake Architecture}
+\begin{center}
+\centering
+\includegraphics[width=12cm]{assets/quake_arch.png}
+
+{\tiny From \href{https://marius-project.org/quake/architecture/architecture.html}{Quake Documentation}}
+\end{center}
 \end{frame}
 %\placelogotrue
