@@ -7,6 +7,9 @@
 
 \usetheme{CambridgeUS}
 
+% Allows us to include code
+\usepackage{listings}
+
 %gets rid of footer
 %will override 'frame number' instruction above
 %comment out to revert to previous/default definitions
@@ -83,4 +86,5 @@
 \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[#1]{#2}};
 \drawshadow{image}
 \end{tikzpicture}}
+
 

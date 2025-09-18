@@ -1,0 +1,15 @@
+\frametitle{Variational Form for Poisson's Equation in UFL}
+\begin{lstlisting}[language=Python]
+from ufl import *
+
+# Mesh and function space
+# Provided by higher-level FEniCS code
+V = FunctionSpace(mesh, "Lagrange", 1)
+
+u = TrialFunction(V)   # unknown
+v = TestFunction(V)    # test function
+f = Function(V)        # source term
+
+a = dot(grad(u), grad(v)) * dx
+L = f * v * dx
+\end{lstlisting}

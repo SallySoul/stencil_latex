@@ -1,0 +1,47 @@
+\begin{frame}{Variational Form for Poisson's Equation}
+$$
+- \Delta u = f \text{ in } \Omega
+$$
+
+Multiply both sides by a \textit{test function} $v$
+
+Integrate over the domain $\Omega$
+
+$$
+\int_{\Omega}(-\Delta u) v \ dx = \int_{\Omega} f v \ dx
+$$
+
+Apply integration by parts, test function disappears on the boundary.
+
+$$
+\int_{\Omega} \nabla u \cdot \nabla v dx = \int_{\Omega} f v \ dx
+$$
+
+
+\textit{Variational Form}
+Find $u \in V$ such that
+
+$$
+a(u, v) = L(v) \ \forall v \in \hat{V},
+$$
+\end{frame}
+%\placelogotrue
+
+\begin{frame}[fragile]{Variational Form for Poisson's Equation in UFL}
+\begin{lstlisting}[language=Python]
+from ufl import *
+
+# Mesh and function space 
+# Provided by higher-level FEniCS code
+V = FunctionSpace(mesh, "Lagrange", 1)
+
+u = TrialFunction(V)   # unknown
+v = TestFunction(V)    # test function
+f = Function(V)        # source term
+
+a = dot(grad(u), grad(v)) * dx
+L = f * v * dx
+\end{lstlisting}
+\end{frame}
+
+

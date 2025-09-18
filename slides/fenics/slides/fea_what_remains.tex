@@ -1,0 +1,76 @@
+\begin{frame}{Poisson's Equation: The Discrete Problem}
+Solution is weighted sum of basis functions
+$$
+  u(x) = \sum^N_{j = 1} U_j \phi_j(x)
+$$
+Variational Form becomes
+$$
+  \sum^N_{j = 1} U_j \int_{\Omega} \nabla \phi_j \cdot \nabla \hat{\phi}_i \ dx = \int_{\Omega} f \hat{\phi}_i \ dx \ i = 1, 2, \cdots, N
+$$
+Compute $U$ by solving linear system $AU = b$, where
+\begin{align*}
+A_{ij} &= \int_{\Omega} \nabla \phi_j \cdot \nabla \hat{\phi}_i \ dx \\
+b_i &= \int_{\Omega} f \hat{\phi}_i \ dx
+\end{align*}
+\end{frame}
+
+\placelogofalse
+\begin{frame}{Global Assembly and Linear Solve}
+\begin{columns}
+\column{0.58\linewidth}
+$$
+A_{ij} = \int_{\Omega} \nabla \phi_j \cdot \nabla \hat{\phi}_i \ dx
+$$
+
+\begin{outline}
+  \1 $A_{ij}$ is non-zero when $\phi_i$ and $\phi_j$ share an element
+  \1 $A$ matrix is sparse
+  \1 Use a sparse linear solver
+\end{outline}
+
+\column{0.38\linewidth}
+\centering
+\begin{center}
+%\shadowimage[width=2.5cm]{example_1.png}
+
+\includegraphics[width=\linewidth]{assets/hat_basis.png}
+
+
+\includegraphics[width=3.5cm]{assets/two_element_example.png}
+
+\vspace{0.2cm}
+
+\includegraphics[width=3.5cm]{assets/sparsity_pattern.png}
+
+
+% [trim={left bottom right top},clip]
+%\includegraphics[width=8.5cm, page=3, trim={0 9cm 14cm 0cm},clip]{assets/vec_db_figs.pdf}
+\end{center}
+\end{columns}
+\end{frame}
+\placelogotrue
+
+\begin{frame}{Integrating with Quadrature}
+  \begin{columns}
+\column{0.58\linewidth}
+\begin{outline}
+  \1 Integrals mean quadrature rules 
+  \1 Integrators have nested structure 
+  \2 For each element
+  \2 For each basis pair
+  \2 For each quadrature point
+\end{outline}
+
+\begin{align*}
+A_{ij} &= \int_{\Omega} \nabla \phi_j \cdot \nabla \hat{\phi}_i \ dx \\
+       &\approx \sum_{k = 1}{K} w_k \nabla \phi_j(x_k) \cdot \nabla \hat{\phi}_i (x_k)
+\end{align*}
+
+
+\column{0.38\linewidth}
+\centering
+\includegraphics[width=3.5cm]{assets/midpoint.png}
+\end{columns}
+\end{frame}
+
+
