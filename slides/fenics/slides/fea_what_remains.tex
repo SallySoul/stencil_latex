@@ -18,9 +18,10 @@ b_i &= \int_{\Omega} f \hat{\phi}_i \ dx
 \begin{frame}{Global Assembly and Linear Solve}
 \begin{columns}
 \column{0.58\linewidth}
-$$
-A_{ij} = \int_{\Omega} \nabla \phi_j \cdot \nabla \hat{\phi}_i \ dx
-$$
+\begin{align*}
+  A_{ij} &= \int_{\Omega} \nabla \phi_j \cdot \nabla \hat{\phi}_i \ dx \\
+         &= \sum_{\{E\}} \int_{\Omega_E} \nabla \phi_j \cdot \nabla \hat{\phi}_i \ dx
+\end{align*}
 
 \begin{outline}
   \1 $A_{ij}$ is non-zero when $\phi_i$ and $\phi_j$ share an element
@@ -55,6 +56,7 @@ $$
 \column{0.58\linewidth}
 \begin{outline}
   \1 Integrals mean quadrature rules 
+  \2 $\left\{(w_k \in \mathbb{R}, x_k \in \Omega)\right\}$ such that $\sum_{k = 1}^{K} w_k = 1$
   \1 Integrators have nested structure 
   \2 For each element
   \2 For each basis pair
@@ -62,8 +64,8 @@ $$
 \end{outline}
 
 \begin{align*}
-A_{ij} &= \int_{\Omega} \nabla \phi_j \cdot \nabla \hat{\phi}_i \ dx \\
-       &\approx \sum_{k = 1}{K} w_k \nabla \phi_j(x_k) \cdot \nabla \hat{\phi}_i (x_k)
+A_{ij} &= \int_{\Omega_E} \nabla \phi_j \cdot \nabla \hat{\phi}_i \ dx \\
+       &\approx \sum_{k = 1}^{K} w_k \nabla \phi_j(x_k) \cdot \nabla \hat{\phi}_i (x_k)
 \end{align*}
 
 

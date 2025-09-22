@@ -1,0 +1,30 @@
+%\placelogofalse
+\begin{frame}{Unified Form Language (UFL)}
+\begin{columns}
+\column{0.58\linewidth}
+\centering
+\begin{outline}
+  \1 Introduced in 2013
+  \2 Grew out of FEniCS Form Compiler (FCC)
+  \1 DSEL in Python
+  \1 Writing equations
+  \2 Variational Forms
+  \2 Suitable to solve with FEM
+  \2 Syntax closely matches notation
+  \1 Adopted by other projects
+\end{outline}
+
+\column{0.38\linewidth}
+\begin{center}
+\centering
+\lstinline{a = c * dx + e * ds}
+
+\vspace{0.2cm}
+
+represents
+
+$$a = \int_{\Omega} c \ dx + \int_{\partial \Omega} e \ ds$$
+\end{center}
+\end{columns}
+\end{frame}
+%\placelogotrue

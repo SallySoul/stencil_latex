@@ -1,18 +1,22 @@
-\begin{frame}{Trial and Test Functions}
+\begin{frame}{FEM: Weak Formulation}
   \begin{columns}
   \column{0.56\linewidth}
-  $$
-    -\Delta u = f \text{ in } \Omega
-  $$
 
   \begin{outline}
-    \1 Build solution with \textit{trial} functions
+    \1 Derive solution from trial function space
     \1 Requiring equality everywhere is impossible
-    \1 Assert that residual (error) is orthogonal to space defined by \textit{test functions}
-    \1 Basis functions from mesh are both trial and test
+    \1 Relaxed continuity restrictions
+    \1 Assert that residual (error) is orthogonal to \textit{test function } space
+    \1 Usually use $\phi_i$ from mesh
   \end{outline}
-  $$ L(u) = f$$
-  $$ \int (L(u_h) - f)v = 0$$
+
+  \vspace{0.2cm}
+
+  \textit{Strong Form:} $ L(u) = f \text{ on } \Omega$
+
+  \vspace{0.2cm}
+
+  \textit{Variational Form:} $ \int_{\Omega} (L(u) - f)v = 0$
 
   \column{0.30\linewidth}
 
