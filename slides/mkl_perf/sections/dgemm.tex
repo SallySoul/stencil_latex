@@ -1,0 +1,32 @@
+\section{dgemm}
+\placelogofalse
+\begin{frame}{dgemm}
+\begin{outline}
+\1 Double precision general matrix multiply
+\1 $ C = \alpha A \cdot B + \beta C$
+\1 Less noise in sequential runtimes - expected
+\1 Different Workload sizes,
+\2 $\sqrt{N} = 16000$ - OpenMP
+\2 $\sqrt{N} = 3200$ - Sequential
+\end{outline}
+\end{frame}
+
+\placelogofalse
+\begin{frame}{dgemm - OpenMP}
+\begin{center}
+\includegraphics[width=12cm, page=1]{assets/dgemm.pdf}
+\end{center}
+\end{frame}
+
+\placelogofalse
+\begin{frame}{dgemm - Sequential}
+\begin{center}
+\includegraphics[width=12cm, page=1]{assets/dgemm_seq.pdf}
+\end{center}
+\end{frame}
+
+
+
+
+
+

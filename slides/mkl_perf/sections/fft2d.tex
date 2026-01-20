@@ -1,0 +1,35 @@
+\section{DFT 2D}
+\placelogofalse
+\begin{frame}{DFT 2d}
+\begin{outline}
+\1 Double precision discrete Fourier transform 
+\2 General improvement over time
+\1 Trend is very clear for sequential
+\1 From late 2018 release notes (build not tested)
+\2 {\small Improved performance for batched real-to-complex 3D for Intel® Xeon® Processor supporting Intel® Advanced Vector Extensions 512 (Intel® AVX-512) (codename Skylake Server)}
+\2 Improved performance with and without scaling factor across all domains.
+\1 Different Workload sizes,
+\2 $\sqrt{N} = 32000$ - OpenMP
+\2 $\sqrt{N} = 8000$ - Sequential
+\end{outline}
+\end{frame}
+
+\placelogofalse
+\begin{frame}{DFT 2D - OpenMP}
+\begin{center}
+\includegraphics[width=12cm, page=1]{assets/fft2d.pdf}
+\end{center}
+\end{frame}
+
+\placelogofalse
+\begin{frame}{DFT 2D - Sequential}
+\begin{center}
+\includegraphics[width=12cm, page=1]{assets/fft2d_seq.pdf}
+\end{center}
+\end{frame}
+
+
+
+
+
+

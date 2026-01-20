@@ -1,0 +1,43 @@
+\documentclass{beamer}
+\input{../../packages.tex}
+\input{../../slides_formatting.tex}
+
+% Remove drop shadow by title
+% https://tex.stackexchange.com/questions/3139/beamer-how-to-remove-shadow-under-the-title-on-a-given-frame
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%Information to be included in the title page:
+\title{MKL Performance Over Time}
+\author{Russell Bentley}
+\institute{Stony Brook}
+\date{2025}
+\setbeamerfont*{frametitle}{family=\rmfamily, parent=structure}
+\usefonttheme[onlymath]{serif}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\frame{\titlepage}
+\include{sections/intro}
+\include{sections/dgemm}
+\include{sections/dgeqrf}
+\include{sections/dtrsm}
+\include{sections/fft2d}
+\include{sections/pardiso}
+\include{sections/vsexp}
+\include{sections/vdexp}
+
+
+\end{document}
+
+
+
+
