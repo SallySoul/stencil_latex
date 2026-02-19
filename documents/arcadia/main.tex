@@ -1,17 +1,15 @@
-\documentclass[twocolumn]{aastex631}
-\usepackage{xspace}
-\usepackage[hyphens]{url}
-\usepackage{comment}
-\pdfoutput=1 %for arXiv submission
-\usepackage[figure,figure*]{hypcap}
-\usepackage{footnote}
-\usepackage{hyperref}
-\usepackage{subfigure}
-\usepackage{amsmath}
-\usepackage{siunitx}
+\documentclass[10pt]{article}
+\input{../../packages}
 
-\usepackage{epsfig}
-\usepackage{natbib}
+\usepackage[
+  letterpaper,
+  left=2cm,
+  right=2cm,
+  top=2cm,
+  bottom=2cm
+]{geometry}
+
+\setlength{\parindent}{20pt}
 
 \title{Arcadia}
 \author{Russell Bentley}
@@ -32,6 +30,8 @@
 \input{sections/chemistry.tex}
 
 \input{sections/delaunay.tex}
+
+\input{sections/kinetic.tex}
 
 \printbibliography
 

@@ -1063,4 +1063,178 @@ doi="10.1007/b79761_2",
 url="https://doi.org/10.1007/b79761_2"
 }
 
+@article{basch1999data,
+  title={Data structures for mobile data},
+  author={Basch, Julien and Guibas, Leonidas J and Hershberger, John},
+  journal={Journal of Algorithms},
+  volume={31},
+  number={1},
+  pages={1--28},
+  year={1999},
+  publisher={Elsevier}
+}
 
+@inproceedings{guibas2004empirical,
+  title={An empirical comparison of techniques for updating Delaunay triangulations},
+  author={Guibas, Leonidas and Russel, Daniel},
+  booktitle={Proceedings of the twentieth annual symposium on Computational geometry},
+  pages={170--179},
+  year={2004}
+}
+
+@book{cheng2013delaunay,
+  title={Delaunay mesh generation},
+  author={Cheng, Siu-Wing and Dey, Tamal Krishna and Shewchuk, Jonathan and Sahni, Sartaj},
+  year={2013},
+  publisher={CRC Press Boca Raton}
+}
+
+@article{Bauchet2020kin,
+author = {Bauchet, Jean-Philippe and Lafarge, Florent},
+title = {Kinetic Shape Reconstruction},
+year = {2020},
+issue_date = {October 2020},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {39},
+number = {5},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3376918},
+doi = {10.1145/3376918},
+abstract = {Converting point clouds into concise polygonal meshes in an automated manner is an enduring problem in computer graphics. Prior works, which typically operate by assembling planar shapes detected from input points, largely overlooked the scalability issue of processing a large number of shapes. As a result, they tend to produce overly simplified meshes with assembling approaches that can hardly digest more than 100 shapes in practice. We propose a shape assembling mechanism that is at least one order of magnitude more efficient, both in time and in number of processed shapes. Our key idea relies upon the design of a kinetic data structure for partitioning the space into convex polyhedra. Instead of slicing all the planar shapes exhaustively as prior methods, we create a partition where shapes grow at constant speed until colliding and forming polyhedra. This simple idea produces a lighter yet meaningful partition with a lower algorithmic complexity than an exhaustive partition. A watertight polygonal mesh is then extracted from the partition with a min-cut formulation. We demonstrate the robustness and efficacy of our algorithm on a variety of objects and scenes in terms of complexity, size, and acquisition characteristics. In particular, we show the method can both faithfully represent piecewise planar structures and approximate freeform objects while offering high resilience to occlusions and missing data.},
+journal = {ACM Trans. Graph.},
+month = jun,
+articleno = {156},
+numpages = {14},
+keywords = {Surface reconstruction, kinetic framework, polygonal surface mesh, surface approximation}
+}
+
+@article{homolya2017exposing,
+  title={Exposing and exploiting structure: optimal code generation for high-order finite element methods},
+  author={Homolya, Mikl{\'o}s and Kirby, Robert C and Ham, David A},
+  journal={arXiv preprint arXiv:1711.02473},
+  year={2017}
+}
+
+@article{pakmor2013cleaning,
+    author = {Pakmor, Rüdiger and Springel, Volker},
+    title = {Simulations of magnetic fields in isolated disc galaxies},
+    journal = {Monthly Notices of the Royal Astronomical Society},
+    volume = {432},
+    number = {1},
+    pages = {176-193},
+    year = {2013},
+    month = {04},
+    abstract = {Magnetic fields are known to be dynamically important in the interstellar medium of our own Galaxy, and they are ubiquitously observed in diffuse gas in the haloes of galaxies and galaxy clusters. Yet, magnetic fields have typically been neglected in studies of the formation of galaxies, leaving their global influence on galaxy formation largely unclear. Here we extend our magnetohydrodynamics (MHD) implementation in the moving-mesh code Arepo to cosmological problems which include radiative cooling and the formation of stars. In particular, we replace our previously employed divergence cleaning approach with a Powell eight-wave scheme, which turns out to be significantly more stable, even in very dynamic environments. We verify the improved accuracy through simulations of the magneto-rotational instability in accretion discs, which reproduce the correct linear growth rate of the instability. Using this new MHD code, we simulate the formation of isolated disc galaxies similar to the Milky Way using idealized initial conditions with and without magnetic fields. We find that the magnetic field strength is quickly amplified in the initial central starburst and the differential rotation of the forming disc, eventually reaching a saturation value. At this point, the magnetic field pressure in the interstellar medium becomes comparable to the thermal pressure, and a further efficient growth of the magnetic field strength is prevented. The additional pressure component leads to a lower star formation rate at late times compared to simulations without magnetic fields, and induces changes in the spiral arm structures of the gas disc. In addition, we observe highly magnetized fountain-like outflows from the disc. These results are robust with numerical resolution and are largely independent of the initial magnetic seed field strength assumed in the initial conditions, as the amplification process is rapid and self-regulated. Our findings suggest an important influence of magnetic fields on galaxy formation and evolution, cautioning against their neglect in theoretical models of structure formation.},
+    issn = {0035-8711},
+    doi = {10.1093/mnras/stt428},
+    url = {https://doi.org/10.1093/mnras/stt428},
+    eprint = {https://academic.oup.com/mnras/article-pdf/432/1/176/3890520/stt428.pdf},
+}
+
+@article{ciallella2024very,
+title = {Very high order treatment of embedded curved boundaries in compressible flows: ADER discontinuous Galerkin with a space-time Reconstruction for Off-site data},
+journal = {Computers \& Mathematics with Applications},
+volume = {175},
+pages = {1-18},
+year = {2024},
+issn = {0898-1221},
+doi = {https://doi.org/10.1016/j.camwa.2024.08.028},
+url = {https://www.sciencedirect.com/science/article/pii/S089812212400395X},
+author = {Mirco Ciallella and Stephane Clain and Elena Gaburro and Mario Ricchiuto},
+keywords = {Curved boundaries, Space-time schemes, Unfitted discretization, Discontinuous Galerkin, Compressible flows},
+abstract = {In this paper we present a novel approach for the design of high order general boundary conditions when approximating solutions of the Euler equations on domains with curved boundaries, using meshes which may not be boundary conformal. When dealing with curved boundaries and/or unfitted discretizations, the consistency of boundary conditions is a well-known challenge, especially in the context of high order schemes. In order to tackle such consistency problems, the so-called Reconstruction for Off-site Data (ROD) method has been recently introduced in the finite volume framework: it is based on performing a boundary polynomial reconstruction that embeds the considered boundary treatment thanks to the implementation of a constrained minimization problem. This work is devoted to the development of the ROD approach in the context of discontinuous finite elements. We use the genuine space-time nature of the local ADER predictors to reformulate the ROD as a single space-time reconstruction procedure. This allows us to avoid a new reconstruction (linear system inversion) at each sub-time node and retrieve a single space-time polynomial that embeds the considered boundary conditions for the entire space-time element. Several numerical experiments are presented proving the consistency of the new approach for all kinds of boundary conditions. Computations involving the interaction of shocks with embedded curved boundaries are made possible through an a posteriori limiting technique.}
+}
+
+@article{dumbser2024well,
+title = {A well-balanced discontinuous Galerkin method for the first–order Z4 formulation of the Einstein–Euler system},
+journal = {Journal of Computational Physics},
+volume = {504},
+pages = {112875},
+year = {2024},
+issn = {0021-9991},
+doi = {https://doi.org/10.1016/j.jcp.2024.112875},
+url = {https://www.sciencedirect.com/science/article/pii/S0021999124001244},
+author = {Michael Dumbser and Olindo Zanotti and Elena Gaburro and Ilya Peshkov},
+keywords = {Einstein field equations, Relativistic Euler equations, First order hyperbolic formulation of the Z4 formalism, Discontinuous Galerkin, Non conservative, Well-balancing},
+abstract = {In this paper we develop a new well-balanced discontinuous Galerkin (DG) finite element scheme with subcell finite volume (FV) limiter for the numerical solution of the Einstein–Euler equations of general relativity based on a first order hyperbolic reformulation of the Z4 formalism. The first order Z4 system, which is composed of 59 equations, is analyzed and proven to be strongly hyperbolic for a general metric. The well-balancing is achieved for arbitrary but a priori known equilibria by subtracting a discrete version of the equilibrium solution from the discretized time-dependent PDE system. Special care has also been taken in the design of the numerical viscosity so that the well-balancing property is achieved. As for the treatment of low density matter, e.g. when simulating massive compact objects like neutron stars surrounded by vacuum, we have introduced a new filter in the conversion from the conserved to the primitive variables, preventing superluminal velocities when the density drops below a certain threshold, and being potentially also very useful for the numerical investigation of highly rarefied relativistic astrophysical flows. Thanks to these improvements, all standard tests of numerical relativity are successfully reproduced, reaching three achievements: (i) we are able to obtain stable long term simulations of stationary black holes, including Kerr black holes with extreme spin, which after an initial perturbation return perfectly back to the equilibrium solution up to machine precision; (ii) a (standard) TOV star under perturbation is evolved in pure vacuum (ρ=p=0) up to t=1000 with no need to introduce any artificial atmosphere around the star; and, (iii) we solve the head on collision of two punctures black holes, that was previously considered un–tractable within the Z4 formalism. Due to the above features, we consider that our new algorithm can be particularly beneficial for the numerical study of quasi normal modes of oscillations, both of black holes and of neutron stars.}
+}
+
+@article{gaburro2023high,
+title = {High order entropy preserving ADER-DG schemes},
+journal = {Applied Mathematics and Computation},
+volume = {440},
+pages = {127644},
+year = {2023},
+issn = {0096-3003},
+doi = {https://doi.org/10.1016/j.amc.2022.127644},
+url = {https://www.sciencedirect.com/science/article/pii/S0096300322007160},
+author = {Elena Gaburro and Philipp Öffner and Mario Ricchiuto and Davide Torlo},
+keywords = {Hyperbolic conservation laws, ADER, Discontinuous Galerkin, Entropy conservation/stability, Structure preserving, Relaxation method},
+abstract = {In this paper, we develop a fully discrete entropy preserving ADER-Discontinuous Galerkin (ADER-DG) method. To obtain this desired result, we equip the space part of the method with entropy correction terms that balance the entropy production in space, inspired by the work of Abgrall. Whereas for the time-discretization we apply the relaxation approach introduced by Ketcheson that allows to modify the timestep to preserve the entropy to machine precision. Up to our knowledge, it is the first time that a provable fully discrete entropy preserving ADER-DG scheme is constructed. We verify our theoretical results with various numerical simulations.}
+}
+
+@article{harten1983symmetric,
+title = {On the symmetric form of systems of conservation laws with entropy},
+journal = {Journal of Computational Physics},
+volume = {49},
+number = {1},
+pages = {151-164},
+year = {1983},
+issn = {0021-9991},
+doi = {https://doi.org/10.1016/0021-9991(83)90118-3},
+url = {https://www.sciencedirect.com/science/article/pii/0021999183901183},
+author = {Amiram Harten},
+abstract = {This paper reviews the symmetrizability of systems of conservation laws which possess entropy functions. Symmetric formulations in conservation form for the equations of gas dynamics are presented.}
+}
+
+@article{boscheri2022continuous,
+  title={Continuous finite element subgrid basis functions for discontinuous Galerkin schemes on unstructured polygonal Voronoi meshes},
+  author={Boscheri, Walter and Dumbser, Michael and Gaburro, Elena},
+  journal={arXiv preprint arXiv:2205.14673},
+  year={2022}
+}
+
+@article{busto2020high,
+  title={High order ADER schemes for continuum mechanics},
+  author={Busto, Saray and Chiocchetti, Simone and Dumbser, Michael and Gaburro, Elena and Peshkov, Ilya},
+  journal={Frontiers in Physics},
+  volume={8},
+  pages={32},
+  year={2020},
+  publisher={Frontiers Media SA}
+}
+
+@article{titarev2002ader,
+  title={ADER: arbitrary high order Godunov approach},
+  author={Titarev, Vladimir A and Toro, Eleuterio F},
+  journal={Journal of Scientific Computing},
+  volume={17},
+  number={1},
+  pages={609--618},
+  year={2002},
+  publisher={Springer}
+}
+
+@article{dumbser2007quadrature,
+title = {Quadrature-free non-oscillatory finite volume schemes on unstructured meshes for nonlinear hyperbolic systems},
+journal = {Journal of Computational Physics},
+volume = {226},
+number = {1},
+pages = {204-243},
+year = {2007},
+issn = {0021-9991},
+doi = {https://doi.org/10.1016/j.jcp.2007.04.004},
+url = {https://www.sciencedirect.com/science/article/pii/S0021999107001520},
+author = {Michael Dumbser and Martin Käser and Vladimir A. Titarev and Eleuterio F. Toro},
+keywords = {Quadrature-free finite volume schemes, Nonlinear hyperbolic systems, WENO reconstruction, ADER approach, Unstructured meshes in 2D and 3D},
+abstract = {In this article we present a quadrature-free essentially non-oscillatory finite volume scheme of arbitrary high order of accuracy both in space and time for solving nonlinear hyperbolic systems on unstructured meshes in two and three space dimensions. For high order spatial discretization, a WENO reconstruction technique provides the reconstruction polynomials in terms of a hierarchical orthogonal polynomial basis over a reference element. The Cauchy–Kovalewski procedure applied to the reconstructed data yields for each element a space–time Taylor series for the evolution of the state and the physical fluxes. This Taylor series is then inserted into a special numerical flux across the element interfaces and is subsequently integrated analytically in space and time. Thus, the Cauchy–Kovalewski procedure provides a natural, direct and cost-efficient way to obtain a quadrature-free formulation, avoiding the expensive numerical quadrature arising usually for high order finite volume schemes in three space dimensions. We show numerical convergence results up to sixth order of accuracy in space and time for the compressible Euler equations on triangular and tetrahedral meshes in two and three space dimensions. Furthermore, various two- and three-dimensional test problems with smooth and discontinuous solutions are computed to validate the approach and to underline the non-oscillatory shock-capturing properties of the method.}
+}
+
+@book{leveque1992numerical,
+  title={Numerical methods for conservation laws},
+  author={LeVeque, Randall J and Leveque, Randall J},
+  volume={132},
+  year={1992},
+  publisher={Springer}
+}

@@ -1,0 +1,38 @@
+\section{Kinetic Voronoi Mesh}
+
+Gemini recommends \cite{basch1999data},\\
+(1999) ``Data Structures for Mobile Data''
+\begin{outline}
+\1 Intro / Abstract
+\2 ``A kinetic data structure KDS maintains an attribute of interest in a system of
+geometric objects undergoing continuous motion.''
+\2 Based on partial, updating flightplans
+\2 Datastructures must maintain ``certificates'' to be certified correct, like the incircle test for delaunay triangulations
+\2 Foundation Paper
+\end{outline}
+
+(2004) ``An empirical comparison of techniques for updating Delaunay
+triangulations'' \cite{guibas2004empirical}
+\begin{outline}
+\1 Abstract / Introduction
+\2 Look at methods of updating delaunay meshes, what we want really.
+\2 Has a great summary on kinetic data Structures 
+\2 also lots of useful leads on other places this tech is used.
+\2 Focused on molecular dynamics or somesuch?
+\end{outline}
+
+(2012) ``Delaynay Mesh Generation'' book
+\begin{outline} \cite{cheng2013delaunay}
+\1 Seems like an important resource, Note that Shewchuk made the geometric predicates we're interested in.
+\1 Gemini thinks this will have info on accurate determinent predicates we need for certificates.
+\1 May want to aquire this book.
+\end{outline}
+
+(2020) ``Kinetic Shape Reconstruction'' \cite{Bauchet2020kin}
+\begin{outline}
+\1 Gemini thinks said that CGAL had a kinetic data structure implemented already that could represent some architectural insights. 
+\2 That was implemented for this paper.
+\2 Solves a different problem though, building a polygon partition to mesh point clouds?
+\end{outline}
+
+
