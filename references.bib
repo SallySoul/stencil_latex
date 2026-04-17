@@ -7,11 +7,21 @@
 }
 
 @inproceedings{Ahmad2021,
-  title={Fast stencil computations using fast Fourier transforms},
-  author={Ahmad, Zafar and Chowdhury, Rezaul and Das, Rathish and Ganapathi, Pramod and Gregory, Aaron and Zhu, Yimin},
-  booktitle={Proceedings of the 33rd ACM Symposium on Parallelism in Algorithms and Architectures},
-  pages={8--21},
-  year={2021}
+  author = {Ahmad, Zafar and Chowdhury, Rezaul and Das, Rathish and Ganapathi, Pramod and Gregory, Aaron and Zhu, Yimin},
+  title = {Fast Stencil Computations using Fast Fourier Transforms},
+  year = {2021},
+  isbn = {9781450380706},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3409964.3461803},
+  doi = {10.1145/3409964.3461803},
+  abstract = {Stencil computations are widely used to simulate the change of state of physical systems across a multidimensional grid over multiple timesteps. The state-of-the-art techniques in this area fall into three groups: cache-aware tiled looping algorithms, cache-oblivious divide-and-conquer trapezoidal algorithms, and Krylov subspace methods.  In this paper, we present two efficient parallel algorithms for performing linear stencil computations. Current direct solvers in this domain are computationally inefficient, and Krylov methods require manual labor and mathematical training. We solve these problems for linear stencils by using DFT preconditioning on a Krylov method to achieve a direct solver which is both fast and general. Indeed, while all currently available algorithms for solving general linear stencils perform Θ(NT) work, where N is the size of the spatial grid and T is the number of timesteps, our algorithms perform o(NT) work. To the best of our knowledge, we give the first algorithms that use fast Fourier transforms to compute final grid data by evolving the initial data for many timesteps at once. Our algorithms handle both periodic and aperiodic boundary conditions, and achieve polynomially better performance bounds (i.e., computational complexity and parallel runtime) than all other existing solutions.  Initial experimental results show that implementations of our algorithms that evolve grids of roughly 10^7 cells for around 10^5 timesteps run orders of magnitude faster than state-of-the-art implementations for periodic stencil problems, and 1.3\texttimes{} to 8.5\texttimes{} faster for aperiodic stencil problems.},
+  booktitle = {Proceedings of the 33rd ACM Symposium on Parallelism in Algorithms and Architectures},
+  pages = {8–21},
+  numpages = {14},
+  keywords = {divide-and-conquer, fft, parallel stencil solver, stencil computation},
+  location = {Virtual Event, USA},
+  series = {SPAA '21}
 }
 
 @inproceedings{Ahmad2022,
@@ -31,15 +41,22 @@
   year={2022}
 }
 
-@article{Ahmad2023,
-  title={A fast algorithm for aperiodic linear stencil computation using Fast Fourier Transforms},
-  author={Ahmad, Zafar and Chowdhury, Rezaul and Das, Rathish and Ganapathi, Pramod and Gregory, Aaron and Zhu, Yimin},
-  journal={ACM Transactions on Parallel Computing},
-  volume={10},
-  number={4},
-  pages={1--34},
-  year={2023},
-  publisher={ACM New York, NY}
+@inproceedings{Ahmad2023,
+  author = {Ahmad, Zafar and Chowdhury, Rezaul and Das, Rathish and Ganapathi, Pramod and Gregory, Aaron and Zhu, Yimin},
+  title = {Fast Stencil Computations using Fast Fourier Transforms},
+  year = {2021},
+  isbn = {9781450380706},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3409964.3461803},
+  doi = {10.1145/3409964.3461803},
+  abstract = {Stencil computations are widely used to simulate the change of state of physical systems across a multidimensional grid over multiple timesteps. The state-of-the-art techniques in this area fall into three groups: cache-aware tiled looping algorithms, cache-oblivious divide-and-conquer trapezoidal algorithms, and Krylov subspace methods.  In this paper, we present two efficient parallel algorithms for performing linear stencil computations. Current direct solvers in this domain are computationally inefficient, and Krylov methods require manual labor and mathematical training. We solve these problems for linear stencils by using DFT preconditioning on a Krylov method to achieve a direct solver which is both fast and general. Indeed, while all currently available algorithms for solving general linear stencils perform Θ(NT) work, where N is the size of the spatial grid and T is the number of timesteps, our algorithms perform o(NT) work. To the best of our knowledge, we give the first algorithms that use fast Fourier transforms to compute final grid data by evolving the initial data for many timesteps at once. Our algorithms handle both periodic and aperiodic boundary conditions, and achieve polynomially better performance bounds (i.e., computational complexity and parallel runtime) than all other existing solutions.  Initial experimental results show that implementations of our algorithms that evolve grids of roughly 10^7 cells for around 10^5 timesteps run orders of magnitude faster than state-of-the-art implementations for periodic stencil problems, and 1.3\texttimes{} to 8.5\texttimes{} faster for aperiodic stencil problems.},
+  booktitle = {Proceedings of the 33rd ACM Symposium on Parallelism in Algorithms and Architectures},
+  pages = {8–21},
+  numpages = {14},
+  keywords = {divide-and-conquer, fft, parallel stencil solver, stencil computation},
+  location = {Virtual Event, USA},
+  series = {SPAA '21}
 }
 
 @inproceedings{Bondhugula2008,

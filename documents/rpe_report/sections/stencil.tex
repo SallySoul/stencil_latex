@@ -1,0 +1,105 @@
+\section{Stencil Computations}
+
+\subsection{Introduction}
+
+A \textit{stencil} is a function used to compute the value of a point in a structured grid for some timestep by utilizing values from nearby points at prior timesteps \cite{Frigo2005Stencil}.
+A \textit{ stencil computation} applies a given stencil to all points of a grid for a given number of timesteps.
+
+Stencil computation is a widely used paradigm, particularly in high performance computing (HPC). 
+Also known as \textit{structured grid} computation, this paradigm was identified in  ``The Landscape of Parallel Computing Research: A View from Berkeley'' (2006) 
+\cite{Asanovic2006Landscape}, as one of  
+seven key numerical methods 
+that dominate the HPC landscape. 
+Its also worth noting that spectral methods 
+are another of identified paradigms, 
+but that will be relevant in the next section.
+
+Stencils funtions derived from finite difference methods.
+
+Others like lattice boltzmann, or cellular automata.
+
+Fields that use stencils.
+
+
+
+
+Explain the premise of stencil computations, and where they are found.
+
+Explain our formalism of $N$ cells, $T$ time steps.
+
+Applications
+
+Fluid Dynamics \cite{Blazek2015Ch1, Ferziger2020, Kruger2017LBM}.
+
+Electromagnetics \cite{Taflove2005Ch9}
+
+Mechanical engineering \cite{Rappaz2003}
+
+Meteorology \cite{Singh2023SPARTA, Avissar1989Weather, Kalnay1990Weather}
+
+Image Processing \cite{}
+
+Cellular Automata are an interesting subset of stencil computations, with particular applicability to modelling natural systems \cite{Mendicino2015Eco, Caux2010HashLife, Sitko2016Cellular, Wolfram1984Cellular, Kyparissas2020Cellular}.
+
+Complexity of implementing stencil computations 
+has led to a proliferation of specialized stencil compilers 
+\cite{Bauer2019PhaseField, Bauer2021lbmpy, Ahmad2022, Tang2011Pochoir}.
+
+
+\subsection{Direct Methods}
+
+\subsubsection{Py Stencil LBM}
+\begin{outline}
+\1 $O(NT)$ work./
+\1 Pystencil and LBM methods
+\2 Introduced in \cite{Bauer2019PhaseField}
+\2 LBMpy introduced to \cite{Bauer2021lbmpy}
+\2 Expanded to CMMRT, interesting domain specific optimizations like zero centered storage \cite{Hennig2023CMMRT}
+\2 Deploys to walberla \cite{Bauer2021walberla}
+\2 Algebraic compilation for complex non-linear stencils applied to high dimensional grid data.
+\end{outline}
+
+\subsubsection{Cache Friendly}
+\begin{outline}
+\1 Cache Oblivious methods
+\2 Trapezoidal Decompositions in Pochoir, cache oblivious \cite{Frigo2005Stencil, Tang2011Pochoir}
+\1 Pluto \cite{Bondhugula2008Automatic, Bondhugula2008Practical}
+\1 More general methods like polyhedral compilers. 
+\end{outline}
+
+\subsection{Approximate Methods}
+Krylov methods are used to solve linear systems $Ax =b$, which is a distinct paradigm from stencil computation, though many stencil computations can be expressed in terms of a sparse linear system solve.
+These methods are iterative and approximate, which the core idea being repeated matrix-vector multiplication operations \cite{Ipsen1998Krylov, Saad1989Krylov}. 
+These methods are often paired with preconditions, and discrete Fourier Transforms have been applied in this context \cite{Chan1984fd, Erlangga2006, Gmeiner2013}.
+These methods often require manual convergence analysis
+\cite{Brown1994Krylov, Kuijlaars2006Krylov, Notay2008Krylov}.
+As a result, Krylov methods are often specialized and tailored to individual problems \cite{Asgharzadeh2017Krylov, Ashrafizadeh2015, Garrappa2015Krylov,Mang2015Krylov}.
+
+\subsection{FPGA}
+\begin{outline}
+  \1 Cellular Automata \cite{Kyparissas2020Cellular}
+  \1 TPU computations using convolutions with ConvStencil \cite{Chen2024ConvStencil}
+  \1 SPARTA for accelerating 2D diffusion stencils on FPGAs using MLIR for weather \cite{Singh2023SPARTA}
+\end{outline}
+
+
+\subsection{Indirect Methods}
+
+\subsubsection{HashLife}
+Exploit regularities in cellular spaces.
+Developed in 2D \cite{Gosper1984HashLife}.
+Applied to biology and 3D \cite{Caux2010HashLife}.
+Allows for the exploration of enormous spatial and time scales that couldn't be supported with explicit direct solvers, which is particularly relavent for the study of self-replicating systems \cite{Hutton2010Codd, Stevens2011Cellular}.
+
+\subsubsection{Spectral}
+\begin{outline}
+  \1 Convolution based methods  \cite{Januario2016}
+  \1 Gaussian based methods \cite{Ahmad2025Gaussian}
+  \1 FFT Based methods \cite{Ahmad2021, Ahmad2023},
+  \2 Code generation with Fourst \cite{Ahmad2022},
+  \2 Variation of the aperiodic algorithm was explored with TurboStencil \cite{Liu2023Turbo}
+  \2 Extended to GPU / TCU \cite{Han2025FlashFFT},
+  \1 Applied to specilized non-linear problem \cite{Ahmad2024Option} 
+  \1 And of course we added inhomogenous domains and time varying stencils \cite{Bentley2025Fast}
+\end{outline}
+

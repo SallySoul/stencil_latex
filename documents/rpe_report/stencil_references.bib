@@ -1,0 +1,727 @@
+@INPROCEEDINGS{Januario2016,
+  author={Januario, Guilherme C. and Rosenburg, Bryan S. and Park, Yoonho and Perrone, Michael and Moreira, Jose and Carvalho, Tereza C.M.B.},
+  booktitle={2016 28th International Symposium on Computer Architecture and High Performance Computing (SBAC-PAD)}, 
+  title={Speeding Up Stencil Computations with Kernel Convolution}, 
+  year={2016},
+  volume={},
+  number={},
+  pages={76-83},
+  keywords={Three-dimensional displays;Kernel;Convolution;Mathematical model;Aggregates;Registers;Electronic mail;stencil computation;optimization;high-performance computing;numeric kernels},
+  doi={10.1109/SBAC-PAD.2016.18}
+}
+
+@inproceedings{Ahmad2021,
+  author = {Ahmad, Zafar and Chowdhury, Rezaul and Das, Rathish and Ganapathi, Pramod and Gregory, Aaron and Zhu, Yimin},
+  title = {Fast Stencil Computations using Fast Fourier Transforms},
+  year = {2021},
+  isbn = {9781450380706},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3409964.3461803},
+  doi = {10.1145/3409964.3461803},
+  abstract = {Stencil computations are widely used to simulate the change of state of physical systems across a multidimensional grid over multiple timesteps. The state-of-the-art techniques in this area fall into three groups: cache-aware tiled looping algorithms, cache-oblivious divide-and-conquer trapezoidal algorithms, and Krylov subspace methods.  In this paper, we present two efficient parallel algorithms for performing linear stencil computations. Current direct solvers in this domain are computationally inefficient, and Krylov methods require manual labor and mathematical training. We solve these problems for linear stencils by using DFT preconditioning on a Krylov method to achieve a direct solver which is both fast and general. Indeed, while all currently available algorithms for solving general linear stencils perform Θ(NT) work, where N is the size of the spatial grid and T is the number of timesteps, our algorithms perform o(NT) work. To the best of our knowledge, we give the first algorithms that use fast Fourier transforms to compute final grid data by evolving the initial data for many timesteps at once. Our algorithms handle both periodic and aperiodic boundary conditions, and achieve polynomially better performance bounds (i.e., computational complexity and parallel runtime) than all other existing solutions.  Initial experimental results show that implementations of our algorithms that evolve grids of roughly 10^7 cells for around 10^5 timesteps run orders of magnitude faster than state-of-the-art implementations for periodic stencil problems, and 1.3\texttimes{} to 8.5\texttimes{} faster for aperiodic stencil problems.},
+  booktitle = {Proceedings of the 33rd ACM Symposium on Parallelism in Algorithms and Architectures},
+  pages = {8–21},
+  numpages = {14},
+  keywords = {divide-and-conquer, fft, parallel stencil solver, stencil computation},
+  location = {Virtual Event, USA},
+  series = {SPAA '21}
+}
+
+@inproceedings{Ahmad2022,
+  title={Fourst: A code generator for FFT-based fast stencil computations},
+  author={Ahmad, Zafar and Javanmard, Mohammad Mahdi and Croisdale, Gregory and Gregory, Aaron and Ganapathi, Pramod and Pouchet, Louis-No{\"e}l and Chowdhury, Rezaul},
+  booktitle={2022 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)},
+  pages={99--108},
+  year={2022},
+  organization={IEEE}
+}
+
+@inproceedings{Ahmad2022Brief,
+  title={Brief announcement: Faster stencil computations using gaussian approximations},
+  author={Ahmad, Zafar and Chowdhury, Rezaul and Das, Rathish and Ganapathi, Pramod and Gregory, Aaron and Zhu, Yimin},
+  booktitle={Proceedings of the 34th ACM Symposium on Parallelism in Algorithms and Architectures},
+  pages={291--293},
+  year={2022}
+}
+
+@inproceedings{Ahmad2023,
+  author = {Ahmad, Zafar and Chowdhury, Rezaul and Das, Rathish and Ganapathi, Pramod and Gregory, Aaron and Zhu, Yimin},
+  title = {Fast Stencil Computations using Fast Fourier Transforms},
+  year = {2021},
+  isbn = {9781450380706},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3409964.3461803},
+  doi = {10.1145/3409964.3461803},
+  abstract = {Stencil computations are widely used to simulate the change of state of physical systems across a multidimensional grid over multiple timesteps. The state-of-the-art techniques in this area fall into three groups: cache-aware tiled looping algorithms, cache-oblivious divide-and-conquer trapezoidal algorithms, and Krylov subspace methods.  In this paper, we present two efficient parallel algorithms for performing linear stencil computations. Current direct solvers in this domain are computationally inefficient, and Krylov methods require manual labor and mathematical training. We solve these problems for linear stencils by using DFT preconditioning on a Krylov method to achieve a direct solver which is both fast and general. Indeed, while all currently available algorithms for solving general linear stencils perform Θ(NT) work, where N is the size of the spatial grid and T is the number of timesteps, our algorithms perform o(NT) work. To the best of our knowledge, we give the first algorithms that use fast Fourier transforms to compute final grid data by evolving the initial data for many timesteps at once. Our algorithms handle both periodic and aperiodic boundary conditions, and achieve polynomially better performance bounds (i.e., computational complexity and parallel runtime) than all other existing solutions.  Initial experimental results show that implementations of our algorithms that evolve grids of roughly 10^7 cells for around 10^5 timesteps run orders of magnitude faster than state-of-the-art implementations for periodic stencil problems, and 1.3\texttimes{} to 8.5\texttimes{} faster for aperiodic stencil problems.},
+  booktitle = {Proceedings of the 33rd ACM Symposium on Parallelism in Algorithms and Architectures},
+  pages = {8–21},
+  numpages = {14},
+  keywords = {divide-and-conquer, fft, parallel stencil solver, stencil computation},
+  location = {Virtual Event, USA},
+  series = {SPAA '21}
+}
+
+
+
+@inbook{Ahmad2025Gaussian,
+author = {Zafar Ahmad and Rezaul Chowdhury and Rathish Das and Pramod Ganapathi and Aaron Gregory and Yimin Zhu},
+title = {Speeding up Stencil Computation using Gaussian Approximations},
+booktitle = {2025 Proceedings of the Conference on Applied and Computational Discrete Algorithms (ACDA)},
+chapter = {},
+pages = {276-292},
+doi = {10.1137/1.9781611979084.21},
+URL = {https://epubs.siam.org/doi/abs/10.1137/1.9781611979084.21},
+eprint = {https://epubs.siam.org/doi/pdf/10.1137/1.9781611979084.21},
+    abstract = { Abstract Stencils are widely used in scientific and industrial computing for the simulation of physical systems. Given a multidimensional spatial grid containing initial data, these stencil patterns are applied uniformly to all cells of the grid over multiple timesteps to obtain the final data. All known algorithms for general stencil computations performed Ω (NT ) work, where N is the number of cells of the grid and T is the number of timesteps, except for a few selected stencils, was it possible to perform stencil computations with asymptotically less work than those of their simple looping counterparts. In 2021, Ahmad et al. (SPAA 2021) reduced the computational complexity of performing linear stencil computations on periodic and aperiodic grids to o (NT) using the Fast Fourier Transform. In this paper, we present an approximation algorithm for linear stencil computations on free-space grids which performs work almost linear in the size of the grid and thus significantly improves over the computational complexities of all known algorithms for solving the problem exactly. Our paper is built on several interesting ideas: (i ) linear stencils can be modeled as biased random walks, (ii ) the influence of a linear stencil over multiple timesteps follows a Gaussian distribution, and (iii ) linear stencil computation can be modeled as an n-body problem taking the Gaussian as the force function and hence linear stencil computations can be performed efficiently using the fast Gauss transform. Our algorithm produces approximate results that are controlled by a tunable error parameter. We discuss several other applications of the Gaussian stencil approximation technique introduced in this paper: (1) periodic stencil computations, (2) aperiodic stencil computations with arbitrary boundary conditions, (3) European option pricing, and (4) computation of Pascal’s simplices. }
+}
+
+@inproceedings{Ahmad2024Option,
+  author = {Ahmad, Zafar and Browne, Reilly and Chowdhury, Rezaul and Das, Rathish and Huang, Yushen and Zhu, Yimin},
+  title = {Fast American Option Pricing using Nonlinear Stencils},
+  year = {2024},
+  isbn = {9798400704352},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3627535.3638506},
+  doi = {10.1145/3627535.3638506},
+  booktitle = {Proceedings of the 29th ACM SIGPLAN Annual Symposium on Principles and Practice of Parallel Programming},
+  pages = {316–332},
+  numpages = {17},
+  keywords = {american option pricing, binomial option pricing model, trinomial option pricing, black-scholes-merton option pricing model, nonlinear stencil, fast fourier transform, finite-difference method},
+  location = {Edinburgh, United Kingdom},
+  series = {PPoPP '24}
+}
+
+@inproceedings{Bauer2019PhaseField,
+  author = {Bauer, Martin and H\"{o}tzer, Johannes and Ernst, Dominik and Hammer, Julian and Seiz, Marco and Hierl, Henrik and H\"{o}nig, Jan and K\"{o}stler, Harald and Wellein, Gerhard and Nestler, Britta and R\"{u}de, Ulrich},
+  title = {Code generation for massively parallel phase-field simulations},
+  year = {2019},
+  isbn = {9781450362290},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3295500.3356186},
+  doi = {10.1145/3295500.3356186},
+  abstract = {This article describes the development of automatic program generation technology to create scalable phase-field methods for material science applications. To simulate the formation of microstructures in metal alloys, we employ an advanced, thermodynamically consistent phase-field method. A state-of-the-art large-scale implementation of this model requires extensive, time-consuming, manual code optimization to achieve unprecedented fine mesh resolution. Our new approach starts with an abstract description based on free-energy functionals which is formally transformed into a continuous PDE and discretized automatically to obtain a stencil-based time-stepping scheme. Subsequently, an automatized performance engineering process generates highly optimized, performance-portable code for CPUs and GPUs. We demonstrate the efficiency for real-world simulations on large-scale GPU-based (PizDaint) and CPU-based (SuperMUC-NG) supercomputers. Our technique simplifies program development and optimization for a wide class of models.We further outperform existing, manually optimized implementations as our code can be generated specifically for each phase-field model and hardware configuration.},
+  booktitle = {Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis},
+  articleno = {59},
+  numpages = {32},
+  location = {Denver, Colorado},
+  series = {SC '19}
+}
+
+@article{Hennig2023CMMRT,
+  author = {Hennig, Frederik and Holzer, Markus and R\"{u}de, Ulrich},
+  title = {Advanced Automatic Code Generation for Multiple Relaxation-Time Lattice Boltzmann Methods},
+  journal = {SIAM Journal on Scientific Computing},
+  volume = {45},
+  number = {4},
+  pages = {C233-C254},
+  year = {2023},
+  doi = {10.1137/22M1531348},
+
+  URL = { 
+      
+          https://doi.org/10.1137/22M1531348
+      
+      
+
+  },
+  eprint = { 
+      
+          https://doi.org/10.1137/22M1531348
+      
+      
+
+  }
+  ,
+      abstract = { Abstract. The scientific code generation package lbmpy supports the automated design and the efficient implementation of lattice Boltzmann method (LBM) through metaprogramming. It is based on a new, concise calculus for describing multiple relaxation-time LBMs, including techniques that enable the numerically advantageous subtraction of the constant background component from the populations. These techniques are generalized to a wide range of collision spaces and equilibrium distributions. The article contains an overview of lbmpy’s frontend and its code generation pipeline, which implements the new LBM calculus by means of symbolic formula manipulation tools and object-oriented programming. The generated codes have only a minimal number of arithmetic operations. Their automatic derivation rests on two novel chimera transforms that have been specifically developed for efficiently computing raw and central moments. Information contained in the symbolic representation of the methods is further exploited in a customized sequence of algebraic simplifications, further reducing computational cost. When combined, these algebraic transformations lead to concise and compact numerical kernels. Specifically, with these optimizations, the advanced central moment- and cumulant-based methods can be realized with only little additional cost as when compared with the simple Bhatnagar–Gross–Krook method. The effectiveness and flexibility of the new lbmpy code generation system is demonstrated in simulating Taylor–Green vortex decay and the automatic derivation of an LBM algorithm to solve the shallow water equations. }
+}
+
+@article{Bauer2021lbmpy,
+title = {lbmpy: Automatic code generation for efficient parallel lattice Boltzmann methods},
+journal = {Journal of Computational Science},
+volume = {49},
+pages = {101269},
+year = {2021},
+issn = {1877-7503},
+doi = {https://doi.org/10.1016/j.jocs.2020.101269},
+url = {https://www.sciencedirect.com/science/article/pii/S1877750320305652},
+author = {Martin Bauer and Harald Köstler and Ulrich Rüde},
+keywords = {Meta programming, LBM, hpc},
+abstract = {Lattice Boltzmann methods are a popular mesoscopic alternative to classical computational fluid dynamics based on the macroscopic equations of continuum mechanics. Many variants of lattice Boltzmann methods have been developed that vary in complexity, accuracy, and computational cost. Extensions are available to simulate multi-phase, multi-component, turbulent, and non-Newtonian flows. In this work we present lbmpy, a code generation package that supports a wide variety of different lattice Boltzmann methods. Additionally, lbmpy provides a generic development environment for new schemes. A high-level domain-specific language allows the user to formulate, extend and test various lattice Boltzmann methods. In all cases, the lattice Boltzmann method can be specified in symbolic form. Transformations that operate on this symbolic representation yield highly efficient compute kernels. This is achieved by automatically parallelizing the methods, and by various application-specific automatized steps that optimize the resulting code. This pipeline of transformations can be applied to a wide range of lattice Boltzmann variants, including single- and two-relaxation-time schemes, multi-relaxation-time methods, as well as the more advanced cumulant methods, and entropically stabilized methods. lbmpy can be integrated into high-performance computing frameworks to enable massively parallel, distributed simulations. This is demonstrated using the waLBerla multiphysics package to conduct scaling experiments on the SuperMUC-NG supercomputing system on up to 147 456 compute cores.}
+}
+
+@article{Bauer2021walberla,
+title = {waLBerla: A block-structured high-performance framework for multiphysics simulations},
+journal = {Computers \& Mathematics with Applications},
+volume = {81},
+pages = {478-501},
+year = {2021},
+note = {Development and Application of Open-source Software for Problems with Numerical PDEs},
+issn = {0898-1221},
+doi = {https://doi.org/10.1016/j.camwa.2020.01.007},
+url = {https://www.sciencedirect.com/science/article/pii/S0898122120300146},
+author = {Martin Bauer and Sebastian Eibl and Christian Godenschwager and Nils Kohl and Michael Kuron and Christoph Rettinger and Florian Schornbaum and Christoph Schwarzmeier and Dominik Thönnes and Harald Köstler and Ulrich Rüde},
+keywords = {High-performance computing, Multiphysics, Lattice Boltzmann, Rigid particle dynamics, Adaptive mesh refinement, Code generation},
+abstract = {Programming current supercomputers efficiently is a challenging task. Multiple levels of parallelism on the core, on the compute node, and between nodes need to be exploited to make full use of the system. Heterogeneous hardware architectures with accelerators further complicate the development process. waLBerla addresses these challenges by providing the user with highly efficient building blocks for developing simulations on block-structured grids. The block-structured domain partitioning is flexible enough to handle complex geometries, while the structured grid within each block allows for highly efficient implementations of stencil-based algorithms. We present several example applications realized with waLBerla, ranging from lattice Boltzmann methods to rigid particle simulations. Most importantly, these methods can be coupled together, enabling multiphysics simulations. The framework uses meta-programming techniques to generate highly efficient code for CPUs and GPUs from a symbolic method formulation.}
+}
+
+@inproceedings{Tang2011Pochoir,
+  author = {Tang, Yuan and Chowdhury, Rezaul Alam and Kuszmaul, Bradley C. and Luk, Chi-Keung and Leiserson, Charles E.},
+  title = {The pochoir stencil compiler},
+  year = {2011},
+  isbn = {9781450307437},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/1989493.1989508},
+  doi = {10.1145/1989493.1989508},
+  abstract = {A stencil computation repeatedly updates each point of a d-dimensional grid as a function of itself and its near neighbors. Parallel cache-efficient stencil algorithms based on "trapezoidal decompositions" are known, but most programmers find them difficult to write. The Pochoir stencil compiler allows a programmer to write a simple specification of a stencil in a domain-specific stencil language embedded in C++ which the Pochoir compiler then translates into high-performing Cilk code that employs an efficient parallel cache-oblivious algorithm. Pochoir supports general d-dimensional stencils and handles both periodic and aperiodic boundary conditions in one unified algorithm. The Pochoir system provides a C++ template library that allows the user's stencil specification to be executed directly in C++ without the Pochoir compiler (albeit more slowly), which simplifies user debugging and greatly simplified the implementation of the Pochoir compiler itself. A host of stencil benchmarks run on a modern multicore machine demonstrates that Pochoir outperforms standard parallelloop implementations, typically running 2-10 times faster. The algorithm behind Pochoir improves on prior cache-efficient algorithms on multidimensional grids by making "hyperspace" cuts, which yield asymptotically more parallelism for the same cache efficiency.},
+  booktitle = {Proceedings of the Twenty-Third Annual ACM Symposium on Parallelism in Algorithms and Architectures},
+  pages = {117–128},
+  numpages = {12},
+  keywords = {trapezoidal decomposition, stencil computation, parallel computation, multicore, embedded domain-specific language, compiler, cilk, cache-oblivious algorithm, C++},
+  location = {San Jose, California, USA},
+  series = {SPAA '11}
+}
+
+@InProceedings{Bondhugula2008Automatic,
+  author="Bondhugula, Uday
+  and Baskaran, Muthu
+  and Krishnamoorthy, Sriram
+  and Ramanujam, J.
+  and Rountev, Atanas
+  and Sadayappan, P.",
+  editor="Hendren, Laurie",
+  title="Automatic Transformations for Communication-Minimized Parallelization and Locality Optimization in the Polyhedral Model",
+  booktitle="Compiler Construction",
+  year="2008",
+  publisher="Springer Berlin Heidelberg",
+  address="Berlin, Heidelberg",
+  pages="132--146",
+  abstract="The polyhedral model provides powerful abstractions to optimize loop nests with regular accesses. Affine transformations in this model capture a complex sequence of execution-reordering loop transformations that can improve performance by parallelization as well as locality enhancement. Although a significant body of research has addressed affine scheduling and partitioning, the problem of automatically finding good affine transforms for communication-optimized coarse-grained parallelization together with locality optimization for the general case of arbitrarily-nested loop sequences remains a challenging problem.",
+  isbn="978-3-540-78791-4"
+}
+
+@article{Bondhugula2008Practical,
+  author = {Bondhugula, Uday and Hartono, Albert and Ramanujam, J. and Sadayappan, P.},
+  title = {A practical automatic polyhedral parallelizer and locality optimizer},
+  year = {2008},
+  issue_date = {June 2008},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {43},
+  number = {6},
+  issn = {0362-1340},
+  url = {https://doi.org/10.1145/1379022.1375595},
+  doi = {10.1145/1379022.1375595},
+  abstract = {We present the design and implementation of an automatic polyhedral source-to-source transformation framework that can optimize regular programs (sequences of possibly imperfectly nested loops) for parallelism and locality simultaneously. Through this work, we show the practicality of analytical model-driven automatic transformation in the polyhedral model -- far beyond what is possible by current production compilers. Unlike previous works, our approach is an end-to-end fully automatic one driven by an integer linear optimization framework that takes an explicit view of finding good ways of tiling for parallelism and locality using affine transformations. The framework has been implemented into a tool to automatically generate OpenMP parallel code from C program sections. Experimental results from the tool show very high speedups for local and parallel execution on multi-cores over state-of-the-art compiler frameworks from the research community as well as the best native production compilers. The system also enables the easy use of powerful empirical/iterative optimization for general arbitrarily nested loop sequences.},
+  journal = {SIGPLAN Not.},
+  month = jun,
+  pages = {101–113},
+  numpages = {13},
+  keywords = {affine transformations, automatic parallelization, locality optimization, loop transformations, polyhedral model, tiling}
+}
+
+@inproceedings{Han2025FlashFFT,
+  author = {Han, Haozhi and Li, Kun and Cui, Wei and Bai, Donglin and Zhang, Yiwei and Yuan, Liang and Chen, Yifeng and Zhang, Yunquan and Cao, Ting and Yang, Mao},
+  title = {FlashFFTStencil: Bridging Fast Fourier Transforms to Memory-Efficient Stencil Computations on Tensor Core Units},
+  year = {2025},
+  isbn = {9798400714436},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3710848.3710897},
+  doi = {10.1145/3710848.3710897},
+  abstract = {While Tensor Core Units (TCUs) excel in AI tasks, their application to HPC algorithms like stencil computations faces significant challenges due to sparsity, which leads to underutilization and exacerbates memory-bound limitations. This paper introduces FlashFFTStencil1, a memory-efficient stencil computing system designed to bridge FFT to fully-dense stencil computations on TCUs. Aimed at bound shifting, FlashFFTStencil comprises three key techniques: Kernel Tailoring on HBM fuses distinct kernels to enhance parallelism while reducing memory transfer and footprint; Architecture Aligning on SMEM restructures FFT-based stencil computations into dense matrix multiplications tailored for shared memory architecture; Computation Streamlining on TCU optimizes TCU utilization and thread parallelism by minimizing pipeline stalls and maximizing register reuse. Notably, a distinctive extension is FlashFFTStencil's ability to enable theoretically unrestricted temporal fusion by FFT. Results show that FlashFFTStencil achieves effective sparsity-free bound shifting, with an average speedup of 2.57x over the state-of-the-art. FlashFFTStencil pioneers a new era in unifying computational patterns within the HPC landscape and bridges them with cutting-edge AI-driven hardware innovations like TCUs.},
+  booktitle = {Proceedings of the 30th ACM SIGPLAN Annual Symposium on Principles and Practice of Parallel Programming},
+  pages = {355–368},
+  numpages = {14},
+  keywords = {Fast Fourier Transforms, Matrix Multiplication, Stencil Computation, Tensor Core Units},
+  location = {Las Vegas, NV, USA},
+  series = {PPoPP '25}
+}
+
+@article{Liu2023Turbo,
+title = {TurboStencil: You only compute once for stencil computation},
+journal = {Future Generation Computer Systems},
+volume = {146},
+pages = {260-272},
+year = {2023},
+issn = {0167-739X},
+doi = {https://doi.org/10.1016/j.future.2023.04.019},
+url = {https://www.sciencedirect.com/science/article/pii/S0167739X2300153X},
+author = {Song Liu and Xinhe Wan and Zengyuan Zhang and Bo Zhao and Weiguo Wu},
+keywords = {Stencil computation, Convolution, Fast Fourier transform, Boundary effect, Data padding, Performance},
+abstract = {Stencil computation is an important kind of computational mode that widely used in numeric. It iteratively updates the values of the spatial grid points over multiple time steps according to a given pattern. Existing techniques suffer from high complexity of massive iterative computations. Convolution and fast Fourier transform (FFT) provide the possibility to avoid massive iterations and reduce time complexity of stencil computation. However, current convolution-based fast stencil algorithms cannot effectively solve the problems with aperiodic boundary conditions that are common in practical applications. In this paper, we present a novel algorithm, TurboStencil, for linear stencil computations with aperiodic boundary condition. TurboStencil provides a padding method, eliminating the effects of boundary conditions, to enable convolution for all grid points. For symmetric stencil, TurboStencil only computes once by applying FFT, and thus achieves the time complexity of O(NlogN), where N is the grid data size. For asymmetric stencil, TurboStencil also only computes several times by employing a divide-and-conquer method and FFT, and exhibits a lower complexity than existing stencil algorithms. Experimental results demonstrate that TurboStencil outperforms the state-of-the-art convolution-based fast stencil algorithm by up to 777.1×, 43.2×, and 9.4× for symmetric stencil, and 12.9×, 2.0×, and 1.3× for asymmetric stencil, respectively, on 1D, 2D, and 3D benchmarks.}
+}
+
+@inproceedings{Singh2023SPARTA,
+author = {Singh, Gagandeep and Khodamoradi, Alireza and Denolf, Kristof and Lo, Jack and Gomez-Luna, Juan and Melber, Joseph and Bisca, Andra and Corporaal, Henk and Mutlu, Onur},
+title = {SPARTA: Spatial Acceleration for Efficient and Scalable Horizontal Diffusion Weather Stencil Computation},
+year = {2023},
+isbn = {9798400700569},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3577193.3593719},
+doi = {10.1145/3577193.3593719},
+abstract = {Fast and accurate climate simulations and weather predictions are critical for understanding and preparing for the impact of climate change. Real-world climate and weather simulations involve the use of complex compound stencil kernels, which are composed of a combination of different stencils. Horizontal diffusion is one such important compound stencil found in many climate and weather prediction models. Its computation involves a large amount of data access and manipulation that leads to two main issues on current computing systems. First, such compound stencils have high memory bandwidth demands as they require large amounts of data access. Second, compound stencils have complex data access patterns and poor data locality, as the memory access pattern is typically irregular with low arithmetic intensity. As a result, state-of-the-art CPU and GPU implementations suffer from limited performance and high energy consumption. Recent works propose using FPGAs as an alternative to traditional CPU and GPU-based systems to accelerate weather stencil kernels. However, we observe that stencil computation cannot leverage the bit-level flexibility available on an FPGA because of its complex memory access patterns, leading to high hardware resource utilization and low peak performance.We introduce SPARTA, a novel spatial accelerator for horizontal diffusion weather stencil computation. We exploit the two-dimensional spatial architecture to efficiently accelerate the horizontal diffusion stencil by designing the first scaled-out spatial accelerator using the MLIR (Multi-Level Intermediate Representation) compiler framework. We evaluate SPARTA on a real cutting-edge AMD-Xilinx Versal AI Engine (AIE) spatial architecture. Our real-system evaluation results demonstrate that SPARTA outperforms state-of-the-art CPU, GPU, and FPGA implementations by 17.1\texttimes{}, 1.2\texttimes{}, and 2.1\texttimes{}, respectively. Compared to the most energy-efficient design on an HBM-based FPGA, SPARTA provides 2.43\texttimes{} higher energy efficiency. Our results reveal that balancing workload across the available processing resources is crucial in achieving high performance on spatial architectures. We also implement and evaluate five elementary stencils that are commonly used as benchmarks for stencil computation research. We freely open-source all our implementations to aid future research in stencil computation and spatial computing systems at https://github.com/CMU-SAFARI/SPARTA.},
+booktitle = {Proceedings of the 37th ACM International Conference on Supercomputing},
+pages = {463–476},
+numpages = {14},
+keywords = {climate modeling, memory access patterns, stencil computation, weather prediction, hybrid systems, high-performance computing, dataflow architectures, spatial computing systems},
+location = {Orlando, FL, USA},
+series = {ICS '23}
+}
+
+@inproceedings{Chen2024ConvStencil,
+author = {Chen, Yuetao and Li, Kun and Wang, Yuhao and Bai, Donglin and Wang, Lei and Ma, Lingxiao and Yuan, Liang and Zhang, Yunquan and Cao, Ting and Yang, Mao},
+title = {ConvStencil: Transform Stencil Computation to Matrix Multiplication on Tensor Cores},
+year = {2024},
+isbn = {9798400704352},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3627535.3638476},
+doi = {10.1145/3627535.3638476},
+abstract = {Tensor Core Unit (TCU) is increasingly integrated into modern high-performance processors to enhance matrix multiplication performance. However, constrained to its over-specification, its potential for improving other critical scientific operations like stencil computations remains untapped.This paper presents ConvStencil1, a novel stencil computing system designed to efficiently transform stencil computation to matrix multiplication on Tensor Cores. We first develop a performance model for ConvStencil to guide algorithm design and optimization on TCUs. Based on this model, we propose three techniques: (1) Memory-efficient Layout Transformation using the stencil2row method; (2) Computation-dense Compute Adaptation with Dual Tessellation and kernel fusion; and (3) Performance-boosting Conflict Removal using a Lookup Table and Dirty Bits Padding. ConvStencil outperforms other stencil optimization frameworks, achieving significant speedups compared to solutions like AMOS, cuDNN, Brick, DRStencil, and TCStencil. By transforming stencil computation on Tensor Cores, ConvStencil promises to improve the performance of various scientific and engineering applications.},
+booktitle = {Proceedings of the 29th ACM SIGPLAN Annual Symposium on Principles and Practice of Parallel Programming},
+pages = {333–347},
+numpages = {15},
+keywords = {stencil computation, convolution, matrix multiplication, tensor cores},
+location = {Edinburgh, United Kingdom},
+series = {PPoPP '24}
+}
+
+@techreport{Asanovic2006Landscape,
+  title={The landscape of parallel computing research: A view from berkeley},
+  author={Asanovic, Krste and Bodik, Ras and Catanzaro, Bryan Christopher and Gebis, Joseph James and Husbands, Parry and Keutzer, Kurt and Patterson, David A and Plishker, William Lester and Shalf, John and Williams, Samuel Webb and others},
+  year={2006},
+  institution={Technical Report UCB/EECS-2006-183, EECS Department, University of~…}
+}
+
+@inproceedings{Frigo2005Stencil,
+author = {Frigo, Matteo and Strumpen, Volker},
+title = {Cache oblivious stencil computations},
+year = {2005},
+isbn = {1595931678},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1088149.1088197},
+doi = {10.1145/1088149.1088197},
+abstract = {We present a cache oblivious algorithm for stencil computations, which arise for example in finite-difference methods. Our algorithm applies to arbitrary stencils in n-dimensional spaces. On an "ideal cache" of size Z, our algorithm saves a factor of Θ(Z1/n) cache misses compared to a naive algorithm, and it exploits temporal locality optimally throughout the entire memory hierarchy.},
+booktitle = {Proceedings of the 19th Annual International Conference on Supercomputing},
+pages = {361–366},
+numpages = {6},
+location = {Cambridge, Massachusetts},
+series = {ICS '05}
+}
+
+@inproceedings{Bentley2025Fast,
+author = {Bentley, Russell and Chowdhury, Rezaul and Gregory, Aaron and Santomauro, Michael},
+title = {Applying Fast Fourier Transforms to Accelerate Spatially and Temporally Inhomogeneous Stencil Computations},
+year = {2025},
+isbn = {9798400712586},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3694906.3743354},
+doi = {10.1145/3694906.3743354},
+abstract = {Stencil computations are essential for simulating the evolution of physical systems across multi-dimensional grids over multiple timesteps. State-of-the-art techniques in this field fall into three major groups: tiled looping algorithms, divide-and-conquer trapezoidal algorithms, and Krylov subspace methods.The vast majority of stencil computation algorithms fundamentally operate by looping over all grid cells for all timesteps and computing each value as they go. For a grid of size N and T timesteps, all such looping methods perform Θ (NT) work. Recently however a class of Krylov subspace methods based on Fast Fourier transforms (FFTs) have been developed that allow for o (NT) work if applied to a problem with a constant linear stencil.In this paper we present an approach that supports a broad class of problems involving multiple time-varying linear stencils applied over spatial regions with arbitrary, time-varying boundaries subject to arbitrary boundary conditions. We develop a recursive divide-and-conquer strategy based on ℓ-shell decompositions of arbitrary spatial regions, enabling efficient solutions over irregular domains in both space and time. These extensions allow us to apply FFT-based acceleration in settings that were previously out of reach. We maintain to within a logarithmic factor the complexity bounds achieved for the narrower problem statement addressed by previous FFT-based methods, again securing o (NT) work.Initial experimental results show that implementations of our algorithms that evolve grids of roughly 107 cells for around 105 timesteps run orders of magnitude faster than state-of-the-art implementations for periodic stencil problems, and substantially faster for aperiodic stencil problems.Code Repository: https://github.com/TEALab-org/nhls},
+booktitle = {Proceedings of the 37th ACM Symposium on Parallelism in Algorithms and Architectures},
+pages = {17–33},
+numpages = {17},
+keywords = {Divide-and-Conquer, Fast Fourier Transform, Moving Boundaries, Multi-region Stencil Grids, Parallel Stencil Solver, Stencil Computation, Time-varying Stencils},
+location = {Portland, OR, USA},
+series = {SPAA '25}
+}
+
+@incollection{Taflove2005Ch9,
+title = {9 - Computational Electromagnetics: The Finite-Difference Time-Domain Method},
+editor = {WAI-KAI CHEN},
+booktitle = {The Electrical Engineering Handbook},
+publisher = {Academic Press},
+address = {Burlington},
+pages = {629-670},
+year = {2005},
+isbn = {978-0-12-170960-0},
+doi = {https://doi.org/10.1016/B978-012170960-0/50046-3},
+url = {https://www.sciencedirect.com/science/article/pii/B9780121709600500463},
+author = {Allen Taflove and Susan C. Hagness and Melinda Piket-May}
+}
+
+@article{Ipsen1998Krylov,
+ ISSN = {00029890, 19300972},
+ URL = {http://www.jstor.org/stable/2589281},
+ author = {Ilse C. F. Ipsen and Carl D. Meyer},
+ journal = {The American Mathematical Monthly},
+ number = {10},
+ pages = {889--899},
+ publisher = {[Taylor & Francis, Ltd., Mathematical Association of America]},
+ title = {The Idea behind Krylov Methods},
+ urldate = {2026-04-16},
+ volume = {105},
+ year = {1998}
+}
+
+
+
+
+
+
+
+@article{Saad1989Krylov,
+author = {Saad, Youcef},
+title = {Krylov Subspace Methods on Supercomputers},
+journal = {SIAM Journal on Scientific and Statistical Computing},
+volume = {10},
+number = {6},
+pages = {1200-1232},
+year = {1989},
+doi = {10.1137/0910073},
+URL = {https://doi.org/10.1137/0910073},
+eprint = {https://doi.org/10.1137/0910073},
+abstract = { This paper presents a short survey of recent research on Krylov subspace methods with emphasis on implementation on vector and parallel computers. Conjugate gradient methods have proven very useful on traditional scalar computers, and their popularity is likely to increase as three-dimensional models gain importance. A conservative approach to derive effective iterative techniques for supercomputers has been to find efficient parallel/vector implementations of the standard algorithms. The main source of difficulty in the incomplete factorization preconditionings is in the solution of the triangular systems at each step. A few approaches consisting of implementing efficient forward and backward triangular solutions are described in detail. Then polynomial preconditioning as an alternative to standard incomplete factorization techniques is discussed. Another efficient approach is to reorder the equations so as to improve the structure of the matrix to achieve better parallelism or vectorization. An overview of these ideas and others is given in this article, as well as an attempt to comment on their effectiveness or potential for different types of architectures. }
+}
+
+@article{Chan1984fd,
+author = {Chan, Tony F.},
+title = {Stability Analysis of Finite Difference Schemes for the Advection-Diffusion Equation},
+journal = {SIAM Journal on Numerical Analysis},
+volume = {21},
+number = {2},
+pages = {272-284},
+year = {1984},
+doi = {10.1137/0721020},
+URL = {https://doi.org/10.1137/0721020},
+eprint = {https://doi.org/10.1137/0721020},
+abstract = { We present a collection of stability results for finite difference approximations to the advection-diffusion equation \$u\_t = au\_x + bu\_{xx} \$. The results are for centered difference schemes in space and include explicit and implicit schemes in time up to fourth order and schemes that use different space and time discretizations for the advective and diffusive terms. The results are derived from a uniform framework based on the Schur–Cohn theory of simple von Neumann polynomials and are necessary and sufficient for the stability of the Cauchy problem. Some of the results are believed to be new. }
+}
+
+
+
+
+
+
+
+@article{Erlangga2006,
+author = {Erlangga, Y. A. and Oosterlee, C. W. and Vuik, C.},
+title = {A Novel Multigrid Based Preconditioner For Heterogeneous Helmholtz Problems},
+journal = {SIAM Journal on Scientific Computing},
+volume = {27},
+number = {4},
+pages = {1471-1492},
+year = {2006},
+doi = {10.1137/040615195},
+URL = {https://doi.org/10.1137/040615195},
+eprint = {https://doi.org/10.1137/040615195},
+    abstract = { An iterative solution method, in the form of a preconditioner for a Krylov subspace method, is presented for the Helmholtz equation. The preconditioner is based on a Helmholtz-type differential operator with a complex term. A multigrid iteration is used for approximately inverting the preconditioner. The choice of multigrid components for the corresponding preconditioning matrix with a complex diagonal is validated with Fourier analysis. Multigrid analysis results are verified by numerical experiments. High wavenumber Helmholtz problems in heterogeneous media are solved indicating the performance of the preconditioner. }
+}
+
+@article{Gmeiner2013,
+title = {Optimization of the multigrid-convergence rate on semi-structured meshes by local Fourier analysis},
+journal = {Computers \& Mathematics with Applications},
+volume = {65},
+number = {4},
+pages = {694-711},
+year = {2013},
+issn = {0898-1221},
+doi = {https://doi.org/10.1016/j.camwa.2012.12.006},
+url = {https://www.sciencedirect.com/science/article/pii/S089812211200702X},
+author = {B. Gmeiner and T. Gradl and F. Gaspar and U. Rüde},
+keywords = {Multigrid, Local Fourier analysis, Convergence rate, Smoothers},
+abstract = {In this paper a local Fourier analysis for multigrid methods on tetrahedral grids is presented. Different smoothers for the discretization of the Laplace operator by linear finite elements on such grids are analyzed. A four-color smoother is presented as an efficient choice for regular tetrahedral grids, whereas line and plane relaxations are needed for poorly shaped tetrahedra. A novel partitioning of the Fourier space is proposed to analyze the four-color smoother. Numerical test calculations validate the theoretical predictions. A multigrid method is constructed in a block-wise form, by using different smoothers and different numbers of pre- and post-smoothing steps in each tetrahedron of the coarsest grid of the domain. Some numerical experiments are presented to illustrate the efficiency of this multigrid algorithm.}
+}
+
+@article{Asgharzadeh2017Krylov,
+title = {A Newton–Krylov method with an approximate analytical Jacobian for implicit solution of Navier–Stokes equations on staggered overset-curvilinear grids with immersed boundaries},
+journal = {Journal of Computational Physics},
+volume = {331},
+pages = {227-256},
+year = {2017},
+issn = {0021-9991},
+doi = {https://doi.org/10.1016/j.jcp.2016.11.033},
+url = {https://www.sciencedirect.com/science/article/pii/S0021999116306258},
+author = {Hafez Asgharzadeh and Iman Borazjani},
+keywords = {Implicit method, Complex geometry, Newton–Krylov method, Matrix-free, Analytical Jacobian, Overset, Curvilinear},
+}
+
+@article{Ashrafizadeh2015,
+  title={A Jacobian-free Newton--Krylov method for thermalhydraulics simulations},
+  author={Ashrafizadeh, A and Devaud, CB and Aydemir, NU},
+  journal={International Journal for Numerical Methods in Fluids},
+  volume={77},
+  number={10},
+  pages={590--615},
+  year={2015},
+  publisher={Wiley Online Library},
+  url = {https://onlinelibrary.wiley.com/doi/full/10.1002/fld.3999},
+  doi = {https://doi.org/10.1002/fld.3999}
+}
+
+@article{Garrappa2015Krylov,
+title = {Solving the time-fractional Schrödinger equation by Krylov projection methods},
+journal = {Journal of Computational Physics},
+volume = {293},
+pages = {115-134},
+year = {2015},
+note = {Fractional PDEs},
+issn = {0021-9991},
+doi = {https://doi.org/10.1016/j.jcp.2014.09.023},
+url = {https://www.sciencedirect.com/science/article/pii/S0021999114006597},
+author = {Roberto Garrappa and Igor Moret and Marina Popolizio},
+keywords = {Time-fractional Schrödinger equation, Mittag–Leffler function, Krylov subspace methods},
+abstract = {The time-fractional Schrödinger equation is a fundamental topic in physics and its numerical solution is still an open problem. Here we start from the possibility to express its solution by means of the Mittag–Leffler function; then we analyze some approaches based on the Krylov projection methods to approximate this function; their convergence properties are discussed, together with related issues. Numerical tests are presented to confirm the strength of the approach under investigation.}
+}
+
+@article{Mang2015Krylov,
+author = {Mang, Andreas and Biros, George},
+title = {An Inexact Newton--Krylov Algorithm for Constrained Diffeomorphic Image Registration},
+journal = {SIAM Journal on Imaging Sciences},
+volume = {8},
+number = {2},
+pages = {1030-1069},
+year = {2015},
+doi = {10.1137/140984002},
+URL = {https://doi.org/10.1137/140984002},
+eprint = {https://doi.org/10.1137/140984002},
+abstract = { We propose numerical algorithms for solving large deformation diffeomorphic image registration problems. We formulate the nonrigid image registration problem as a problem of optimal control. This leads to an infinite-dimensional partial differential equation (PDE) constrained optimization problem. The PDE constraint consists, in its simplest form, of a hyperbolic transport equation for the evolution of the image intensity. The control variable is the velocity field. Tikhonov regularization on the control ensures well-posedness. We consider standard smoothness regularization based on \$H^1\$- or \$H^2\$-seminorms. We augment this regularization scheme with a constraint on the divergence of the velocity field (control variable) rendering the deformation incompressible (Stokes regularization scheme) and thus ensuring that the determinant of the deformation gradient is equal to one, up to the numerical error. We use a Fourier pseudospectral discretization in space and a Chebyshev pseudospectral discretization in time. The latter allows us to reduce the number of unknowns and enables the time-adaptive inversion for nonstationary velocity fields. We use a preconditioned, globalized, matrix-free, inexact Newton--Krylov method for numerical optimization. A parameter continuation is designed to estimate an optimal regularization parameter. Regularity is ensured by controlling the geometric properties of the deformation field. Overall, we arrive at a black-box solver that exploits computational tools that are precisely tailored for solving the optimality system. We study spectral properties of the Hessian, grid convergence, numerical accuracy, computational efficiency, and deformation regularity of our scheme. We compare the designed Newton--Krylov methods with a globalized Picard method (preconditioned gradient descent). We study the influence of a varying number of unknowns in time. The reported results demonstrate excellent numerical accuracy, guaranteed local deformation regularity, and computational efficiency with an optional control on local mass conservation. The Newton--Krylov methods clearly outperform the Picard method if high accuracy of the inversion is required. Our method provides equally good results for stationary and nonstationary velocity fields for two-image registration problems. }
+}
+
+
+
+
+
+
+
+
+@article{Brown1994Krylov,
+author = {Brown, Peter N. and Saad, Youcef},
+title = {Convergence Theory of Nonlinear Newton–Krylov Algorithms},
+journal = {SIAM Journal on Optimization},
+volume = {4},
+number = {2},
+pages = {297-330},
+year = {1994},
+doi = {10.1137/0804017},
+URL = {https://doi.org/10.1137/0804017},
+eprint = {https://doi.org/10.1137/0804017},
+abstract = { This paper presents some convergence theory for nonlinear Krylov subspace methods. The basic idea of these methods, which have been described by the authors in an earlier paper, is to use variants of Newton’s iteration in conjunction with a Krylov subspace method for solving the Jacobian linear systems. These methods are variants of inexact Newton methods where the approximate Newton direction is taken from a subspace of small dimension. The main focus of this paper is to analyze these methods when they are combined with global strategies such as linesearch techniques and model trust region algorithms. Most of the convergence results are formulated for projection onto general subspaces rather than just Krylov subspaces. }
+}
+
+@article{Kuijlaars2006Krylov,
+author = {Kuijlaars, Arno B. J.},
+title = {Convergence Analysis of Krylov Subspace Iterations with Methods from Potential Theory},
+journal = {SIAM Review},
+volume = {48},
+number = {1},
+pages = {3-40},
+year = {2006},
+doi = {10.1137/S0036144504445376},
+URL = {https://doi.org/10.1137/S0036144504445376},
+eprint = {https://doi.org/10.1137/S0036144504445376},
+abstract = { Krylov subspace iterations are among the best-known and most widely used numerical methods for solving linear systems of equations and for computing eigenvalues of large matrices. These methods are polynomial methods whose convergence behavior is related to the behavior of polynomials on the spectrum of the matrix. This leads to an extremal problem in polynomial approximation theory: How small can a monic polynomial of a given degree be on the spectrum?This survey gives an introduction to a recently developed technique to analyze this extremal problem in the case of symmetric matrices. It is based on global information on the spectrum in the sense that the eigenvalues are assumed to be distributed according to a certain measure. Then, depending on the number of iterations, the Lanczos method for the calculation of eigenvalues finds those eigenvalues that lie in a certain region, which is characterized by means of a constrained equilibrium problem from potential theory. The same constrained equilibrium problem also describes the superlinear convergence of conjugate gradients and other iterative methods for solving linear systems. }
+}
+
+@article{Notay2008Krylov,
+author = {Notay, Yvan and Vassilevski, Panayot S.},
+title = {Recursive Krylov-based multigrid cycles},
+journal = {Numerical Linear Algebra with Applications},
+volume = {15},
+number = {5},
+pages = {473-487},
+keywords = {recursive multilevel Krylov iterations, variable-step multilevel preconditioning, flexible conjugate gradients, multigrid, Krylov subspace method, conjugate gradients, preconditioning},
+doi = {https://doi.org/10.1002/nla.542},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/nla.542},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/nla.542},
+abstract = {Abstract We consider multigrid (MG) cycles based on the recursive use of a two-grid method, in which the coarse-grid system is solved by µ⩾1 steps of a Krylov subspace iterative method. The approach is further extended by allowing such inner iterations only at the levels of given multiplicity, whereas V-cycle formulation is used at all other levels. For symmetric positive definite systems and symmetric MG schemes, we consider a flexible (or generalized) conjugate gradient method as Krylov subspace solver for both inner and outer iterations. Then, based on some algebraic (block matrix) properties of the V-cycle MG viewed as a preconditioner, we show that the method can have optimal convergence properties if µ is chosen to be sufficiently large. We also formulate conditions that guarantee both, optimal complexity and convergence, bounded independently of the number of levels. Our analysis shows that the method is, at least, as effective as the standard W-cycle, whereas numerical results illustrate that it can be much faster than the latter, and actually more robust than predicted by the theory. Copyright © 2007 John Wiley \& Sons, Ltd.},
+year = {2008}
+}
+
+@article {Avissar1989Weather,
+      author = "R.  Avissar and R. A.  Pielke",
+      title = "A Parameterization of Heterogeneous Land Surfaces for Atmospheric Numerical Models and Its Impact on Regional Meteorology",
+      journal = "Monthly Weather Review",
+      year = "1989",
+      publisher = "American Meteorological Society",
+      address = "Boston MA, USA",
+      volume = "117",
+      number = "10",
+      doi = "10.1175/1520-0493(1989)117<2113:APOHLS>2.0.CO;2",
+      pages=      "2113 - 2136",
+      url = "https://journals.ametsoc.org/view/journals/mwre/117/10/1520-0493_1989_117_2113_apohls_2_0_co_2.xml"
+}
+
+@article {Kalnay1990Weather,
+      author = "E. Kalnay and M. Kanamitsu and W.E. Baker",
+      title = "Global Numerical Weather Prediction at the National Meteorological Center",
+      journal = "Bulletin of the American Meteorological Society",
+      year = "1990",
+      publisher = "American Meteorological Society",
+      address = "Boston MA, USA",
+      volume = "71",
+      number = "10",
+      doi = "10.1175/1520-0477(1990)071<1410:GNWPAT>2.0.CO;2",
+      pages=      "1410 - 1428",
+      url = "https://journals.ametsoc.org/view/journals/bams/71/10/1520-0477_1990_071_1410_gnwpat_2_0_co_2.xml"
+}
+
+@article{Mendicino2015Eco,
+title = {Stability of an overland flow scheme in the framework of a fully coupled eco-hydrological model based on the Macroscopic Cellular Automata approach},
+journal = {Communications in Nonlinear Science and Numerical Simulation},
+volume = {21},
+number = {1},
+pages = {128-146},
+year = {2015},
+note = {Numerical Computations: Theory and Algorithms (NUMTA 2013), International Conference and Summer School},
+issn = {1007-5704},
+doi = {https://doi.org/10.1016/j.cnsns.2014.08.021},
+url = {https://www.sciencedirect.com/science/article/pii/S1007570414004043},
+author = {Giuseppe Mendicino and Jessica Pedace and Alfonso Senatore},
+keywords = {Cellular Automata, Eco-hydrology, Overland flow models, Stability analysis, Courant–Friedrichs–Lewy condition, von Neumann condition},
+abstract = {Cellular Automata are often used for modeling the evolution in time of environmental systems mainly because they are directly compatible with parallel programming. Nevertheless, defining the optimal time step criterion for integrating forward in time numerical processes can further enhance model computational efficiency. To this aim, a numerical stability analysis of an original overland flow model, within the framework of a fully coupled eco-hydrological system based on the Macroscopic Cellular Automata paradigm, is performed. According to the other modules of the system describing soil water flow, soil-surface-atmosphere fluxes and vegetation dynamics, overland flow model equations were derived through a direct discrete formulation (i.e. no differential equations were discretized), adopting the diffusion wave model as an approximation of the full De Saint Venant equations and including the capability of accounting for specific processes, such as the increasing roughness effects due to vegetation growth or surface-soil water exchanges. Suitable formulations of robust tools usually applied in the stability analyses, such as Courant–Friedrichs–Lewy and von Neumann conditions, were initially derived for the CA-based overland flow model. Afterwards, the theoretical stability conditions were compared to experimental time step constraints through several numerical simulations of a 5-h rain event. Specifically, adopting a constant (i.e. not adaptive) time step for simulations, and discretizing head losses in a way that increases model stability, experimental upper limits preventing numerical instability were found for 13 test cases with different slopes, precipitation intensities, vegetation densities and depths of surface depressions. Even though von Neumann condition and experimental values were well positively correlated, the latter were almost always sensibly lower, excluding cases when free surface gradients tended to zero. Therefore, based on the original method, two alternative criteria were developed. Numerical tests showed that the joint use of these criteria greatly helps in finding the optimal time steps for convergent and stable simulations of the overland flow model.}
+}
+
+@inproceedings{Caux2010HashLife,
+author = {Caux, Jonathan and Siregar, Pridi and Hill, David},
+title = {Hash-life algorithm on 3D excitable medium application to integrative biology},
+year = {2010},
+publisher = {Society for Computer Simulation International},
+address = {San Diego, CA, USA},
+abstract = {In this paper, we explore the possibility of using the Hash-Life algorithm for the simulation of 3D excitable media. Such media are commonly used to create model of biological behaviors like cardiac myocytes stimulation and are easily modeled with cellular automata. To speed up these automata, hardware or software acceleration can be used. The Hash-Life algorithm, which used memoisation to allow significant speed up, is the most efficient on 2D determinist cellular automata [Gosper 1984]. When used in 3D, the combinatorial explosion of the number of configurations of cells can severely impact its performance and restricts its use. We have implemented a 3D Hash-Life and tested its execution on excitable medium to determine in which conditions this algorithm could be useful. Results show that Hash-Life capacity to compute numerous iterations in advance still enables very good performance when simulating the functioning of an excitable medium.},
+booktitle = {Proceedings of the 2010 Summer Computer Simulation Conference},
+pages = {387–393},
+numpages = {7},
+keywords = {hash-life, excitable medium, cellular automata, 3D},
+location = {Ottawa, Ontario, Canada},
+series = {SCSC '10}
+}
+
+@article{Gosper1984HashLife,
+title = {Exploiting regularities in large cellular spaces},
+journal = {Physica D: Nonlinear Phenomena},
+volume = {10},
+number = {1},
+pages = {75-80},
+year = {1984},
+issn = {0167-2789},
+doi = {https://doi.org/10.1016/0167-2789(84)90251-3},
+url = {https://www.sciencedirect.com/science/article/pii/0167278984902513},
+author = {R.Wm. Gosper},
+abstract = {We informally describe a computer algorithm for simulating deterministic cellular automata. It grows “smarter” by selectively recording intermediate computations while operating on a compressed representation of the cellular space-time. No information is lost because configurations do not actually evolve. Instead, the simulator accomodates random exploration of place-times in the future of initial configurations embedded in an effectively unbounded void. We use Conway's Life automaton as a model, but the idea extends easily to other geometries, dimensions, and number of states.}
+}
+
+@article{Sitko2016Cellular,
+title = {Time and length scale issues in numerical modelling of dynamic recrystallization based on the multi space cellular automata method},
+journal = {Journal of Computational Science},
+volume = {16},
+pages = {98-113},
+year = {2016},
+issn = {1877-7503},
+doi = {https://doi.org/10.1016/j.jocs.2016.05.007},
+url = {https://www.sciencedirect.com/science/article/pii/S1877750316300849},
+author = {Mateusz Sitko and Maciej Pietrzyk and Lukasz Madej},
+keywords = {Time scale, Length scale, Cellular Automata method},
+abstract = {Critical evaluation of influence of time step length and cell size on cellular automata models behavior during microstructure evolution simulations is the subject of the present work. Dynamic Recrystallization was selected as a case study for CA model application. First, general information on CA model assumptions are presented. Then series of advanced modifications including different dislocation generations schemes, multi space concept and scaling of nuclei sizes is presented. As a result, a robust numerical CA model was established and it was used to highlight importance of proper selection of time step length and cellular automata cell size. The work revealed that there is a clear relation between the two investigated factors and they have to be properly defined in order to reach the threshold values where CA model is becoming insensitive to the technical parameters.}
+}
+
+@Article{Wolfram1984Cellular,
+author={Wolfram, Stephen},
+title={Cellular automata as models of complexity},
+journal={Nature},
+year={1984},
+month={Oct},
+day={01},
+volume={311},
+number={5985},
+pages={419--424},
+abstract={Natural systems from snowflakes to mollusc shells show a great diversity of complex patterns. The origins of such complexity can be investigated through mathematical models termed `cellular automata'. Cellular automata consist of many identical components, each simple., but together capable of complex behaviour. They are analysed both as discrete dynamical systems, and as information-processing systems. Here some of their universal features are discussed, and some general principles are suggested.},
+issn={1476-4687},
+doi={10.1038/311419a0},
+url={https://doi.org/10.1038/311419a0}
+}
+
+@article{Hutton2010Codd,
+    author = {Hutton, Tim J.},
+    title = {Codd's Self-Replicating Computer},
+    journal = {Artificial Life},
+    volume = {16},
+    number = {2},
+    pages = {99-117},
+    year = {2010},
+    month = {04},
+    abstract = {Edgar Codd's 1968 design for a self-replicating cellular automaton has never been implemented. Partly this is due to its enormous size, but we have also identified four problems with the original specification that would prevent it from working. These problems potentially cast doubt on Codd's central assertion, that the eight-state space he presents supports the existence of machines that can act as universal constructors and computers. However, all these problems were found to be correctable, and we present a complete and functioning implementation after making minor changes to the design and transition table. The body of the final machine occupies an area that is 22,254 cells wide and 55,601 cells high, composed of over 45 million nonzero cells in its unsheathed form. The data tape is 208 million cells long, and self-replication is estimated to take at least 1.7 × 1018 time steps.},
+    issn = {1064-5462},
+    doi = {10.1162/artl.2010.16.2.16200},
+    url = {https://doi.org/10.1162/artl.2010.16.2.16200},
+    eprint = {https://direct.mit.edu/artl/article-pdf/16/2/99/1662659/artl.2010.16.2.16200.pdf},
+}
+
+@article{Kyparissas2020Cellular,
+author = {Kyparissas, Nikolaos and Dollas, Apostolos},
+title = {Large-scale Cellular Automata on FPGAs: A New Generic Architecture and a Framework},
+year = {2020},
+issue_date = {March 2021},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {14},
+number = {1},
+issn = {1936-7406},
+url = {https://doi.org/10.1145/3423185},
+doi = {10.1145/3423185},
+abstract = {Cellular automata (CA) are discrete mathematical models discovered in the 1940s by John von Neumann and Stanislaw Ulam and have been used extensively in many scientific disciplines ever since. The present work evolved from a Field Programmable Gate Array– (FPGA) based design to simulate urban growth into a generic architecture that is automatically generated by a framework to efficiently compute complex cellular automata with large 29 \texttimes{} 29 neighborhoods in Cartesian or toroidal grids, with 16 or 256 states per cell. The new architecture and the framework are presented in detail, including results in terms of modeling capabilities and performance. Large neighborhoods greatly enhance CA modeling capabilities, such as the implementation of anisotropic rules. Performance-wise, the proposed architecture runs on a medium-size FPGA up to 51 times faster vs. a CPU running highly optimized C code. Compared to GPUs the speedup is harder to quantify, because CA results have been reported on GPU implementations with neighborhoods up to 11 \texttimes{} 11, in which case FPGA performance is roughly on par with GPU; however, based on published GPU trends, for 29 \texttimes{} 29 neighborhoods the proposed architecture is expected to have better performance vs. a GPU, at one-10th the energy requirements. The architecture and sample designs are open source available under the creative commons license.},
+journal = {ACM Trans. Reconfigurable Technol. Syst.},
+month = dec,
+articleno = {5},
+numpages = {32},
+keywords = {Cellular automata, FPGA accelerator, framework, generic architecture}
+}
+
+@article{Hutton2010Codd,
+    author = {Hutton, Tim J.},
+    title = {Codd's Self-Replicating Computer},
+    journal = {Artificial Life},
+    volume = {16},
+    number = {2},
+    pages = {99-117},
+    year = {2010},
+    month = {04},
+    abstract = {Edgar Codd's 1968 design for a self-replicating cellular automaton has never been implemented. Partly this is due to its enormous size, but we have also identified four problems with the original specification that would prevent it from working. These problems potentially cast doubt on Codd's central assertion, that the eight-state space he presents supports the existence of machines that can act as universal constructors and computers. However, all these problems were found to be correctable, and we present a complete and functioning implementation after making minor changes to the design and transition table. The body of the final machine occupies an area that is 22,254 cells wide and 55,601 cells high, composed of over 45 million nonzero cells in its unsheathed form. The data tape is 208 million cells long, and self-replication is estimated to take at least 1.7 × 1018 time steps.},
+    issn = {1064-5462},
+    doi = {10.1162/artl.2010.16.2.16200},
+    url = {https://doi.org/10.1162/artl.2010.16.2.16200},
+    eprint = {https://direct.mit.edu/artl/article-pdf/16/2/99/1662659/artl.2010.16.2.16200.pdf},
+}
+
+@article{10.1162/artl.2010.16.2.16200,
+    author = {Hutton, Tim J.},
+    title = {Codd's Self-Replicating Computer},
+    journal = {Artificial Life},
+    volume = {16},
+    number = {2},
+    pages = {99-117},
+    year = {2010},
+    month = {04},
+    abstract = {Edgar Codd's 1968 design for a self-replicating cellular automaton has never been implemented. Partly this is due to its enormous size, but we have also identified four problems with the original specification that would prevent it from working. These problems potentially cast doubt on Codd's central assertion, that the eight-state space he presents supports the existence of machines that can act as universal constructors and computers. However, all these problems were found to be correctable, and we present a complete and functioning implementation after making minor changes to the design and transition table. The body of the final machine occupies an area that is 22,254 cells wide and 55,601 cells high, composed of over 45 million nonzero cells in its unsheathed form. The data tape is 208 million cells long, and self-replication is estimated to take at least 1.7 × 1018 time steps.},
+    issn = {1064-5462},
+    doi = {10.1162/artl.2010.16.2.16200},
+    url = {https://doi.org/10.1162/artl.2010.16.2.16200},
+    eprint = {https://direct.mit.edu/artl/article-pdf/16/2/99/1662659/artl.2010.16.2.16200.pdf},
+}
+
+@article{Stevens2011Cellular, 
+  title={A self-replicating programmable constructor in a kinematic simulation environment}, 
+  volume={29}, 
+  DOI={10.1017/S0263574710000688}, 
+  number={1}, 
+  journal={Robotica}, 
+  author={Stevens, William M}, 
+  year={2011}, 
+  pages={153–176}
+}
+
+
+
+
+
+
+
+
