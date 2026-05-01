@@ -1,0 +1,49 @@
+\section{Linear Stencils and Fourier Transforms}
+
+The foundation of our work relies on creating a bridge between
+disctete Fourier transforms and stencil computations.
+DFTs are a primary tool in \textit{spectral methods},
+another the seven key numerical methods in HPC identified in \cite{Asanovic2006Landscape}. 
+DFTs are used widely in numerical methods.
+In Von Neumann stability analysis, 
+DFTs are used to show the validity of numerical schemes \cite{Pereda2001Von, Wesseling1996Von}.
+DFTs have also been applied as preconditioners for Krylov methods
+\cite{Chan1993FFT, Chan1984fd, Erlangga2006, Gmeiner2013},
+and to directly calculate solutions for different PDEs 
+\cite{Hockney1965FFT, Schumann1988FFT, Mugler1988FFT}.
+
+
+An FFT is an algorithm that efficiently computes the DFT 
+of an $D$-dimensional array of numerical data.
+There are several $O(N \log N)$-work FFT algorithms 
+\cite{Winograd1978DFT, Good1958DFT, Brunn1978DFT},
+though the most famous and widely used is the Cooley-Tukey algorithm 
+\cite{Cooley1965FFT}.
+There are several important implementations of FFTs to note, 
+as tuning these algorithms for performance on real hardware is non-trivial.
+cuFFT is a GPU-acclerated implementation 
+that has been developed by NVidia using CUDA \cite{CuFFTDocs}, 
+and has been widely used in scientific research \cite{Prigarin2019FFT, Narebski2013FFT}.
+VkFFT is a open source and cross-platform GPU-accelerated implementation \cite{Tolmachev2023FFT}, 
+TurboFFT is a promising new GPU accelerated FFT framework \cite{Wu2025TurboFFT}.
+On the CPU side,
+Intel provides a CPU implementation as part of their oneMKL distribution \cite{MKLFFT}.
+In this author's opinion FFTW is the gold standard for FFT implementations, a highly tunable and customizable compiler for FFTs \cite{Frigo2005FFTW3}, and the implementation we utilize for our own CPU based implementation.
+
+
+
+
+
+FlashFFT cites \cite{Li1986FFT} for reduced math workload.
+Also this textbook \cite{Krishna2017digital}.
+
+
+The performance of FFT based stencil application is not tied to stencil size.
+This is best demonstrated by a family of rigid protein-protein docking algorithms 
+that utilize FFTs to calculate correlation functions in three spatial dimensions \cite{Katzir1992Protein}.
+$$
+\bar{c}_{\alpha, \beta, \gamma} = \sum_{l = 1}^N \sum_{m = 1}^N \sum_{n = 1}^N \bar{a}_{l, m,n} \cdot \bar{b}{l + \alpha, m+ \beta, n + \gamma}
+$$
+Calculating these correlation functions in analogous to applying a linear stencil of the same size as the data grid.
+FFT based rigid docking has been an evolving field of study \cite{Gabb1997Protein, Castrillon2005Protein, Bajaj2011Protein}
+

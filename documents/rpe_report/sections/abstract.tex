@@ -1,0 +1,27 @@
+Stencil computations are essential for simulating the evolution
+of physical systems across multi-dimensional grids over multiple
+timesteps, and have been identified as a critical pattern in high performance computing.
+The vast majority of stencil computation algorithms fundamen-
+tally operate by looping over all grid cells for all timesteps and com-
+puting each value as they go. For a grid of size N and T timesteps, all
+such looping methods perform O(NT) work. 
+Recently however a class of Krylov subspace methods based on 
+Fast Fourier transforms (FFTs) have been developed that allow for o(NT) work if applied
+to a problem with a constant linear stencil.
+Our work explores an approach that supports a broad class
+of problems involving multiple time-varying linear stencils applied
+over spatial regions with arbitrary, time-varying boundaries subject
+to arbitrary boundary conditions. We develop a recursive divide-
+and-conquer strategy based on ℓ-shell decompositions of arbitrary
+spatial regions, enabling efficient solutions over irregular domains
+in both space and time. These extensions allow us to apply FFT-
+based acceleration in settings that were previously out of reach.
+We maintain to within a logarithmic factor the complexity bounds
+achieved for the narrower problem statement addressed by previous
+FFT-based methods, again securing o(NT) work.
+
+Initial experimental results show that implementations of our
+algorithms that evolve grids of roughly 107 cells for around 105
+timesteps run orders of magnitude faster than state-of-the-art im-
+plementations for periodic stencil problems, and substantially faster
+for aperiodic stencil problems.

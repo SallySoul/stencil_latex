@@ -355,18 +355,24 @@ author = {Allen Taflove and Susan C. Hagness and Melinda Piket-May}
  journal = {The American Mathematical Monthly},
  number = {10},
  pages = {889--899},
- publisher = {[Taylor & Francis, Ltd., Mathematical Association of America]},
+ publisher = {[Taylor \& Francis, Ltd., Mathematical Association of America]},
  title = {The Idea behind Krylov Methods},
  urldate = {2026-04-16},
  volume = {105},
  year = {1998}
 }
 
-
-
-
-
-
+@ARTICLE{Stathopoulos2000Material,
+  author={Stathopoulos, A. and Ogut, S. and Saad, Y. and Chelikowsky, J. and Kim, H.},
+  journal={Computing in Science \& Engineering}, 
+  title={Parallel methods and tools for predicting material properties}, 
+  year={2000},
+  volume={2},
+  number={4},
+  pages={19-32},
+  keywords={Material properties;Electrons;Chemicals;Silicon;Schrodinger equation;Nuclear electronics;Optical sensors;Atom optics;Eigenvalues and eigenfunctions;Atomic measurements},
+  doi={10.1109/5992.852388}
+}
 
 @article{Saad1989Krylov,
 author = {Saad, Youcef},
@@ -718,9 +724,560 @@ keywords = {Cellular automata, FPGA accelerator, framework, generic architecture
   pages={153–176}
 }
 
+@inproceedings{Li1986FFT,
+  author={Zhenyu Li and Sorensen, H. and Burrus, C.},
+  booktitle={ICASSP '86. IEEE International Conference on Acoustics, Speech, and Signal Processing}, 
+  title={FFT and convolution algorithms on DSP microprocessors}, 
+  year={1986},
+  volume={11},
+  number={},
+  pages={289-292},
+  keywords={Convolution;Digital signal processing;Microprocessors;Signal processing algorithms;Hardware;Discrete Fourier transforms;Very large scale integration;Fast Fourier transforms;Computer architecture;Logic design},
+  doi={10.1109/ICASSP.1986.1169089}
+}
+
+@article{Cooley1965FFT,
+  title={An algorithm for the machine calculation of complex Fourier series},
+  author={Cooley, James W and Tukey, John W},
+  journal={Mathematics of computation},
+  volume={19},
+  number={90},
+  pages={297--301},
+  year={1965},
+  publisher={JSTOR},
+  doi={https://doi.org/10.1090/S0025-5718-1965-0178586-1}
+}
+
+@ARTICLE{Frigo2005FFTW3,
+  author={Frigo, M. and Johnson, S.G.},
+  journal={Proceedings of the IEEE}, 
+  title={The Design and Implementation of FFTW3}, 
+  year={2005},
+  volume={93},
+  number={2},
+  pages={216-231},
+  keywords={Discrete Fourier transforms;Multidimensional systems;Hardware;Software libraries;Discrete transforms;Fast Fourier transforms;Optimizing compilers;Discrete cosine transforms;Data structures;Fourier transforms;Adaptive software;cosine transform;fast Fourier transform (FFT);Fourier transform;Hartley transform;I/O tensor},
+  doi={10.1109/JPROC.2004.840301}
+}
+
+@InProceedings{Henretty2011Stencil,
+author="Henretty, Tom
+and Stock, Kevin
+and Pouchet, Louis-No{\"e}l
+and Franchetti, Franz
+and Ramanujam, J.
+and Sadayappan, P.",
+editor="Knoop, Jens",
+title="Data Layout Transformation for Stencil Computations on Short-Vector SIMD Architectures",
+booktitle="Compiler Construction",
+year="2011",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="225--245",
+abstract="Stencil computations are at the core of applications in many domains such as computational electromagnetics, image processing, and partial differential equation solvers used in a variety of scientific and engineering applications. Short-vector SIMD instruction sets such as SSE and VMX provide a promising and widely available avenue for enhancing performance on modern processors. However a fundamental memory stream alignment issue limits achieved performance with stencil computations on modern short SIMD architectures. In this paper, we propose a novel data layout transformation that avoids the stream alignment conflict, along with a static analysis technique for determining where this transformation is applicable. Significant performance increases are demonstrated for a variety of stencil codes on three modern SIMD-capable processors.",
+isbn="978-3-642-19861-8"
+}
+
+@article{Datta2009Stencil,
+author = {Datta, Kaushik and Kamil, Shoaib and Williams, Samuel and Oliker, Leonid and Shalf, John and Yelick, Katherine},
+title = {Optimization and Performance Modeling of Stencil Computations on Modern Microprocessors},
+journal = {SIAM Review},
+volume = {51},
+number = {1},
+pages = {129-159},
+year = {2009},
+doi = {10.1137/070693199},
+URL = {https://doi.org/10.1137/070693199},
+eprint = {https://doi.org/10.1137/070693199},
+abstract = { Stencil-based kernels constitute the core of many important scientific applications on block-structured grids. Unfortunately, these codes achieve a low fraction of peak performance, due primarily to the disparity between processor and main memory speeds. In this paper, we explore the impact of trends in memory subsystems on a variety of stencil optimization techniques and develop performance models to analytically guide our optimizations. Our work targets cache reuse methodologies across single and multiple stencil sweeps, examining cache-aware algorithms as well as cache-oblivious techniques on the Intel Itanium2, AMD Opteron, and IBM Power5. Additionally, we consider stencil computations on the heterogeneous multicore design of the Cell processor, a machine with an explicitly managed memory hierarchy. Overall our work represents one of the most extensive analyses of stencil optimizations and performance modeling to date. Results demonstrate that recent trends in memory system organization have reduced the efficacy of traditional cache-blocking optimizations. We also show that a cache-aware implementation is significantly faster than a cache-oblivious approach, while the explicitly managed memory on Cell enables the highest overall efficiency: Cell attains 88\% of algorithmic peak while the best competing cache-based processor achieves only 54\% of algorithmic peak performance. }
+}
+
+@inproceedings{Kamil2006Stencil,
+author = {Kamil, Shoaib and Datta, Kaushik and Williams, Samuel and Oliker, Leonid and Shalf, John and Yelick, Katherine},
+title = {Implicit and explicit optimizations for stencil computations},
+year = {2006},
+isbn = {1595935789},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1178597.1178605},
+doi = {10.1145/1178597.1178605},
+abstract = {Stencil-based kernels constitute the core of many scientific applications on block-structured grids. Unfortunately, these codes achieve a low fraction of peak performance, due primarily to the disparity between processor and main memory speeds. We examine several optimizations on both the conventional cache-based memory systems of the Itanium 2, Opteron, and Power5, as well as the heterogeneous multicore design of the Cell processor. The optimizations target cache reuse across stencil sweeps, including both an implicit cache oblivious approach and a cache-aware algorithm blocked to match the cache structure. Finally, we consider stencil computations on a machine with an explicitly-managed memory hierarchy, the Cell processor. Overall, results show that a cache-aware approach is significantly faster than a cache oblivious approach and that the explicitly managed memory on Cell is more efficient: Relative to the Power5, it has almost 2x more memory bandwidth and is 3.7x faster.},
+booktitle = {Proceedings of the 2006 Workshop on Memory System Performance and Correctness},
+pages = {51–60},
+numpages = {10},
+location = {San Jose, California},
+series = {MSPC '06}
+}
+
+@inproceedings{Kamil2005Stencil,
+author = {Kamil, Shoaib and Husbands, Parry and Oliker, Leonid and Shalf, John and Yelick, Katherine},
+title = {Impact of modern memory subsystems on cache optimizations for stencil computations},
+year = {2005},
+isbn = {1595931473},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1111583.1111589},
+doi = {10.1145/1111583.1111589},
+abstract = {In this work we investigate the impact of evolving memory system features, such as large on-chip caches, automatic prefetch, and the growing distance to main memory on 3D stencil computations. These calculations form the basis for a wide range of scientific applications from simple Jacobi iterations to complex multigrid and block structured adaptive PDE solvers. First we develop a simple benchmark to evaluate the effectiveness of prefetching in cache-based memory systems. Next we present a small parameterized probe and validate its use as a proxy for general stencil computations on three modern microprocessors. We then derive an analytical memory cost model for quantifying cache-blocking behavior and demonstrate its effectiveness in predicting the stencil-computation performance. Overall results demonstrate that recent trends memory system organization have reduced the efficacy of traditional cache-blocking optimizations.},
+booktitle = {Proceedings of the 2005 Workshop on Memory System Performance},
+pages = {36–43},
+numpages = {8},
+keywords = {stencil, prefetch, performance modeling, cache blocking},
+location = {Chicago, Illinois},
+series = {MSP '05}
+}
+
+@inproceedings{Micikevicius2009FDGPU,
+author = {Micikevicius, Paulius},
+title = {3D finite difference computation on GPUs using CUDA},
+year = {2009},
+isbn = {9781605585178},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1513895.1513905},
+doi = {10.1145/1513895.1513905},
+abstract = {In this paper we describe a GPU parallelization of the 3D finite difference computation using CUDA. Data access redundancy is used as the metric to determine the optimal implementation for both the stencil-only computation, as well as the discretization of the wave equation, which is currently of great interest in seismic computing. For the larger stencils, the described approach achieves the throughput of between 2,400 to over 3,000 million of output points per second on a single Tesla 10-series GPU. This is roughly an order of magnitude higher than a 4-core Harpertown CPU running a similar code from seismic industry. Multi-GPU parallelization is also described, achieving linear scaling with GPUs by overlapping inter-GPU communication with computation.},
+booktitle = {Proceedings of 2nd Workshop on General Purpose Processing on Graphics Processing Units},
+pages = {79–84},
+numpages = {6},
+keywords = {parallel algorithms, finite difference, GPU, CUDA},
+location = {Washington, D.C., USA},
+series = {GPGPU-2}
+}
+
+@inproceedings{Meng2009Stencil,
+author = {Meng, Jiayuan and Skadron, Kevin},
+title = {Performance modeling and automatic ghost zone optimization for iterative stencil loops on GPUs},
+year = {2009},
+isbn = {9781605584980},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1542275.1542313},
+doi = {10.1145/1542275.1542313},
+abstract = {Iterative stencil loops (ISLs) are used in many applications and tiling is a well-known technique to localize their computation. When ISLs are tiled across a parallel architecture, there are usually halo regions that need to be updated and exchanged among different processing elements (PEs). In addition, synchronization is often used to signal the completion of halo exchanges. Both communication and synchronization may incur significant overhead on parallel architectures with shared memory. This is especially true in the case of graphics processors (GPUs), which do not preserve the state of the per-core L1 storage across global synchronizations. To reduce these overheads, ghost zones can be created to replicate stencil operations, reducing communication and synchronization costs at the expense of redundantly computing some values on multiple PEs. However, the selection of the optimal ghost zone size depends on the characteristics of both the architecture and the application, and it has only been studied for message-passing systems in a grid environment. To automate this process on shared memory systems, we establish a performance model using NVIDIA's Tesla architecture as a case study and propose a framework that uses the performance model to automatically select the ghost zone size that performs best and generate appropriate code. The modeling is validated by four diverse ISL applications, for which the predicted ghost zone configurations are able to achieve a speedup no less than 98\% of the optimal speedup.},
+booktitle = {Proceedings of the 23rd International Conference on Supercomputing},
+pages = {256–265},
+numpages = {10},
+keywords = {stencil computation, parallel computing, gpu, ghost zone},
+location = {Yorktown Heights, NY, USA},
+series = {ICS '09}
+}
+
+@InProceedings{Dursun2009Stencil,
+author="Dursun, Hikmet
+and Nomura, Ken-ichi
+and Peng, Liu
+and Seymour, Richard
+and Wang, Weiqiang
+and Kalia, Rajiv K.
+and Nakano, Aiichiro
+and Vashishta, Priya",
+editor="Sips, Henk
+and Epema, Dick
+and Lin, Hai-Xiang",
+title="A Multilevel Parallelization Framework for High-Order Stencil Computations",
+booktitle="Euro-Par 2009 Parallel Processing",
+year="2009",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="642--653",
+abstract="Stencil based computation on structured grids is a common kernel to broad scientific applications. The order of stencils increases with the required precision, and it is a challenge to optimize such high-order stencils on multicore architectures. Here, we propose a multilevel parallelization framework that combines: (1) inter-node parallelism by spatial decomposition; (2) intra-chip parallelism through multithreading; and (3) data-level parallelism via single-instruction multiple-data (SIMD) techniques. The framework is applied to a 6thorder stencil based seismic wave propagation code on a suite of multicore architectures. Strong-scaling scalability tests exhibit superlinear speedup due to increasing cache capacity on Intel Harpertown and AMD Barcelona based clusters, whereas weak-scaling parallel efficiency is 0.92 on 65,536 BlueGene/P processors. Multithreading+SIMD optimizations achieve 7.85-fold speedup on a dual quad-core Intel Clovertown, and the data-level parallel efficiency is found to depend on the stencil order.",
+isbn="978-3-642-03869-3"
+}
+
+@inproceedings{Dursun2009Core,
+  title={In-Core Optimization of High-Order Stencil Computations.},
+  author={Dursun, Hikmet and Nomura, Ken-ichi and Wang, Weiqiang and Kunaseth, Manaschai and Peng, Liu and Seymour, Richard and Kalia, Rajiv K and Nakano, Aiichiro and Vashishta, Priya},
+  booktitle={PDPTA},
+  pages={533--538},
+  year={2009}
+}
+
+@InProceedings{Augustin2009Stencil,
+author="Augustin, Werner
+and Heuveline, Vincent
+and Weiss, Jan-Philipp",
+editor="Sips, Henk
+and Epema, Dick
+and Lin, Hai-Xiang",
+title="Optimized Stencil Computation Using In-Place Calculation on Modern Multicore Systems",
+booktitle="Euro-Par 2009 Parallel Processing",
+year="2009",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="772--784",
+abstract="Numerical algorithms on parallel systems built upon modern multicore processors are facing two challenging obstacles that keep realistic applications from reaching the theoretically available compute performance. First, the parallelization on several system levels has to be exploited to the full extent. Second, provision of data to the compute cores needs to be adapted to the constraints of a hardware-controlled nested cache hierarchy with shared resources.",
+isbn="978-3-642-03869-3"
+}
+
+@InProceedings{DeLaCruz2010Stencil,
+author="de la Cruz, Ra{\'u}l
+and Araya-Polo, Mauricio
+and Cela, Jos{\'e} Mar{\'i}a",
+editor="Wyrzykowski, Roman
+and Dongarra, Jack
+and Karczewski, Konrad
+and Wasniewski, Jerzy",
+title="Introducing the Semi-stencil Algorithm",
+booktitle="Parallel Processing and Applied Mathematics",
+year="2010",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="496--506",
+abstract="Finite Difference (FD) is a widely used method to solve Partial Differential Equations (PDE). PDEs are the core of many simulations in different scientific fields, e.g. geophysics, astrophysics, etc. The typical FD solver performs stencil computations for the entire 3D domain, thus solving the differential operator. This computation consists on accumulating the contribution of the neighbor points along the cartesian axis. It is performance-bound by two main problems: the memory access pattern and the inefficient re-utilization of the data. We propose a novel algorithm, named ''semi-stencil'', that tackle those two problems. Our first target architecture for testing is Cell/B.E., where the implementation reaches 12.4 GFlops (49{\%} peak performance) per SPE, while the classical stencil computation only reaches 34{\%}. Further, we successfully apply this code optimization to an industrial-strength application (Reverse-Time Migration). These results show that semi-stencil is useful stencil computation optimization.",
+isbn="978-3-642-14390-8"
+}
+
+@article{Treibig2011Stencil,
+title = {Efficient multicore-aware parallelization strategies for iterative stencil computations},
+journal = {Journal of Computational Science},
+volume = {2},
+number = {2},
+pages = {130-137},
+year = {2011},
+note = {Simulation Software for Supercomputers},
+issn = {1877-7503},
+doi = {https://doi.org/10.1016/j.jocs.2011.01.010},
+url = {https://www.sciencedirect.com/science/article/pii/S1877750311000172},
+author = {Jan Treibig and Gerhard Wellein and Georg Hager},
+keywords = {Stencil computations, Spatial blocking, Temporal blocking, Wavefront parallelization, Multicore, Simultaneous multi-threading},
+abstract = {Stencil computations consume a major part of runtime in many scientific simulation codes. As prototypes for this class of algorithms we consider the iterative Jacobi and Gauss-Seidel smoothers and aim at highly efficient parallel implementations for cache-based multicore architectures. Temporal cache blocking is a known advanced optimization technique, which can reduce the pressure on the memory bus significantly. We apply and refine this optimization for a recently presented temporal blocking strategy designed to explicitly utilize multicore characteristics. Especially for the case of Gauss-Seidel smoothers we show that simultaneous multi-threading (SMT) can yield substantial performance improvements for our optimized algorithm on some architectures.}
+}
+
+@article{Li2004Tiling,
+author = {Li, Zhiyuan and Song, Yonghong},
+title = {Automatic tiling of iterative stencil loops},
+year = {2004},
+issue_date = {November 2004},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {26},
+number = {6},
+issn = {0164-0925},
+url = {https://doi.org/10.1145/1034774.1034777},
+doi = {10.1145/1034774.1034777},
+abstract = {Iterative stencil loops are used in scientific programs to implement relaxation methods for numerical simulation and signal processing. Such loops iteratively modify the same array elements over different time steps, which presents opportunities for the compiler to improve the temporal data locality through loop tiling. This article presents a compiler framework for automatic tiling of iterative stencil loops, with the objective of improving the cache performance. The article first presents a technique which allows loop tiling to satisfy data dependences in spite of the difficulty created by imperfectly nested inner loops. It does so by skewing the inner loops over the time steps and by applying a uniform skew factor to all loops at the same nesting level. Based on a memory cost analysis, the article shows that the skew factor must be minimized at every loop level in order to minimize cache misses. A graph-theoretical algorithm, which takes polynomial time, is presented to determine the minimum skew factor. Furthermore, the memory-cost analysis derives the tile size which minimizes capacity misses. Given the tile size, an efficient and general <i>array-padding</i> scheme is applied to remove conflict misses. Experiments were conducted on 16 test programs and preliminary results showed an average speedup of 1.58 and a maximum speedup of 5.06 across those test programs.},
+journal = {ACM Trans. Program. Lang. Syst.},
+month = nov,
+pages = {975–1028},
+numpages = {54},
+keywords = {Caches, loop transformations, optimizing compilers}
+}
+
+@article{10.1145/1273442.1250761,
+author = {Krishnamoorthy, Sriram and Baskaran, Muthu and Bondhugula, Uday and Ramanujam, J. and Rountev, Atanas and Sadayappan, P},
+title = {Effective automatic parallelization of stencil computations},
+year = {2007},
+issue_date = {June 2007},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {42},
+number = {6},
+issn = {0362-1340},
+url = {https://doi.org/10.1145/1273442.1250761},
+doi = {10.1145/1273442.1250761},
+abstract = {Performance optimization of stencil computations has been widely studied in the literature, since they occur in many computationally intensive scientific and engineering applications. Compiler frameworks have also been developed that can transform sequential stencil codes for optimization of data locality and parallelism. However, loop skewing is typically required in order to tile stencil codes along the time dimension, resulting in load imbalance in pipelined parallel execution of the tiles. In this paper, we develop an approach for automatic parallelization of stencil codes, that explicitly addresses the issue of load-balanced execution of tiles. Experimental results are provided that demonstrate the effectiveness of the approach.},
+journal = {SIGPLAN Not.},
+month = jun,
+pages = {235–244},
+numpages = {10},
+keywords = {tiling, stencil computations, load, automatic parallelization}
+}
+
+@inproceedings{Krishnamoorthy2007Tiling,
+author = {Krishnamoorthy, Sriram and Baskaran, Muthu and Bondhugula, Uday and Ramanujam, J. and Rountev, Atanas and Sadayappan, P},
+title = {Effective automatic parallelization of stencil computations},
+year = {2007},
+isbn = {9781595936332},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1250734.1250761},
+doi = {10.1145/1250734.1250761},
+abstract = {Performance optimization of stencil computations has been widely studied in the literature, since they occur in many computationally intensive scientific and engineering applications. Compiler frameworks have also been developed that can transform sequential stencil codes for optimization of data locality and parallelism. However, loop skewing is typically required in order to tile stencil codes along the time dimension, resulting in load imbalance in pipelined parallel execution of the tiles. In this paper, we develop an approach for automatic parallelization of stencil codes, that explicitly addresses the issue of load-balanced execution of tiles. Experimental results are provided that demonstrate the effectiveness of the approach.},
+booktitle = {Proceedings of the 28th ACM SIGPLAN Conference on Programming Language Design and Implementation},
+pages = {235–244},
+numpages = {10},
+keywords = {tiling, stencil computations, load, automatic parallelization},
+location = {San Diego, California, USA},
+series = {PLDI '07}
+}
+
+@inproceedings{Datta2008Stencil,
+  author={Datta, Kaushik and Murphy, Mark and Volkov, Vasily and Williams, Samuel and Carter, Jonathan and Oliker, Leonid and Patterson, David and Shalf, John and Yelick, Katherine},
+  booktitle={SC '08: Proceedings of the 2008 ACM/IEEE Conference on Supercomputing}, 
+  title={Stencil computation optimization and auto-tuning on state-of-the-art multicore architectures}, 
+  year={2008},
+  volume={},
+  number={},
+  pages={1-12},
+  keywords={Multicore processing;Computer architecture;Scientific computing;Computer industry;Grid computing;Heart;Runtime environment;Sun;Optimization methods;Algorithm design and analysis},
+  doi={10.1109/SC.2008.5222004}
+}
+
+@article {Rainer1992Atlantic,
+      author = "Rainer  Bleck and Claes  Rooth and Dingming  Hu and Linda T.  Smith",
+      title = "Salinity-driven Thermocline Transients in a Wind- and Thermohaline-forced Isopycnic Coordinate Model of the North Atlantic",
+      journal = "Journal of Physical Oceanography",
+      year = "1992",
+      publisher = "American Meteorological Society",
+      address = "Boston MA, USA",
+      volume = "22",
+      number = "12",
+      doi = "10.1175/1520-0485(1992)022<1486:SDTTIA>2.0.CO;2",
+      pages=      "1486 - 1505",
+      url = "https://journals.ametsoc.org/view/journals/phoc/22/12/1520-0485_1992_022_1486_sdttia_2_0_co_2.xml"
+}
+
+@inproceedings{Holewinski2012Stencil,
+author = {Holewinski, Justin and Pouchet, Louis-No\"{e}l and Sadayappan, P.},
+title = {High-performance code generation for stencil computations on GPU architectures},
+year = {2012},
+isbn = {9781450313162},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2304576.2304619},
+doi = {10.1145/2304576.2304619},
+abstract = {Stencil computations arise in many scientific computing domains, and often represent time-critical portions of applications. There is significant interest in offloading these computations to high-performance devices such as GPU accelerators, but these architectures offer challenges for developers and compilers alike. Stencil computations in particular require careful attention to off-chip memory access and the balancing of work among compute units in GPU devices.In this paper, we present a code generation scheme for stencil computations on GPU accelerators, which optimizes the code by trading an increase in the computational workload for a decrease in the required global memory bandwidth. We develop compiler algorithms for automatic generation of efficient, time-tiled stencil code for GPU accelerators from a high-level description of the stencil operation. We show that the code generation scheme can achieve high performance on a range of GPU architectures, including both nVidia and AMD devices.},
+booktitle = {Proceedings of the 26th ACM International Conference on Supercomputing},
+pages = {311–320},
+numpages = {10},
+keywords = {gpu, opencl, overlapped tiling, stencil},
+location = {San Servolo Island, Venice, Italy},
+series = {ICS '12}
+}
+
+@article{Bajaj2011Protein,
+  author={Bajaj, Chandrajit L. and Chowdhury, Rezaul and Siddahanavalli, Vinay},
+  journal={IEEE/ACM Transactions on Computational Biology and Bioinformatics}, 
+  title={$F^2$Dock: Fast Fourier Protein-Protein Docking}, 
+  year={2011},
+  volume={8},
+  number={1},
+  pages={45-58},
+  keywords={Protein engineering;Shape measurement;Electrostatics;Solvents;Atomic measurements;Skin;Drugs;Optical imaging;Hydrogen;Dielectrics;Computational structural biology;protein-protein interactions;fast Fourier transform;algorithms;docking;redocking.},
+  doi={10.1109/TCBB.2009.57}
+}
+
+@article{Castrillon2005Protein,
+  title={Nonequispaced Fourier transforms for protein-protein docking},
+  author={Castrillon-Candas, Julio and Siddavanahalli, Vinay and Bajaj, Chandrajit},
+  journal={ICES Report},
+  pages={05--44},
+  year={2005}
+}
+
+@article{Gabb1997Protein,
+  title = {Modelling protein docking using shape complementarity, electrostatics and biochemical information11Edited by J. Thornton},
+  journal = {Journal of Molecular Biology},
+  volume = {272},
+  number = {1},
+  pages = {106-120},
+  year = {1997},
+  issn = {0022-2836},
+  doi = {https://doi.org/10.1006/jmbi.1997.1203},
+  url = {https://www.sciencedirect.com/science/article/pii/S0022283697912031},
+  author = {Henry A. Gabb and Richard M. Jackson and Michael J.E. Sternberg},
+  keywords = {molecular recognition, protein-protein docking, protein-protein complex, predictive docking algorithm, fast Fourier transform},
+  abstract = {A protein docking study was performed for two classes of biomolecular complexes: six enzyme/inhibitor and four antibody/antigen. Biomolecular complexes for which crystal structures of both the complexed and uncomplexed proteins are available were used for eight of the ten test systems. Our docking experiments consist of a global search of translational and rotational space followed by refinement of the best predictions. Potential complexes are scored on the basis of shape complementarity and favourable electrostatic interactions using Fourier correlation theory. Since proteins undergo conformational changes upon binding, the scoring function must be sufficiently soft to dock unbound structures successfully. Some degree of surface overlap is tolerated to account for side-chain flexibility. Similarly for electrostatics, the interaction of the dispersed point charges of one protein with the Coulombic field of the other is measured rather than precise atomic interactions. We tested our docking protocol using the native rather than the complexed forms of the proteins to address the more scientifically interesting problem of predictive docking. In all but one of our test cases, correctly docked geometries (interface Cα RMS deviation ⩽ 2 Å from the experimental structure) are found during a global search of translational and rotational space in a list that was always less than 250 complexes and often less than 30. Varying degrees of biochemical information are still necessary to remove most of the incorrectly docked complexes.}
+}
+
+@article{Katzir1992Protein,
+  author = {E Katchalski-Katzir  and I Shariv  and M Eisenstein  and A A Friesem  and C Aflalo  and I A Vakser },
+  title = {Molecular surface recognition: determination of geometric fit between proteins and their ligands by correlation techniques.},
+  journal = {Proceedings of the National Academy of Sciences},
+  volume = {89},
+  number = {6},
+  pages = {2195-2199},
+  year = {1992},
+  doi = {10.1073/pnas.89.6.2195},
+  URL = {https://www.pnas.org/doi/abs/10.1073/pnas.89.6.2195},
+  eprint = {https://www.pnas.org/doi/pdf/10.1073/pnas.89.6.2195},
+  abstract = {A geometric recognition algorithm was developed to identify molecular surface complementarity. It is based on a purely geometric approach and takes advantage of techniques applied in the field of pattern recognition. The algorithm involves an automated procedure including (i) a digital representation of the molecules (derived from atomic coordinates) by three-dimensional discrete functions that distinguishes between the surface and the interior; (ii) the calculation, using Fourier transformation, of a correlation function that assesses the degree of molecular surface overlap and penetration upon relative shifts of the molecules in three dimensions; and (iii) a scan of the relative orientations of the molecules in three dimensions. The algorithm provides a list of correlation values indicating the extent of geometric match between the surfaces of the molecules; each of these values is associated with six numbers describing the relative position (translation and rotation) of the molecules. The procedure is thus equivalent to a six-dimensional search but much faster by design, and the computation time is only moderately dependent on molecular size. The procedure was tested and validated by using five known complexes for which the correct relative position of the molecules in the respective adducts was successfully predicted. The molecular pairs were deoxyhemoglobin and methemoglobin, tRNA synthetase-tyrosinyl adenylate, aspartic proteinase-peptide inhibitor, and trypsin-trypsin inhibitor. A more realistic test was performed with the last two pairs by using the structures of uncomplexed aspartic proteinase and trypsin inhibitor, respectively. The results are indicative of the extent of conformational changes in the molecules tolerated by the algorithm.}
+}
+
+@article{Pereda2001Von,
+  author={Pereda, A. and Vielva, L.A. and Vegas, A. and Prieto, A.},
+  journal={IEEE Transactions on Microwave Theory and Techniques}, 
+  title={Analyzing the stability of the FDTD technique by combining the von Neumann method with the Routh-Hurwitz criterion}, 
+  year={2001},
+  volume={49},
+  number={2},
+  pages={377-381},
+  keywords={Stability analysis;Finite difference methods;Time domain analysis;Dispersion;Maxwell equations;Stability criteria;Polynomials;Computer errors;Arithmetic;Difference equations},
+  doi={10.1109/22.903100}
+}
+
+@article{Wesseling1996Von,
+    author = {Wesseling, P.},
+    title = {von Neumann stability conditions for the convection-diffusion eqation},
+    journal = {IMA Journal of Numerical Analysis},
+    volume = {16},
+    number = {4},
+    pages = {583-598},
+    year = {1996},
+    month = {10},
+    abstract = {A method is presented to easily derive von Neumann stability conditions for a wide variety of time discretization schemes for the convection-diffusion equation. Spatial discretization is by the K-scheme or the fourth-order central scheme. The use of the method is illustrated by application to multistep, Runge-Kutta and implicit-explicit methods, such as are in current use for flow computations, and for which, with few exceptions, no sufficient von Neumann stability results are available.},
+    issn = {0272-4979},
+    doi = {10.1093/imanum/16.4.583},
+    url = {https://doi.org/10.1093/imanum/16.4.583},
+    eprint = {https://academic.oup.com/imajna/article-pdf/16/4/583/2740623/16-4-583.pdf},
+}
 
 
 
+
+
+
+
+@article{Chan1993FFT,
+  author = {Chan, Raymond H. and Nagy, James G. and Plemmons, Robert J.},
+  title = {FFT-Based Preconditioners for Toeplitz-Block Least Squares Problems},
+  journal = {SIAM Journal on Numerical Analysis},
+  volume = {30},
+  number = {6},
+  pages = {1740-1768},
+  year = {1993},
+  doi = {10.1137/0730089},
+  url = {https://doi.org/10.1137/0730089},
+  eprint = {https://doi.org/10.1137/0730089},
+  abstract = { Discretized two-dimensional deconvolution problems arising, e.g., in image restoration and seismic tomography, can be formulated as least squares computations, \$\min \| {b - Tx} \|\_2 \$, where T is often a large-scale rectangular Toeplitz-block matrix. The authors consider solving such block least squares problems by the preconditioned conjugate gradient algorithm using square nonsingular circulant-block and related preconditioners, constructed from the blocks of the rectangular matrix T. Preconditioning with such matrices allows efficient implementation using the one-dimensional or two-dimensional fast Fourier transform (FFT). Two-block preconditioners, related to those proposed by T. Chan and J. Olkin for square nonsingular Toeplitz-block systems, are derived and analyzed. It is shown that, for important classes of T, the singular values of the preconditioned matrix are clustered around one. This extends the authors’ earlier work on preconditioners for Toeplitz least squares iterations for one-dimensional problems.It is well known that the resolution of ill-posed deconvolution problems can be substantially improved by regularization to compensate for their ill-posed nature. It is shown that regularization can easily be incorporated into our preconditioners, and a report is given on numerical experiments on a Cray Y-MP. The experiments illustrate good convergence properties of these FFT-based preconditioned iterations. }
+}
+
+@article{Schumann1988FFT,
+  title = {Fast Fourier transforms for direct solution of poisson's equation with staggered boundary conditions},
+  journal = {Journal of Computational Physics},
+  volume = {75},
+  number = {1},
+  pages = {123-137},
+  year = {1988},
+  issn = {0021-9991},
+  doi = {https://doi.org/10.1016/0021-9991(88)90102-7},
+  url = {https://www.sciencedirect.com/science/article/pii/0021999188901027},
+  author = {Ulrich Schumann and Roland A Sweet},
+  abstract = {This paper describes pre- and postprocessing algorithms used to incorporate the fast Fourier transform (FFT) into the solution of finite difference approximations to multi-dimensional Poisson's equation on a staggered grid where the boundary is located midway between two grid points. All frequently occurring boundary conditions (Neumann, Dirichlet, or cyclic) are considered including the combination of staggered Neumann boundary condition on one side with nonstaggered Dirichlet boundary condition on the other side. Experiences from implementing these algorithms in vectorized coding in Fortran subroutines are reported.}
+}
+
+@article{Mugler1988FFT,
+  title = {Fast fourier transform method for partial differential equations, case study: The 2-D diffusion equation},
+  journal = {Computers \& Mathematics with Applications},
+  volume = {16},
+  number = {3},
+  pages = {221-228},
+  year = {1988},
+  issn = {0898-1221},
+  doi = {https://doi.org/10.1016/0898-1221(88)90182-4},
+  url = {https://www.sciencedirect.com/science/article/pii/0898122188901824},
+  author = {D.H. Mugler and R.A. Scott},
+  abstract = {The solution of time-dependent partial differential equations using discrete (i.e. finite difference) versions of those equations traditionally has been done by marching forward in time, one time unit per step. The authors here extend earlier results to higher dimensions, focusing on the solution of the discrete diffusion or “heat” equation in 2-D, and show that the solution may be found using fast Fourier transform (FFT) techniques that treat the solution as the output of a linear filter. This technique is analogous to an integral method for the differential equation, and is related to the Green's function of the difference equation. It allows the solution to be determined with a “single-step” computation that does not require the solution at intermediate time levels. The number of numerical operations is essentially independent of the time level at which the solution is desired. The results of numerical examples are given and computation times are shown to be much faster than those of the traditional method for all but small time levels.}
+}
+
+@article{Hockney1965FFT,
+  author = {Hockney, R. W.},
+  title = {A Fast Direct Solution of Poisson's Equation Using Fourier Analysis},
+  year = {1965},
+  issue_date = {Jan. 1965},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {12},
+  number = {1},
+  issn = {0004-5411},
+  url = {https://doi.org/10.1145/321250.321259},
+  doi = {10.1145/321250.321259},
+  journal = {J. ACM},
+  month = jan,
+  pages = {95–113},
+  numpages = {19}
+}
+
+@article{Winograd1978DFT,
+  title={On computing the discrete Fourier transform},
+  author={Winograd, Shmuel},
+  journal={Mathematics of computation},
+  volume={32},
+  number={141},
+  pages={175--199},
+  year={1978},
+  doi={https://doi.org/10.1090/S0025-5718-1978-0468306-4}
+}
+
+@article{Good1958DFT,
+    author = {Good, I. J.},
+    title = {The Interaction Algorithm and Practical Fourier Analysis},
+    journal = {Journal of the Royal Statistical Society: Series B (Methodological)},
+    volume = {20},
+    number = {2},
+    pages = {361-372},
+    year = {1958},
+    month = {07},
+    abstract = {The interactions in a complete factorial experiment are linear functions of the observations. They can be calculated by means of a stream-lined algorithm, of which the first example was the adding-and-subtracting algorithm of Yates (1937). The relationship between the two methods of calculating the interactions is given a precise and succinct form, which surprisingly does not seem to have been given in the existing literature. The algorithm is logically simplest for the tn experiment. The inverse algorithm is specified and also the method of obtaining the divisors for the analysis of variance. Finally some analogous short cuts in practical Fourier analysis are described.},
+    issn = {0035-9246},
+    doi = {10.1111/j.2517-6161.1958.tb00300.x},
+    url = {https://doi.org/10.1111/j.2517-6161.1958.tb00300.x},
+    eprint = {https://academic.oup.com/jrsssb/article-pdf/20/2/361/49096113/jrsssb_20_2_361.pdf},
+}
+
+@article{Brunn1978DFT,
+  author={Bruun, G.},
+  journal={IEEE Transactions on Acoustics, Speech, and Signal Processing}, 
+  title={z-transform DFT filters and FFT's}, 
+  year={1978},
+  volume={26},
+  number={1},
+  pages={56-63},
+  keywords={Discrete Fourier transforms;Transversal filters;Frequency;Shift registers;Digital filters;Transfer functions;Delay lines;Fourier transforms;Circuits},
+  doi={10.1109/TASSP.1978.1163036}
+}
+
+@article{Tolmachev2023FFT,
+  author={Tolmachev, Dmitrii},
+  journal={IEEE Access}, 
+  title={VkFFT-A Performant, Cross-Platform and Open-Source GPU FFT Library}, 
+  year={2023},
+  volume={11},
+  number={},
+  pages={12039-12058},
+  keywords={Graphics processing units;Discrete Fourier transforms;Task analysis;Parallel processing;Optimization;Metals;FFT;GPU;parallel computing;Vulkan;CUDA;HIP;OpenCL;Level Zero;Metal},
+  doi={10.1109/ACCESS.2023.3242240}}
+
+@article{Prigarin2019FFT,
+doi = {10.1088/1742-6596/1336/1/012023},
+url = {https://doi.org/10.1088/1742-6596/1336/1/012023},
+year = {2019},
+month = {nov},
+publisher = {IOP Publishing},
+volume = {1336},
+number = {1},
+pages = {012023},
+author = {Prigarin, Vladimir and Karavaev, Dmitry and Protasov, Viktor},
+title = {The cuFFT code for N-body simulation},
+journal = {Journal of Physics: Conference Series},
+abstract = {The complexity of astrophysical processes lies in the joint consideration of components of various nature. For example, in the collision problem of galaxies, the three-dimensional dynamics of an interstellar gas and a stellar component is considered. The modeling of these components can be based on completely different classes of numerical methods. One possible solution to this problem is to use the Eulerian-Lagrangian approach, in which physical quantities are concentrated at material points, which is typical for the SPH (Smoothed Particle Hydrodynamics) method, and the forces are calculated on an adaptive grid attached to a system of material points. This approach uniformly takes into account both the dynamics of a continuous medium and discrete particles, and also eliminates a number of drawbacks inherent in the original method. The calculation of gravitational interaction is carried out by solving the Poisson equation for the gravitational potential. In this case, all particles are projected onto the computational grid and the potential values in each cell are already calculated on it. The solution of the Poisson equation for the gravitational potential is performed using the fast Fourier transform. The article describes the new cuFFT code Virtual Planetarium for modeling astrophysical objects based on the SPH method, supplemented by the Godunov method for calculating pressure and momentum flows between particles, and the fast Fourier transform method for solving the Poisson equation for the gravitational potential. The paper describes the rationale for the transition to such a computational model, kinetic and hydrodynamic approaches are described in detail. Simulation of the collapse of an isothermal gas cloud is performed. Method to reproduce the evolution of instabilities in form of two density arms is realized.}
+}
+
+@inproceedings{Narebski2013FFT,
+  author = {Narebski, Jakub and Bała, Piotr},
+  year = {2013},
+  month = {02},
+  title = {Adding Support for CUFFT Library to GENE}
+}
+
+@inproceedings{Wu2025TurboFFT,
+author = {Wu, Shixun and Zhai, Yujia and Liu, Jinyang and Huang, Jiajun and Jian, Zizhe and Dai, Huangliang and Di, Sheng and Cappello, Franck and Chen, Zizhong},
+title = {TurboFFT: Co-Designed High-Performance and Fault-Tolerant Fast Fourier Transform on GPUs},
+year = {2025},
+isbn = {9798400714436},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3710848.3710853},
+doi = {10.1145/3710848.3710853},
+abstract = {GPU-based fast Fourier transform (FFT) is extremely important for scientific computing and signal processing. However, we find the inefficiency of existing FFT libraries and the absence of fault tolerance against soft error. To address these issues, we introduce TurboFFT, a new FFT prototype co-designed for high performance and online fault tolerance. For FFT, we propose an architecture-aware, padding-free, and template-based prototype to maximize hardware resource utilization, achieving a competitive or superior performance compared to the state-of-the-art closed-source library, cuFFT. For fault tolerance, we 1) explore algorithm-based fault tolerance (ABFT) at the thread and threadblock levels to reduce additional memory footprint, 2) address the error propagation by introducing a two-side ABFT with location encoding, and 3) further modify the threadblock-level FFT from 1-transaction to multi-transaction in order to bring more parallelism for ABFT. Our two-side strategy enables online correction without additional global memory while our multi-transaction design averages the expensive threadblock-level reduction in ABFT with zero additional operations. Experimental results on an NVIDIA A100 server GPU and a Tesla Turing T4 GPU demonstrate that TurboFFT without fault tolerance is comparable to or up to 300\% faster than cuFFT and outperforms VkFFT. TurboFFT with fault tolerance maintains an overhead of 7\% to 15\%, even under tens of error injections per minute for both FP32 and FP64.},
+booktitle = {Proceedings of the 30th ACM SIGPLAN Annual Symposium on Principles and Practice of Parallel Programming},
+pages = {70–84},
+numpages = {15},
+keywords = {Fast Fourier Transform, GPU, Performance Optimization, Reliability, Resilience},
+location = {Las Vegas, NV, USA},
+series = {PPoPP '25}
+}
 
 
 

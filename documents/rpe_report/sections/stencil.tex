@@ -14,7 +14,7 @@ Its also worth noting that spectral methods
 are another of identified paradigms, 
 but that will be relevant in the next section.
 
-Stencils funtions derived from finite difference methods.
+Stencils funtions derived from finite difference methods \cite{Taflove2005Ch9, }. 
 
 Others like lattice boltzmann, or cellular automata.
 
@@ -29,21 +29,35 @@ Explain our formalism of $N$ cells, $T$ time steps.
 
 Applications
 
+Geology \cite{Dursun2009Stencil}
+
+Oceanography \cite{Rainer1992Atlantic}
+
 Fluid Dynamics \cite{Blazek2015Ch1, Ferziger2020, Kruger2017LBM}.
 
 Electromagnetics \cite{Taflove2005Ch9}
 
-Mechanical engineering \cite{Rappaz2003}
+Mechanical engineering \cite{Rappaz2003, Stathopoulos2000Material}
 
 Meteorology \cite{Singh2023SPARTA, Avissar1989Weather, Kalnay1990Weather}
 
-Image Processing \cite{}
-
-Cellular Automata are an interesting subset of stencil computations, with particular applicability to modelling natural systems \cite{Mendicino2015Eco, Caux2010HashLife, Sitko2016Cellular, Wolfram1984Cellular, Kyparissas2020Cellular}.
-
+%Image Processing \cite{}
 Complexity of implementing stencil computations 
 has led to a proliferation of specialized stencil compilers 
-\cite{Bauer2019PhaseField, Bauer2021lbmpy, Ahmad2022, Tang2011Pochoir}.
+\cite{Bauer2019PhaseField, Bauer2021lbmpy, Ahmad2022, Tang2011Pochoir, Holewinski2012Stencil}.
+
+
+\subsubsection{Cellular Automata}
+
+Cellular Automata (CA) are a subset of stencil computations
+with applicability to modelling natural and self-replicating systems \cite{Mendicino2015Eco, Caux2010HashLife, Sitko2016Cellular, Wolfram1984Cellular, Kyparissas2020Cellular}.
+Cell values in a CA are often called states 
+and typically have a small finite set of spatial values.  
+As a result, different CA can generate varying degrees of regularity 
+across different spatial and temporal scales.
+This allows for powerful set of caching based algorithms, 
+commonly known as \textit{Hash-Life}  \cite{Gosper1984HashLife}
+
 
 
 \subsection{Direct Methods}
@@ -61,10 +75,18 @@ has led to a proliferation of specialized stencil compilers
 
 \subsubsection{Cache Friendly}
 \begin{outline}
+  \1 Study on stencils and memory subsystems \cite{Datta2009Stencil}
+  \1 Implicit and Explicit Cache optimizations for Cell processor \cite{Kamil2006Stencil} 
+  \1 Another Cell processor paper \cite{DeLaCruz2010Stencil}.
+  \1 Impact of modern memory sub-systems on stencils \cite{Kamil2005Stencil}
+  \1 Cache blocking, prefetch, and SIMD \cite{Dursun2009Core}.
+
 \1 Cache Oblivious methods
 \2 Trapezoidal Decompositions in Pochoir, cache oblivious \cite{Frigo2005Stencil, Tang2011Pochoir}
 \1 Pluto \cite{Bondhugula2008Automatic, Bondhugula2008Practical}
 \1 More general methods like polyhedral compilers. 
+\1 Automatic stencil tiling \cite{Li2004Tiling}
+\1 Load balancing / parallelism for tiling \cite{Krishnamoorthy2007Tiling}
 \end{outline}
 
 \subsection{Approximate Methods}
@@ -75,17 +97,29 @@ These methods often require manual convergence analysis
 \cite{Brown1994Krylov, Kuijlaars2006Krylov, Notay2008Krylov}.
 As a result, Krylov methods are often specialized and tailored to individual problems \cite{Asgharzadeh2017Krylov, Ashrafizadeh2015, Garrappa2015Krylov,Mang2015Krylov}.
 
+\subsection{Optimizations}
+
+Useful paper with lots of refs on SIMD optimizations \cite{Henretty2011Stencil} 
+
 \subsection{FPGA}
 \begin{outline}
   \1 Cellular Automata \cite{Kyparissas2020Cellular}
   \1 TPU computations using convolutions with ConvStencil \cite{Chen2024ConvStencil}
   \1 SPARTA for accelerating 2D diffusion stencils on FPGAs using MLIR for weather \cite{Singh2023SPARTA}
+  \1 Efficient GPU implementation model \cite{Micikevicius2009FDGPU}
+  \1 Tiling / Ghost zone on GPU \cite{Meng2009Stencil}
+  \1 Code generation for GPU \cite{Holewinski2012Stencil}
+  \1 Multilevel parallelism for cluster computing \cite{Dursun2009Stencil}
+  \1 Another cluster / multi-level optimization paper \cite{Augustin2009Stencil, Treibig2011Stencil}
+  \1 Multicore optimization and tuning \cite{Datta2008Stencil}
+  
 \end{outline}
 
 
 \subsection{Indirect Methods}
 
-\subsubsection{HashLife}
+\subsubsection{Regularity Caching}
+Cellular automata typically have a small number of possible states per cell.
 Exploit regularities in cellular spaces.
 Developed in 2D \cite{Gosper1984HashLife}.
 Applied to biology and 3D \cite{Caux2010HashLife}.
